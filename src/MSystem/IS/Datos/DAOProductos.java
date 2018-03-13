@@ -92,7 +92,7 @@ public class DAOProductos {
 			JOptionPane.showMessageDialog(null, "No se puede recuperar el contenido de la base de datos de productos");
 			return null;
 				
+		}
 	}
-
 
 }
