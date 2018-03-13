@@ -38,6 +38,5 @@ public class ControlProductos {
 	
 	public ArrayList<Producto> muestraFaltantes() {
 		return servProd.muestraFaltantes();
-	}
-
+  }
 }
