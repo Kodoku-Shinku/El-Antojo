@@ -48,5 +48,6 @@ public class ServicioProductos {
 		} catch (DatabaseException | SQLException e) {
 			return null;
 		}
+	}
 
 }
