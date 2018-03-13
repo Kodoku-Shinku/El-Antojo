@@ -29,6 +29,13 @@ public class CreadorBaseDeDatos {
 			statement.execute("create table PedidosF(IDPlatillo int, cantidadPlatillo int, noMesa int)");
 			System.out.println("Tabla de PedidosF creada exitosamente");
 
+			statement.execute("create table ProductosCocina(Nombre varchar(20), cantidad double)");
+			System.out.println("Tabla de ProductosCocina creada exitosamente");
+//			
+			statement.execute("create table ProductosF(Nombre varchar(20), cantidad double)");
+			//statement.execute("DROP TABLE ProductosFaltantes");
+			System.out.println("Tabla de ProductosF creada exitosamente");
+			
 			ManejadorBD.termina();
 		}
 		catch(Exception ex)
