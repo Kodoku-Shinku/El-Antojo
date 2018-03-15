@@ -73,7 +73,6 @@ public class VistaNotificarFaltantes extends JFrame {
 				}
 
 				public int getRowCount() {
-					// TODO Auto-generated method stub
 					return lista.size();
 				}
 			});
@@ -125,7 +124,7 @@ public class VistaNotificarFaltantes extends JFrame {
 				public void actionPerformed(ActionEvent arg0) {
 
 					if (listaProdFalt.size() == 0)
-						JOptionPane.showMessageDialog(null, "No ha seleccionado productos");
+						JOptionPane.showMessageDialog(null, "No hay productos seleccionados. \n\r Seleccione uno y escriba la cantidad existente");
 					else {
 						if (controlProd.guardaFaltantes(listaProdFalt)) {
 							JOptionPane.showMessageDialog(null,
