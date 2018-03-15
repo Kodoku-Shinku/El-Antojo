@@ -15,6 +15,9 @@ public class ServicioProductos {
 		this.daoProd = daoProd;
 	}
 	
+	/** Metodo que regresa una lista con el contenido de la tabla "ProductosCocina"
+	 * @return un arreglo con el contenido de la tabla
+	 */
 	public ArrayList<Producto> generaLista() {
 		try {
 			return daoProd.getLista();
@@ -23,6 +26,10 @@ public class ServicioProductos {
 		}
 	}
 
+	/** Metodo que permite agregar un elemento a la tabla "ProductosCocina"
+	 * @param producto
+	 * @return true si se agrego con exito, false de lo contrario
+	 */
 	public boolean agregarProductoCocina(Producto producto) {
 		try {
 			return daoProd.agregarProductoCocina(producto);
@@ -31,6 +38,10 @@ public class ServicioProductos {
 		}
 	}
 
+	/** Metodo que permite agregar una lista de elementos a la tabla "ProductosF"
+	 * @param listaProdFalt
+	 * @return true si se agregaron con exito, false de lo contrario
+	 */
 	public boolean guardaFaltantes(ArrayList<Producto> listaProdFalt) {
 		boolean bueno = true;
 		for (int i = 0; i < listaProdFalt.size(); i++)
@@ -42,11 +53,15 @@ public class ServicioProductos {
 		return bueno;
 	}
 
+	/** Metodo que regresa una lista con el tenido de la tabla "ProductosF"
+	 * @return un arreglo con el contenido de la tabla
+	 */
 	public ArrayList<Producto> muestraFaltantes() {
 		try {
 			return daoProd.muestraProdFalt();
 		} catch (DatabaseException | SQLException e) {
 			return null;
 		}
+	}
 
 }

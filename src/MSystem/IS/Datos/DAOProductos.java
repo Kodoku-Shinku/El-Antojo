@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
 import MSystem.IS.Modelo.Producto;
 
 public class DAOProductos {
@@ -91,8 +92,10 @@ public class DAOProductos {
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "No se puede recuperar el contenido de la base de datos de productos");
 			return null;
-				
+		}
 	}
-
-
+	
 }
+
+
+
