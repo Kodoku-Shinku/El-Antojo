@@ -2,11 +2,15 @@ package MSystem.IS.Principal;
 
 import java.sql.SQLException;
 
+import MSystem.IS.Controles.ControlProductos;
 import MSystem.IS.Controles.ControlVentas;
+import MSystem.IS.Datos.DAOProductos;
 import MSystem.IS.Datos.DAOVentas;
 import MSystem.IS.Datos.DatabaseException;
 import MSystem.IS.Modelo.Pedido;
 import MSystem.IS.Modelo.Platillo;
+import MSystem.IS.Modelo.Producto;
+import MSystem.IS.Servicios.ServicioProductos;
 import MSystem.IS.Servicios.ServicioVentas;
 
 public class Principal {
@@ -14,6 +18,9 @@ public class Principal {
 	DAOVentas controlDBV = new DAOVentas();
 	ServicioVentas servVent = new ServicioVentas(controlDBV); 
 	ControlVentas controlVent = new ControlVentas(servVent);
+	DAOProductos controlDBProd = new DAOProductos();
+	ServicioProductos servProd = new ServicioProductos(controlDBProd); 
+	ControlProductos controlProd = new ControlProductos(servProd);
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -88,8 +95,12 @@ public class Principal {
 //		Pedido[] ped = controlDBV.mostrarPedidos();
 //		for(int i = 2; i < ped.length; i ++)
 //			System.out.println(ped[i].getPlatillo().getNombrePlatillo() + " " + ped[i].getCantidadPlatillo() + " " + ped[i].getNoMesa());	
-		controlVent.muestraGCuenta(5);
+//		controlVent.muestraGCuenta(5);
 		
+		Producto prod = new Producto("chiles secos", 19);
+		controlProd.agregarProductoCocina(prod);
+		
+		controlProd.iniciaMuestraNotiFalt();
 		//controlVent.inicia();
 //		Pedido[] ped = controlDBV.mostrarPedidosF();
 //		for(int i = 2; i < ped.length; i ++)
