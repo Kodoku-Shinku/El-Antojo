@@ -97,8 +97,8 @@ public class Principal {
 //			System.out.println(ped[i].getPlatillo().getNombrePlatillo() + " " + ped[i].getCantidadPlatillo() + " " + ped[i].getNoMesa());	
 //		controlVent.muestraGCuenta(5);
 		
-		Producto prod = new Producto("chiles secos", 19);
-		controlProd.agregarProductoCocina(prod);
+//		Producto prod = new Producto("chiles secos", 19);
+//		controlProd.agregarProductoCocina(prod);
 		
 		controlProd.iniciaMuestraNotiFalt();
 		//controlVent.inicia();
