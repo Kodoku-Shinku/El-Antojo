@@ -18,7 +18,7 @@ public class CreadorBaseDeDatos {
 			Connection connection = ManejadorBD.dameConnection();
 
 			Statement statement = connection.createStatement();
-			statement.execute("create table Platillos(platilloId INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), nombrePlatillo varchar(40), tipo varchar(10), precio double precision)"); // Aqu� el identificador es para diferenciar entre bebidas y platillos
+			//statement.execute("create table Platillos(platilloId INTEGER PRIMARY KEY not null GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), nombrePlatillo varchar(40), tipo varchar(10), precio double precision)"); // Aqu� el identificador es para diferenciar entre bebidas y platillos
 			//statement.execute("DROP TABLE Platillos");
 			System.out.println("Tabla de Platillos creada exitosamente");
 			
@@ -36,6 +36,10 @@ public class CreadorBaseDeDatos {
 			statement.execute("create table ProductosF(Nombre varchar(20), cantidad double)");
 			//statement.execute("DROP TABLE ProductosFaltantes");
 			System.out.println("Tabla de ProductosF creada exitosamente");
+
+			
+			statement.execute("create table ProductosAdmin(nombre varchar(20), cantidad double)");
+			System.out.println("Tabla de ProductosAdmin creada exitosamente");
 			
 			ManejadorBD.termina();
 		}
