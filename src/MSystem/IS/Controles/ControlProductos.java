@@ -3,6 +3,7 @@ package MSystem.IS.Controles;
 import java.util.ArrayList;
 
 import MSystem.IS.Modelo.Producto;
+import MSystem.IS.Modelo.Productos;
 import MSystem.IS.Servicios.ServicioProductos;
 import MSystem.IS.Vistas.VistaNotificarFaltantes;
 
@@ -39,4 +40,8 @@ public class ControlProductos {
 	public ArrayList<Producto> muestraFaltantes() {
 		return servProd.muestraFaltantes();
   }
+
+	public ArrayList<Producto> ProductosFaltantes() {
+		return servProd.recuperaProductosF();
+	}
 }

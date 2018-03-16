@@ -48,5 +48,13 @@ public class ServicioProductos {
 		} catch (DatabaseException | SQLException e) {
 			return null;
 		}
+	}
 
+	public ArrayList<Producto> recuperaProductosF() {
+		try {
+			return daoProd.muestraProdFalt();
+		} catch (DatabaseException | SQLException e) {
+			return null;
+		}
+	}
 }
