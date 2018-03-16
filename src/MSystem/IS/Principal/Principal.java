@@ -73,6 +73,12 @@ public class Principal {
 //		controlDBV.agregarPlatillo(pl);
 		//Platillo[] lista = controlVent.mostrarMenu();
 		
+		
+		controlDBProd.insertaProd("Coca-Cola", 1);
+		controlDBProd.insertaProd("Maruchan", 11);
+		controlDBProd.insertaProd("jitomate", 20);
+		controlDBProd.insertaProd("cebolla", 15);
+		
 //		Pedido pu= new Pedido(2,p,2);
 //		try {
 //			
@@ -87,6 +93,7 @@ public class Principal {
 //			System.out.print(lista[i] + "   ");
 //		
 		System.out.println();
+		
 //		controlVent.muestraGCuenta(18);
 //		Platillo aux = controlVent.buscarPlatillo(p);
 //		
@@ -97,10 +104,12 @@ public class Principal {
 //			System.out.println(ped[i].getPlatillo().getNombrePlatillo() + " " + ped[i].getCantidadPlatillo() + " " + ped[i].getNoMesa());	
 //		controlVent.muestraGCuenta(5);
 		
-		Producto prod = new Producto("chiles secos", 19);
-		controlProd.agregarProductoCocina(prod);
+//		Producto prod = new Producto("chiles secos", 19);
+//		controlProd.agregarProductoCocina(prod);
 		
-		controlProd.iniciaMuestraNotiFalt();
+		controlProd.iniciaActualizarProductos();
+		
+		//controlProd.iniciaMuestraNotiFalt();
 		//controlVent.inicia();
 //		Pedido[] ped = controlDBV.mostrarPedidosF();
 //		for(int i = 2; i < ped.length; i ++)
@@ -116,6 +125,8 @@ public class Principal {
 		controlVent.muestraGCuenta(noMesa);
 	}
 	
-
+	 public void ActuslizarProd(int cantidad, String nombre){
+    	controlProd.actualizaProd(cantidad, nombre);
+    }
 
 }

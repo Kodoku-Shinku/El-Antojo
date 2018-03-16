@@ -63,5 +63,17 @@ public class ServicioProductos {
 			return null;
 		}
 	}
+	
+	//metodo para mostrar los producto
+		public ArrayList<Producto> prod(){
+					
+			return daoProd.producto();
+			
+		}
+
+		public void actualizaproducto(double cantidad, String nombre) {
+			daoProd.ingresarNuevoProd(cantidad,nombre);
+			
+		}
 
 }

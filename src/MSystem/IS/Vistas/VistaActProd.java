@@ -2,41 +2,53 @@ package MSystem.IS.Vistas;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.JLayeredPane;
 import javax.swing.JTable;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+import MSystem.IS.Controles.ControlProductos;
+import MSystem.IS.Modelo.Producto;
 
 public class VistaActProd extends JFrame {
 
+	
+	TableModel modelo;
 	private JPanel contentPane;
 	private JTable table;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaActProd frame = new VistaActProd();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VistaActProd frame = new VistaActProd();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 
 	/**
 	 * Create the frame.
 	 */
-	public VistaActProd() {
+	public VistaActProd(ControlProductos muestraProdAdmin) {
+		
+		ArrayList<Producto> devuelveProd = muestraProdAdmin.muestraProdAdmin();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -68,7 +80,34 @@ public class VistaActProd extends JFrame {
 			public boolean isCellEditable(int row, int column) {
 				return columnEditables[column];
 			}
+			//Metodo que muestra la cantidad de filas dependiendo de cuantos productos existan
+			public int getRowCount(){
+				return devuelveProd.size(); 
+			}
 		});
+		
+		for(int i=0; i < devuelveProd.size(); i++ ){
+			table.setValueAt(devuelveProd.get(i).getNombreProducto(), i, 0);
+			table.setValueAt(devuelveProd.get(i).getCantidadProducto(), i, 1);
+		}
+		
+		table.getModel().addTableModelListener(new TableModelListener() {
+			
+			@Override
+			public void tableChanged(TableModelEvent e) {
+				modelo = ((TableModel)(e.getSource()));
+				if(e.getType() == TableModelEvent.UPDATE){
+					int row = e.getFirstRow();
+					String nombre = ((String)modelo.getValueAt(row,0));
+					
+					double cantidad = ((double)modelo.getValueAt(row,1));
+					muestraProdAdmin.actualizaProd(cantidad,nombre);
+				
+				}
+				
+			}
+		});
+		
 		scrollPane.setViewportView(table);
 	}
 }

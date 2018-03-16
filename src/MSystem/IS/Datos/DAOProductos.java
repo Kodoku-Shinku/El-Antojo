@@ -68,7 +68,7 @@ public class DAOProductos {
 		return productFaltTemp;
 	}
   
-  // Metodo que utiliza el Administrados para Actualizar los Productos de la cocina
+	// Metodo que utiliza el Administrados para Mostrar los Productos existentes
 	
 	public ArrayList <Producto> producto(){
 		
@@ -95,6 +95,38 @@ public class DAOProductos {
 		}
 	}
 	
+	
+	
+			
+		// Metodo que utiliza el Administrados para insertar Productos 
+		
+		public boolean insertaProd(String nombre, double Cantidad){
+			
+			try {
+				
+				Statement statement = ManejadorBD.dameConnection().createStatement();
+				statement.execute("INSERT INTO ProductosAdmin VALUES ('" + nombre +  "', " + Cantidad + ")");
+				return true;
+				
+			} catch (DatabaseException | SQLException e) {
+				
+				e.printStackTrace();
+			}
+			
+			return false;
+		}
+
+		public void ingresarNuevoProd(double cantidad, String nombre) {
+						
+			try{
+				Statement statement = ManejadorBD.dameConnection().createStatement();
+				
+						statement.execute("update PRODUCTOS set cantidadActual = " + cantidad + " where nombre = '"+nombre+ "'");						
+			}
+			catch(SQLException excepcion){
+				excepcion.printStackTrace();
+			}
+		}
 }
 
 

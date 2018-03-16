@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import MSystem.IS.Modelo.Producto;
 import MSystem.IS.Servicios.ServicioProductos;
+import MSystem.IS.Vistas.VistaActProd;
 import MSystem.IS.Vistas.VistaNotificarFaltantes;
 
 public class ControlProductos {
@@ -55,4 +56,24 @@ public class ControlProductos {
 	public ArrayList<Producto> muestraFaltantes() {
 		return servProd.muestraFaltantes();
   }
+	
+	public ArrayList<Producto> muestraProdAdmin(){
+		return servProd.prod();
+		
+	}
+	
+	public void actualizaProd(double cantidad, String nombre) {
+		servProd.actualizaproducto(cantidad, nombre);
+		
+	}
+	
+	public void iniciaActualizarProductos() {
+		try {
+			VistaActProd frame = new VistaActProd(this);
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
 }
