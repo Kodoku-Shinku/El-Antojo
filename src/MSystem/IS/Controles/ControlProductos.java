@@ -3,7 +3,6 @@ package MSystem.IS.Controles;
 import java.util.ArrayList;
 
 import MSystem.IS.Modelo.Producto;
-import MSystem.IS.Modelo.Productos;
 import MSystem.IS.Servicios.ServicioProductos;
 import MSystem.IS.Vistas.VistaNotificarFaltantes;
 

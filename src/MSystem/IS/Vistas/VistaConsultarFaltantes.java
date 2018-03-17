@@ -58,7 +58,7 @@ public class VistaConsultarFaltantes extends JFrame implements ActionListener{
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(27, 64, 395, 238);
+		scrollPane.setBounds(27, 64, 340 , 238);
 		contentPane.add(scrollPane);
 		
 		ArrayList<Producto> ProductosF = controlProduct.ProductosFaltantes();
@@ -83,18 +83,18 @@ public class VistaConsultarFaltantes extends JFrame implements ActionListener{
 				return columnEditables[column];
 			}
 
-			public int getRowCount() {
-				// TODO Auto-generated method stub
-				return ProductosF.size();
-			}
+//			public int getRowCount() {
+//				// TODO Auto-generated method stub
+//				return ProductosF.size();
+//			}
 		});
-		for (int i = 0; i < ProductosF.size(); i++) {
-			ProductosFal.setValueAt(ProductosF, i, 1);
-			ProductosFal.setValueAt(ProductosF, i, 2);
-		}
+//		for (int i = 0; i < ProductosF.size(); i++) {
+//			ProductosFal.setValueAt(ProductosF, i, 1);
+//			ProductosFal.setValueAt(ProductosF, i, 2);
+//		}
 		ProductosFal.setFocusable(false);
 		ProductosFal.getTableHeader().setReorderingAllowed(false);
-		ProductosFal.getColumnModel().getColumn(3).setPreferredWidth(107);
+		ProductosFal.getColumnModel().getColumn(1).setPreferredWidth(107);
 		
 	}
 	@Override
