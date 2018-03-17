@@ -114,7 +114,7 @@ public class VistaConsultarMenu extends JFrame {
 		});
 
 		scrollPane.setViewportView(table);
-
+		
 		btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
