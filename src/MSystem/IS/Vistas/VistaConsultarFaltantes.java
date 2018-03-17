@@ -33,18 +33,18 @@ public class VistaConsultarFaltantes extends JFrame implements ActionListener{
 	ServicioProductos servProduct = new ServicioProductos(controlDBP); 
 	ControlProductos controlProduct = new ControlProductos(servProduct);
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaConsultarFaltantes frame = new VistaConsultarFaltantes();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					VistaConsultarFaltantes frame = new VistaConsultarFaltantes();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 	
 	public VistaConsultarFaltantes() {
 		setTitle("Consultar Faltantes");

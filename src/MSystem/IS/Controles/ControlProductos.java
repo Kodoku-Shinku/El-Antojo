@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import MSystem.IS.Modelo.Producto;
 import MSystem.IS.Servicios.ServicioProductos;
+import MSystem.IS.Vistas.VistaConsultarFaltantes;
 import MSystem.IS.Vistas.VistaNotificarFaltantes;
 
 public class ControlProductos {
@@ -22,6 +23,16 @@ public class ControlProductos {
 			e.printStackTrace();
 		}
 		
+	}
+	public void iniciaConsultarF() {
+		
+		try {
+			VistaConsultarFaltantes frame = new VistaConsultarFaltantes();
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 	
 	public ArrayList<Producto> cargaLista() {
