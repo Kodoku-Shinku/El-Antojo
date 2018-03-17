@@ -48,7 +48,7 @@ public class VistaConsultarMenu extends JFrame {
 		// Se crea un arreglo con el contenido de la base de datos
 		Platillo[] menu = controlVent.mostrarMenu();
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 448, 334);
 
 		contentPane = new JPanel();
