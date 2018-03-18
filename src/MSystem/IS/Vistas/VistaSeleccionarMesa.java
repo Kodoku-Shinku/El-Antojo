@@ -26,7 +26,7 @@ public class VistaSeleccionarMesa extends JFrame {
 	private JTable tablePedidosPorMesa;
 	ControlVentas controlVent;
 	ArrayList<Pedido> pedido = new ArrayList<Pedido>();
-	int tamaño = 0;
+	int tam = 0;
 	int noMesa = 0;
 	
 	public VistaSeleccionarMesa(ControlVentas controlVent) {
@@ -243,21 +243,21 @@ public class VistaSeleccionarMesa extends JFrame {
 				tablePedidosPorMesa.setValueAt("", i, 0);
 				tablePedidosPorMesa.setValueAt(0, i, 1);
 				tablePedidosPorMesa.setValueAt(0.0, i, 2);
-				System.out.println("hola"+tam);
+				
 			}
 			
 		}
 		try{
-			tamaño = controlVent.PedidosFinalizados().length;
+			tam = controlVent.PedidosFinalizados().length;
 			// Se agregan los elementos a la tabla
-			for (int i = 0; i < tamaño; i++) {
+			for (int i = 0; i < tam; i++) {
 				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getNoMesa(), i , 0);
 				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getPlatillo().getNombrePlatillo(), i, 1);
 				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getCantidadPlatillo(), i, 2);
 				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getPlatillo().getPrecio(), i, 3);
 			}
 			}catch (Exception e){
-				tamaño = 0;
+				tam = 0;
 		}
 		
 			
