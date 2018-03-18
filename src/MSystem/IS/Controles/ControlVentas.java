@@ -34,6 +34,21 @@ public class ControlVentas {
 		}
 
 	}
+	
+	/**
+	 * Metodo que muestra la ventana de la vista Seleccionar Mesa
+	 *
+	 * @param noMesa
+	 */
+	public void iniciaSeleccionarMesa() {
+		try {
+			VistaSeleccionarMesa frame = new VistaSeleccionarMesa(this);
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
 
 	/**
 	 * Metodo que muestra el numero de mesa
@@ -103,16 +118,16 @@ public class ControlVentas {
 		servVent.getTicket(traepedido);
 
 	}
-	
+
 	//recupera los pedidos
 	public Pedido[] PlatillosPorHacer(){
 		return servVent.recuperaPedidos();
-		
+
 	}
-	
+
 	//metodo que inicia la ventana finalizar orden
 	public void inicia() {
-		
+
 		try {
 			VistaFinalizarOrden frame = new VistaFinalizarOrden();
 			frame.setVisible(true);
@@ -122,7 +137,7 @@ public class ControlVentas {
 
 	}
 	//agrega los pedidos que ya se realizaron
-	
+
 	public boolean FinalizarO(Pedido pedido) {
 		int cantidad = pedido.getCantidadPlatillo();
 		Platillo platillo = pedido.getPlatillo();
@@ -135,7 +150,16 @@ public class ControlVentas {
 	//recupera los pedidos realizados para mostrarlo en una nueva tabla
 	public Pedido[] PedidosFinalizados(){
 		return servVent.recuperaPedidosF();
-		
+
+	}
+
+	/**
+	 * Devuelve el pedido del servicio por el numero de mesa
+	 * @return un pedido por el numero de mesa
+	 */
+	public  ArrayList<Pedido> ped (int mesa){
+		System.out.println("entra a control");
+		return servVent.ped(mesa);
 	}
 	
 	/**

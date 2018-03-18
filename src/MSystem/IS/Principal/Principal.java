@@ -106,8 +106,11 @@ public class Principal {
 		
 //		Producto prod = new Producto("chiles secos", 19);
 //		controlProd.agregarProductoCocina(prod);
+
+		
 		controlVent.iniciaSeleccionarMesa();
-		//controlProd.iniciaActualizarProductos();
+		controlProd.iniciaActualizarProductos();
+
 		
 		//controlProd.iniciaMuestraNotiFalt();
 		//controlVent.inicia();
