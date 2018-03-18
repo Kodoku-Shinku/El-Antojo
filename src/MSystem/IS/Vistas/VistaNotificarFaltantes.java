@@ -91,13 +91,15 @@ public class VistaNotificarFaltantes extends JFrame {
 							return;
 						
 						// Verifica, si no hay un platillo seleccionado marca error
-						if (modelo.getValueAt(row, 1) == null)
-							JOptionPane.showMessageDialog(null, "Seleccione el platillo escogido");
+						if (modelo.getValueAt(row, 1) == null){
+							JOptionPane.showMessageDialog(null, "No ha seleccionado el platillo");
+						} else {
+							// Por default, la casilla se pone roja si lo ingresado no es un doble
+							cantidad = (double) modelo.getValueAt(row, 2);
+							lista.get(row).setCantidadProdcuto(cantidad);
+							listaProdFalt.add(lista.get(row));
+						}
 						
-						// Por default, la casilla se pone roja si lo ingresado no es un doble
-						cantidad = (double) modelo.getValueAt(row, 2);
-						lista.get(row).setCantidadProdcuto(cantidad);
-						listaProdFalt.add(lista.get(row));
 					}
 
 				}
