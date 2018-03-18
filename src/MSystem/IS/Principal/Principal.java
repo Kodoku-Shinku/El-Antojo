@@ -74,10 +74,10 @@ public class Principal {
 		//Platillo[] lista = controlVent.mostrarMenu();
 		
 		
-		controlDBProd.insertaProd("Coca-Cola", 1);
-		controlDBProd.insertaProd("Maruchan", 11);
-		controlDBProd.insertaProd("jitomate", 20);
-		controlDBProd.insertaProd("cebolla", 15);
+//		controlDBProd.insertaProd("Coca-Cola", 1);
+//		controlDBProd.insertaProd("Maruchan", 11);
+//		controlDBProd.insertaProd("jitomate", 20);
+//		controlDBProd.insertaProd("cebolla", 15);
 		
 //		Pedido pu= new Pedido(2,p,2);
 //		try {
@@ -106,8 +106,8 @@ public class Principal {
 		
 //		Producto prod = new Producto("chiles secos", 19);
 //		controlProd.agregarProductoCocina(prod);
-		
-		controlProd.iniciaActualizarProductos();
+		controlVent.iniciaSeleccionarMesa();
+		//controlProd.iniciaActualizarProductos();
 		
 		//controlProd.iniciaMuestraNotiFalt();
 		//controlVent.inicia();

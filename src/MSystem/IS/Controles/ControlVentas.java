@@ -8,6 +8,7 @@ import MSystem.IS.Servicios.ServicioVentas;
 import MSystem.IS.Vistas.GenerarCuenta;
 import MSystem.IS.Vistas.VistaConsultarMenu;
 import MSystem.IS.Vistas.VistaFinalizarOrden;
+import MSystem.IS.Vistas.VistaSeleccionarMesa;
 
 public class ControlVentas {
 
@@ -135,6 +136,30 @@ public class ControlVentas {
 	public Pedido[] PedidosFinalizados(){
 		return servVent.recuperaPedidosF();
 		
+	}
+	
+	/**
+	 * Devuelve el pedido del servicio por el numero de mesa
+	 * @return un pedido por el numero de mesa
+	 */
+	public  ArrayList<Pedido> ped (int mesa){
+		System.out.println("entra a control");
+		return servVent.ped(mesa);
+	}
+	
+	/**
+	 * Metodo que muestra la ventana de la vista Seleccionar Mesa
+	 *
+	 * @param noMesa
+	 */
+	public void iniciaSeleccionarMesa() {
+		try {
+			VistaSeleccionarMesa frame = new VistaSeleccionarMesa(this);
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 
 }
