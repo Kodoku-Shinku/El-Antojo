@@ -26,6 +26,7 @@ public class VistaSeleccionarMesa extends JFrame {
 	private JTable tablePedidosPorMesa;
 	ControlVentas controlVent;
 	ArrayList<Pedido> pedido = new ArrayList<Pedido>();
+
 	int tam = 0;
 	int noMesa = 0;
 	
@@ -34,8 +35,9 @@ public class VistaSeleccionarMesa extends JFrame {
 		this.controlVent = controlVent;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		setBounds(100, 100, 440, 420);
-		
+
 		getContentPane().setLayout(null);
 		
 		JButton btnMesa_1 = new JButton("Mesa 1");
@@ -157,7 +159,9 @@ public class VistaSeleccionarMesa extends JFrame {
 			
 			public int getRowCount() {
 				// TODO Auto-generated method stub
+
 				return controlVent.ped(noMesa).size();
+
 			}		
 			
 		});
@@ -251,15 +255,15 @@ public class VistaSeleccionarMesa extends JFrame {
 			tam = controlVent.PedidosFinalizados().length;
 			// Se agregan los elementos a la tabla
 			for (int i = 0; i < tam; i++) {
+
 				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getNoMesa(), i , 0);
 				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getPlatillo().getNombrePlatillo(), i, 1);
 				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getCantidadPlatillo(), i, 2);
 				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getPlatillo().getPrecio(), i, 3);
 			}
 			}catch (Exception e){
+
 				tam = 0;
 		}
-		
-			
 	}
 }
