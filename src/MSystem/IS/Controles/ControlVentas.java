@@ -160,30 +160,5 @@ public class ControlVentas {
 	public  ArrayList<Pedido> ped (int mesa){
 		System.out.println("entra a control");
 		return servVent.ped(mesa);
-	}
-	
-	/**
-	 * Devuelve el pedido del servicio por el numero de mesa
-	 * @return un pedido por el numero de mesa
-	 */
-	public  ArrayList<Pedido> ped (int mesa){
-		System.out.println("entra a control");
-		return servVent.ped(mesa);
-	}
-	
-	/**
-	 * Metodo que muestra la ventana de la vista Seleccionar Mesa
-	 *
-	 * @param noMesa
-	 */
-	public void iniciaSeleccionarMesa() {
-		try {
-			VistaSeleccionarMesa frame = new VistaSeleccionarMesa(this);
-			frame.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
+	}	
 }
