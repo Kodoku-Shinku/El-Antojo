@@ -36,12 +36,11 @@ public class VistaSeleccionarMesa extends JFrame {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		setBounds(100, 100, 440, 420);
+		setBounds(100, 100, 528, 465);
 
 		getContentPane().setLayout(null);
 		
 		JButton btnMesa_1 = new JButton("Mesa 1");
-		btnMesa_1.setBackground(Color.ORANGE);
 		btnMesa_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				noMesa = 1;
@@ -58,7 +57,6 @@ public class VistaSeleccionarMesa extends JFrame {
 				seleccionaMesa(noMesa);
 			}
 		});
-		btnMesa_2.setBackground(Color.ORANGE);
 		btnMesa_2.setBounds(136, 21, 80, 30);
 		getContentPane().add(btnMesa_2);
 		
@@ -69,12 +67,10 @@ public class VistaSeleccionarMesa extends JFrame {
 				seleccionaMesa(noMesa);
 			}
 		});
-		btnMesa_3.setBackground(Color.ORANGE);
 		btnMesa_3.setBounds(228, 21, 80, 30);
 		getContentPane().add(btnMesa_3);
 		
 		JButton btnMesa_4 = new JButton("Mesa 4");
-		btnMesa_4.setBackground(Color.ORANGE);
 		btnMesa_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				noMesa = 4;
@@ -91,7 +87,6 @@ public class VistaSeleccionarMesa extends JFrame {
 				seleccionaMesa(noMesa);
 			}
 		});
-		btnMesa_5.setBackground(Color.ORANGE);
 		btnMesa_5.setBounds(44, 53, 80, 30);
 		getContentPane().add(btnMesa_5);
 		
@@ -102,7 +97,6 @@ public class VistaSeleccionarMesa extends JFrame {
 				seleccionaMesa(noMesa);
 			}
 		});
-		btnMesa_6.setBackground(Color.ORANGE);
 		btnMesa_6.setBounds(136, 53, 80, 30);
 		getContentPane().add(btnMesa_6);
 		
@@ -113,7 +107,6 @@ public class VistaSeleccionarMesa extends JFrame {
 				seleccionaMesa(noMesa);
 			}
 		});
-		btnMesa_7.setBackground(Color.ORANGE);
 		btnMesa_7.setBounds(228, 53, 80, 30);
 		getContentPane().add(btnMesa_7);
 		
@@ -124,7 +117,6 @@ public class VistaSeleccionarMesa extends JFrame {
 				seleccionaMesa(noMesa);
 			}
 		});
-		btnMesa_8.setBackground(Color.ORANGE);
 		btnMesa_8.setBounds(319, 53, 80, 30);
 		getContentPane().add(btnMesa_8);
 		
@@ -159,8 +151,8 @@ public class VistaSeleccionarMesa extends JFrame {
 			
 			public int getRowCount() {
 				// TODO Auto-generated method stub
-
-				return controlVent.ped(noMesa).size();
+				
+				return 20;
 
 			}		
 			
@@ -197,10 +189,10 @@ public class VistaSeleccionarMesa extends JFrame {
 				return columnEditables[column];
 			}
 			
-//			public int getRowCount() {
-//				// TODO Auto-generated method stub
-//				return tamaño;
-//			}
+			public int getRowCount() {
+				// TODO Auto-generated method stub
+				return 20;
+			}
 		});
 		
 		scrollPaneTerminados.setViewportView(tablePedidosTerminados);
@@ -213,8 +205,7 @@ public class VistaSeleccionarMesa extends JFrame {
 				controlVent.muestraGCuenta(noMesa);
 			}
 		});
-		btnGenerarCuenta.setBackground(Color.ORANGE);
-		btnGenerarCuenta.setBounds(319, 356, 120, 30);
+		btnGenerarCuenta.setBounds(319, 356, 134, 30);
 		getContentPane().add(btnGenerarCuenta);
 		
 		JButton btnConsultarMenu = new JButton("Consultar Menu");
@@ -223,17 +214,20 @@ public class VistaSeleccionarMesa extends JFrame {
 				controlVent.iniciaMostrarMenu(noMesa);
 			}
 		});
-		btnConsultarMenu.setBackground(Color.ORANGE);
 		btnConsultarMenu.setBounds(187, 356, 130, 30);
 		getContentPane().add(btnConsultarMenu);		
 	}
+	/**
+	 * Metodo que nos permite seleccionar una mesa y mostrar los pedidos de dicha mesa
+	 * @param noMesa
+	 */
 	
 	private void seleccionaMesa(int noMesa){
 		System.out.println(noMesa);
 		pedido = controlVent.ped(noMesa); 
 		
 		try{
-			for (int i = 0; i < controlVent.traepedido().size(); i++) {
+			for (int i = 0; i < pedido.size(); i++) {
 				System.out.println("TAMAÑO PEDIDO: "+controlVent.traepedido().size());
 				tablePedidosPorMesa.setValueAt(pedido.get(i).getPlatillo().getNombrePlatillo(), i, 0);
 				tablePedidosPorMesa.setValueAt(pedido.get(i).getCantidadPlatillo(), i, 1);
@@ -241,6 +235,7 @@ public class VistaSeleccionarMesa extends JFrame {
 				
 			}
 		}catch (Exception e){
+			System.out.println("entra al catch");
 			int tam = controlVent.traepedido().size();
 			System.out.println("tabla "+tablePedidosPorMesa.getRowCount());
 			for (int i = 0; i < tam; i++) {
@@ -251,19 +246,19 @@ public class VistaSeleccionarMesa extends JFrame {
 			}
 			
 		}
-		try{
-			tam = controlVent.PedidosFinalizados().length;
-			// Se agregan los elementos a la tabla
-			for (int i = 0; i < tam; i++) {
-
-				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getNoMesa(), i , 0);
-				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getPlatillo().getNombrePlatillo(), i, 1);
-				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getCantidadPlatillo(), i, 2);
-				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getPlatillo().getPrecio(), i, 3);
-			}
-			}catch (Exception e){
-
-				tam = 0;
-		}
+//		try{
+//			tam = controlVent.PedidosFinalizados().length;
+//			// Se agregan los elementos a la tabla
+//			for (int i = 0; i < tam; i++) {
+//
+//				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getNoMesa(), i , 0);
+//				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getPlatillo().getNombrePlatillo(), i, 1);
+//				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getCantidadPlatillo(), i, 2);
+//				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getPlatillo().getPrecio(), i, 3);
+//			}
+//			}catch (Exception e){
+//
+//				tam = 0;
+//		}
 	}
 }

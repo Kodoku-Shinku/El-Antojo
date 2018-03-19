@@ -64,8 +64,8 @@ public class ControlProductos {
 		
 	}
 	
-	public void actualizaProd(double cantidad, String nombre) {
-		servProd.actualizaproducto(cantidad, nombre);
+	public void actualizaProd(double cantidad, Producto a) {
+		servProd.actualizaproducto(cantidad, a);
 		
 	}
 	

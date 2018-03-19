@@ -71,8 +71,8 @@ public class ServicioProductos {
 			
 		}
 
-		public void actualizaproducto(double cantidad, String nombre) {
-			daoProd.ingresarNuevoProd(cantidad,nombre);
+		public void actualizaproducto(double cantidad, Producto a) {
+			daoProd.ingresarNuevoProd(cantidad,a);
 			
 		}
 		
