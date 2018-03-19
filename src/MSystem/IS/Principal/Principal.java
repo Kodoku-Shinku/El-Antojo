@@ -73,12 +73,6 @@ public class Principal {
 //		controlDBV.agregarPlatillo(pl);
 		//Platillo[] lista = controlVent.mostrarMenu();
 		
-		
-//		controlDBProd.insertaProd("Coca-Cola", 1);
-//		controlDBProd.insertaProd("Maruchan", 11);
-//		controlDBProd.insertaProd("jitomate", 20);
-//		controlDBProd.insertaProd("cebolla", 15);
-		
 //		Pedido pu= new Pedido(2,p,2);
 //		try {
 //			
@@ -107,9 +101,48 @@ public class Principal {
 //		Producto prod = new Producto("chiles secos", 19);
 //		controlProd.agregarProductoCocina(prod);
 
+//		Producto p = new Producto("lo que sea", 12);
+//		try {
+//			System.out.println(controlDBProd.guardaFaltantes(p));
+//		} catch (DatabaseException | SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
-		controlVent.iniciaSeleccionarMesa();
-		controlProd.iniciaActualizarProductos();
+//		controlDBProd.insertaProd("Coca-Cola", 1);
+//		controlDBProd.insertaProd("Maruchan", 11);
+//		controlDBProd.insertaProd("jitomate", 20);
+//		controlDBProd.insertaProd("cebolla", 15);
+//		
+//		Producto p = new Producto("Jitomate", 12);
+//		controlProd.agregarProductoCocina(p);
+//		p = new Producto("Cebolla", 11);
+//		controlProd.agregarProductoCocina(p);
+//		p = new Producto("Chiles", 3);
+//		controlProd.agregarProductoCocina(p);
+//		p = new Producto("Mayonesa", 7);
+//		controlProd.agregarProductoCocina(p);
+//		p = new Producto("Catsup", 4);
+//		controlProd.agregarProductoCocina(p);
+//		p = new Producto("Chuletas", 6);
+//		controlProd.agregarProductoCocina(p);
+//		p = new Producto("Papas", 3);
+//		controlProd.agregarProductoCocina(p);
+//		p = new Producto("Maruchaan", 4);
+//		controlProd.agregarProductoCocina(p);
+//		p = new Producto("Tortillas", 5);
+//		controlProd.agregarProductoCocina(p);
+//		p = new Producto("Ajos", 3);
+//		controlProd.agregarProductoCocina(p);
+//		p = new Producto("Pimiento morron", 12);
+//		controlProd.agregarProductoCocina(p);
+		//controlDBP
+		
+		//controlVent.iniciaSeleccionarMesa();
+		//controlProd.iniciaActualizarProductos();
+		//controlProd.VistaAdministrador1();
+		//controlVent.inicia();
+		//controlProd.muestraProdAdmin();
 
 		
 		//controlProd.iniciaMuestraNotiFalt();
