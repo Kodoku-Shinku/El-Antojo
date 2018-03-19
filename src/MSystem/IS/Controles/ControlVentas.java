@@ -6,6 +6,7 @@ import MSystem.IS.Modelo.Pedido;
 import MSystem.IS.Modelo.Platillo;
 import MSystem.IS.Servicios.ServicioVentas;
 import MSystem.IS.Vistas.GenerarCuenta;
+import MSystem.IS.Vistas.VistaConsultarFaltantes;
 import MSystem.IS.Vistas.VistaConsultarMenu;
 import MSystem.IS.Vistas.VistaFinalizarOrden;
 
@@ -136,5 +137,6 @@ public class ControlVentas {
 		return servVent.recuperaPedidosF();
 		
 	}
+	
 
 }

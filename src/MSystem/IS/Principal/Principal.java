@@ -88,9 +88,9 @@ public class Principal {
 //		Pedido[] ped = controlDBV.mostrarPedidos();
 //		for(int i = 2; i < ped.length; i ++)
 //			System.out.println(ped[i].getPlatillo().getNombrePlatillo() + " " + ped[i].getCantidadPlatillo() + " " + ped[i].getNoMesa());	
-		controlVent.muestraGCuenta(5);
+//		controlVent.muestraGCuenta(5);
 		
-		//controlVent.inicia();
+		controlVent.inicia();
 //		Pedido[] ped = controlDBV.mostrarPedidosF();
 //		for(int i = 2; i < ped.length; i ++)
 //			System.out.println(ped[i].getPlatillo().getNombrePlatillo() + " " + ped[i].getCantidadPlatillo() + " " + ped[i].getNoMesa());	

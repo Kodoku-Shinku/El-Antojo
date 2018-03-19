@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import MSystem.IS.Controles.ControlProductos;
+
 import javax.swing.JLayeredPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -14,6 +17,7 @@ import java.awt.event.ActionEvent;
 public class VistaProductos extends JFrame {
 
 	private JPanel contentPane;
+	private ControlProductos controlProd;
 
 	/**
 	 * Launch the application.
@@ -45,9 +49,16 @@ public class VistaProductos extends JFrame {
 		JLayeredPane layeredPane = new JLayeredPane();
 		contentPane.add(layeredPane, BorderLayout.CENTER);
 		
-		JButton btnNotificarFaltantes = new JButton("Consultar Faltantes");
-		btnNotificarFaltantes.setBounds(125, 25, 148, 23);
-		layeredPane.add(btnNotificarFaltantes);
+		JButton btnConsultarFaltantes = new JButton("Consultar Faltantes");
+		btnConsultarFaltantes.setBounds(125, 25, 148, 23);
+		layeredPane.add(btnConsultarFaltantes);
+		btnConsultarFaltantes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlProd.iniciaConsultarF();
+				dispose();
+				
+			}
+		});
 		
 		JButton btnNewButton = new JButton("Generar Lista");
 		btnNewButton.setBounds(125, 98, 148, 23);

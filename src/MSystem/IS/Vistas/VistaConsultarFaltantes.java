@@ -33,18 +33,18 @@ public class VistaConsultarFaltantes extends JFrame implements ActionListener{
 	ServicioProductos servProduct = new ServicioProductos(controlDBP); 
 	ControlProductos controlProduct = new ControlProductos(servProduct);
 	
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					VistaConsultarFaltantes frame = new VistaConsultarFaltantes();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VistaConsultarFaltantes frame = new VistaConsultarFaltantes();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	
 	public VistaConsultarFaltantes() {
 		setTitle("Consultar Faltantes");
@@ -83,10 +83,10 @@ public class VistaConsultarFaltantes extends JFrame implements ActionListener{
 				return columnEditables[column];
 			}
 
-//			public int getRowCount() {
-//				// TODO Auto-generated method stub
-//				return ProductosF.size();
-//			}
+			public int getRowCount() {
+				// TODO Auto-generated method stub
+				return ProductosF.size();
+			}
 		});
 //		for (int i = 0; i < ProductosF.size(); i++) {
 //			ProductosFal.setValueAt(ProductosF, i, 1);
@@ -95,6 +95,7 @@ public class VistaConsultarFaltantes extends JFrame implements ActionListener{
 		ProductosFal.setFocusable(false);
 		ProductosFal.getTableHeader().setReorderingAllowed(false);
 		ProductosFal.getColumnModel().getColumn(1).setPreferredWidth(107);
+		scrollPane.setViewportView(ProductosFal);
 		
 	}
 	@Override
