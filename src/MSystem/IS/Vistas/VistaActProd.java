@@ -100,7 +100,7 @@ public class VistaActProd extends JFrame {
 					String nombre = ((String)modelo.getValueAt(row,0));
 					
 					double cantidad = ((double)modelo.getValueAt(row,1));
-					muestraProdAdmin.actualizaProd(cantidad,devuelveProd.get(row).getNombreProducto());
+					muestraProdAdmin.actualizaProd(cantidad,devuelveProd.get(row));
 				
 				}
 				
