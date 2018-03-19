@@ -3,7 +3,6 @@ package MSystem.IS.Vistas;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -15,9 +14,9 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-
 import MSystem.IS.Controles.ControlProductos;
 import MSystem.IS.Modelo.Producto;
+import javax.swing.JButton;
 
 public class VistaActProd extends JFrame {
 
@@ -49,15 +48,15 @@ public class VistaActProd extends JFrame {
 		
 		ArrayList<Producto> devuelveProd = muestraProdAdmin.muestraProdAdmin();
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 455, 329);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(47, 0, 339, 262);
+		scrollPane.setBounds(47, 11, 339, 262);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -101,7 +100,7 @@ public class VistaActProd extends JFrame {
 					String nombre = ((String)modelo.getValueAt(row,0));
 					
 					double cantidad = ((double)modelo.getValueAt(row,1));
-					muestraProdAdmin.actualizaProd(cantidad,nombre);
+					muestraProdAdmin.actualizaProd(cantidad,devuelveProd.get(row).getNombreProducto());
 				
 				}
 				
