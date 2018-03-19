@@ -138,14 +138,11 @@ public class Principal {
 //		controlProd.agregarProductoCocina(p);
 		//controlDBP
 		
-		//controlVent.iniciaSeleccionarMesa();
+		controlVent.iniciaSeleccionarMesa();
 		//controlProd.iniciaActualizarProductos();
 		//controlProd.VistaAdministrador1();
 		//controlVent.inicia();
 		//controlProd.muestraProdAdmin();
-
-		
-		//controlProd.iniciaMuestraNotiFalt();
 		//controlVent.inicia();
 //		Pedido[] ped = controlDBV.mostrarPedidosF();
 //		for(int i = 2; i < ped.length; i ++)
@@ -161,8 +158,8 @@ public class Principal {
 		controlVent.muestraGCuenta(noMesa);
 	}
 	
-	 public void ActuslizarProd(int cantidad, String nombre){
-    	controlProd.actualizaProd(cantidad, nombre);
+	 public void ActuslizarProd(int cantidad, Producto a){
+    	controlProd.actualizaProd(cantidad, a);
     }
 
 }
