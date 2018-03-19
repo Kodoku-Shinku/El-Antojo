@@ -114,7 +114,7 @@ public class VistaNotificarFaltantes extends JFrame {
 
 					if (option == JOptionPane.OK_OPTION) {
 						listaProdFalt.removeAll(listaProdFalt);
-						dispose();
+						//dispose();
 					}
 				}
 			});
