@@ -19,9 +19,12 @@ import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
+import MSystem.IS.Controles.ControlProductos;
 import MSystem.IS.Controles.ControlVentas;
+import MSystem.IS.Datos.DAOProductos;
 import MSystem.IS.Datos.DAOVentas;
 import MSystem.IS.Modelo.Pedido;
+import MSystem.IS.Servicios.ServicioProductos;
 import MSystem.IS.Servicios.ServicioVentas;
 
 
@@ -45,6 +48,9 @@ public class VistaFinalizarOrden extends JFrame implements ActionListener{
 	DAOVentas controlDBV = new DAOVentas();
 	ServicioVentas servVent = new ServicioVentas(controlDBV); 
 	ControlVentas controlVent = new ControlVentas(servVent);
+	DAOProductos controlDBProd = new DAOProductos();
+	ServicioProductos servProd = new ServicioProductos(controlDBProd); 
+	ControlProductos controlProd = new ControlProductos(servProd);
 	
 		
 //	public static void main(String[] args) {
@@ -88,6 +94,11 @@ public class VistaFinalizarOrden extends JFrame implements ActionListener{
 		contentPane.add(btnBloquearPlatillo);
 		
 		btnNotificarFaltantes = new JButton("NotificarFaltantes");
+		btnNotificarFaltantes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controlProd.iniciaMuestraNotiFalt();
+			}
+		});
 		btnNotificarFaltantes.setBounds(307, 376, 142, 23);
 		contentPane.add(btnNotificarFaltantes);
 		
