@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import MSystem.IS.Modelo.Producto;
 import MSystem.IS.Servicios.ServicioProductos;
 import MSystem.IS.Vistas.VistaActProd;
+import MSystem.IS.Vistas.VistaAdministrador;
+import MSystem.IS.Vistas.VistaConsultarFaltantes;
 import MSystem.IS.Vistas.VistaNotificarFaltantes;
 
 public class ControlProductos {
@@ -67,6 +69,19 @@ public class ControlProductos {
 		
 	}
 	
+	public void iniciaConcultFalt(){
+		try {
+			VistaConsultarFaltantes frame = new VistaConsultarFaltantes();
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public ArrayList<Producto> ProductosFaltantes() {
+		return servProd.recuperaProductosF();
+	}
+	
 	public void iniciaActualizarProductos() {
 		try {
 			VistaActProd frame = new VistaActProd(this);
@@ -76,4 +91,15 @@ public class ControlProductos {
 		}
 		
 	}
+	
+	public void VistaAdministrador1(){
+		try {
+			VistaAdministrador frame = new VistaAdministrador(this);
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 }

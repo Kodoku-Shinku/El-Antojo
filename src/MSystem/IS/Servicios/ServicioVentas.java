@@ -146,7 +146,7 @@ public class ServicioVentas {
 		table.addCell("$"+this.muestralTotal(traepedido));
 
 		try {
-			OutputStream texto = new FileOutputStream("/Users/kodokushinku/Desktop/arhivo.pdf");
+			OutputStream texto = new FileOutputStream("/Users/pc/Desktop/arhivo.pdf");
 			Document doc = new Document(PageSize.HALFLETTER, 5, 5, 5, 5);
 			PdfWriter.getInstance(doc, texto);
 			//se crea la instancia de escritura para el pdf  se añade la tabla y se cierra el documento

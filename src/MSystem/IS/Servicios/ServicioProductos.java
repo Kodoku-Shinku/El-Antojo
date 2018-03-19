@@ -75,5 +75,13 @@ public class ServicioProductos {
 			daoProd.ingresarNuevoProd(cantidad,nombre);
 			
 		}
+		
+		public ArrayList<Producto> recuperaProductosF() {
+			try {
+				return daoProd.muestraProdFalt();
+			} catch (DatabaseException | SQLException e) {
+				return null;
+			}
+		}
 
 }
