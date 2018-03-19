@@ -125,7 +125,6 @@ public class VistaConsultarMenu extends JFrame {
 					else {
 						if (controlVent.agregarPedido(menu[row], cantidad)) {
 							JOptionPane.showMessageDialog(null, "Guardado");
-							System.exit(DISPOSE_ON_CLOSE);
 						}
 
 						else
