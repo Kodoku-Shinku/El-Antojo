@@ -69,8 +69,7 @@ public class DAOProductos {
 	}
   
 	// Metodo que utiliza el Administrados para Mostrar los Productos existentes
-	
-	public ArrayList <Producto> producto(){
+public ArrayList <Producto> producto(){
 		
 		ArrayList <Producto> produc = new ArrayList <Producto> ();
 		
@@ -79,11 +78,11 @@ public class DAOProductos {
 			Statement statement = ManejadorBD.dameConnection().createStatement();
 
 			// Recibe los resutados
-			ResultSet produc1 = statement.executeQuery("SELECT * FROM Productos");
+			ResultSet produc1 = statement.executeQuery("SELECT * FROM ProductosAdmin");
 
 			while (produc1.next()) {
 				// Crea una nueva instancia del objeto
-				Producto product = new Producto(produc1.getString("Producto"),produc1.getDouble("Cantidad"));
+				Producto product = new Producto(produc1.getString("nombre"),produc1.getDouble("cantidad"));
 					produc.add(product); 
 				
 			}
@@ -94,8 +93,6 @@ public class DAOProductos {
 			return null;
 		}
 	}
-	
-	
 	
 			
 		// Metodo que utiliza el Administrados para insertar Productos 
@@ -116,12 +113,13 @@ public class DAOProductos {
 			return false;
 		}
 
-		public void ingresarNuevoProd(double cantidad, String nombre) {
-						
+		public void ingresarNuevoProd(double cantidad, Producto a) {
+			
 			try{
 				Statement statement = ManejadorBD.dameConnection().createStatement();
 				
-						statement.execute("update PRODUCTOS set cantidadActual = " + cantidad + " where nombre = '"+nombre+ "'");						
+						statement.execute("update ProductosAdmin set cantidad = " + cantidad + " where nombre = '"+a.getNombreProducto()+ "'");						
+			a.setCantidadProdcuto(cantidad);
 			}
 			catch(SQLException excepcion){
 				excepcion.printStackTrace();
