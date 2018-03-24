@@ -20,6 +20,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Toolkit;
+
 import javax.swing.JTextField;
 
 public class VistaConsultarMenu extends JFrame {
@@ -44,12 +46,15 @@ public class VistaConsultarMenu extends JFrame {
 	 */
 	public VistaConsultarMenu(ControlVentas controlVent) {
 		setTitle("Consultar Menu");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
 
 		// Se crea un arreglo con el contenido de la base de datos
 		Platillo[] menu = controlVent.mostrarMenu();
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 448, 334);
+		setResizable(false);
+		setLocationRelativeTo(null);
 
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
