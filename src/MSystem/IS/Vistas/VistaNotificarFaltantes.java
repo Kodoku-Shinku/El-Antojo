@@ -17,6 +17,7 @@ import MSystem.IS.Controles.ControlProductos;
 import MSystem.IS.Modelo.Producto;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 
 public class VistaNotificarFaltantes extends JFrame {
@@ -38,13 +39,19 @@ public class VistaNotificarFaltantes extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaNotificarFaltantes(ControlProductos controlProd) {
+		setTitle("Notificar Faltantes");
+		setResizable(false);
+		setLocationRelativeTo(null);
 		// Se crea un arreglo con el contenido de la tabla ProductosCocina
 		ArrayList<Producto> lista = controlProd.cargaLista();
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
+		
 		if (lista == null)
 			JOptionPane.showMessageDialog(null, "No se puede cargar la base de datos");
 		else {
 			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			setBounds(100, 100, 450, 300);
+			
 			contentPane = new JPanel();
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 			setContentPane(contentPane);
