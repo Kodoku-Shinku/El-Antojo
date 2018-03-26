@@ -6,6 +6,7 @@ import MSystem.IS.Controles.ControlVentas;
 import MSystem.IS.Datos.DAOAdministracion;
 import MSystem.IS.Datos.DAOProductos;
 import MSystem.IS.Datos.DAOVentas;
+import MSystem.IS.Modelo.Empleado;
 import MSystem.IS.Modelo.Producto;
 import MSystem.IS.Servicios.ServicioAdministracion;
 import MSystem.IS.Servicios.ServicioProductos;
@@ -85,7 +86,6 @@ public class Principal {
 		// System.out.print(lista[i] + " ");
 		//
 		System.out.println();
-
 		// controlVent.muestraGCuenta(18);
 		// Platillo aux = controlVent.buscarPlatillo(p);
 		//
@@ -99,7 +99,9 @@ public class Principal {
 
 		// Producto prod = new Producto("chiles secos", 19);
 		// controlProd.agregarProductoCocina(prod);
+		
 
+		
 		// Producto p = new Producto("lo que sea", 12);
 		// try {
 		// System.out.println(controlDBProd.guardaFaltantes(p));
@@ -139,7 +141,12 @@ public class Principal {
 
 		// controlVent.iniciaSeleccionarMesa();
 		// controlProd.iniciaActualizarProductos();
-		// controlProd.VistaAdministrador1();
+		controlProd.VistaAdministrador1();
+		//controlAdmin.VistaEmpleado();
+		
+//		Empleado Empleado = new Empleado ("Marisol","Chavarria","Juarez", "escuadron 201", "5524988748","Admin");
+//		controlAdmin.agregarEmpleado(Empleado);
+		
 		// controlVent.inicia();
 		// controlProd.muestraProdAdmin();
 		// Pedido[] ped = controlDBV.mostrarPedidosF();
@@ -160,5 +167,10 @@ public class Principal {
 	public void ActuslizarProd(int cantidad, Producto a) {
 		controlProd.actualizaProd(cantidad, a);
 	}
+
+//	public void AgregarEmpleado(int nombre, apellidoPaterno, apellidoMaterno, Direccion,){
+//		controlAdmin.agregarEmpleado(Empleado);
+//	}
+	
 
 }
