@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import MSystem.IS.Controles.ControlAdministracion;
 import MSystem.IS.Controles.ControlProductos;
 import javax.swing.JLayeredPane;
 import javax.swing.JButton;
@@ -16,6 +18,7 @@ public class VistaAdministrador extends JFrame {
 	private JPanel contentPane;
 	
 	VistaProductos VP;
+	VistaEmpleado VE;
 
 	/**
 	 * Launch the application.
@@ -39,6 +42,8 @@ public class VistaAdministrador extends JFrame {
 	public VistaAdministrador(ControlProductos control) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 254, 181);
+		setLocationRelativeTo(null);
+		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -49,10 +54,15 @@ public class VistaAdministrador extends JFrame {
 		
 		JButton btnPersonal = new JButton("Personal");
 		btnPersonal.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
+			ControlAdministracion controlAdmin = new ControlAdministracion(null);
+				VE = new VistaEmpleado(controlAdmin);
+				VE.setVisible(true);
+				
 			}
 		});
-		btnPersonal.setBounds(50, 21, 120, 23);
+		btnPersonal.setBounds(61, 27, 120, 23);
 		layeredPane.add(btnPersonal);
 		
 		JButton btnProductos = new JButton("Productos");
@@ -62,7 +72,7 @@ public class VistaAdministrador extends JFrame {
 				VP.setVisible(true);
 			}
 		});
-		btnProductos.setBounds(50, 67, 120, 23);
+		btnProductos.setBounds(61, 79, 120, 23);
 		layeredPane.add(btnProductos);
 	}
 }
