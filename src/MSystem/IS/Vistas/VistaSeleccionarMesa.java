@@ -37,6 +37,8 @@ public class VistaSeleccionarMesa extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		setBounds(100, 100, 528, 465);
+		setLocationRelativeTo(null);
+		setResizable(false);
 
 		getContentPane().setLayout(null);
 		
