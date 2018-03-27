@@ -54,8 +54,16 @@ public class ControlAdministracion {
 	}
 
 // se crea una instancia del servicio y se agrega a un empleado (personal)
-	public boolean agregarEmpleado (Empleado Empleado) throws DatabaseException, SQLException{
-		boolean agregarEmpleado =  servAdmin.agregarEmpleado(Empleado) ;
+	public boolean agregarEmpleado (Empleado Empleado){
+		System.out.println("control"+Empleado);
+		boolean agregarEmpleado = false;
+		try {
+			agregarEmpleado = servAdmin.agregarEmpleado(Empleado);
+		} catch (DatabaseException |SQLException | NullPointerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+		}
 		return agregarEmpleado;
 	}
 

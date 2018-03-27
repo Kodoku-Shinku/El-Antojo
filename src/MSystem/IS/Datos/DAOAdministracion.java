@@ -41,14 +41,15 @@ public class DAOAdministracion {
 	}
 
 	
-	// Secrea la tabla que almacenara los datos del Empleado a Agregr
+	// Se crea la tabla que almacenara los datos del Empleado a Agregr
+	
 		public boolean createEmpleado(Empleado empleado){
 			// Para crear conexion a base de Datos
 			try{
 				// se pide la conexion
 				Statement statement = ManejadorBD.dameConnection().createStatement();
 				// Envia instruccion SQL, nota el DEFAULT es para insertar el numero de empleado autoincremental
-				statement.execute("insert into EMPLEDO values(DEFAULT,'"+empleado.getNombre()+"','"+empleado.getApellidoPaterno()+"','"+empleado.getApellidoMaterno()+"','"+empleado.getDireccion()+"','"+empleado.getTelefono()+"','"+empleado.getCargo()+"','"+"')",Statement.RETURN_GENERATED_KEYS);
+				statement.execute("insert into EMPLEADO values(DEFAULT,'"+empleado.getNombre()+"','"+empleado.getApellidoPaterno()+"','"+empleado.getApellidoMaterno()+"','"+empleado.getDireccion()+"','"+empleado.getTelefono()+"','"+empleado.getCargo()+"')",Statement.RETURN_GENERATED_KEYS);
 				ResultSet rs = statement.getGeneratedKeys(); // Recupera el numero de empleado******/
 				//cacha la exepcion
 			}catch(SQLException excepcion){    

@@ -4,7 +4,7 @@ public class Empleado {
 	
 //	Se declaran los atributos privados para que tenga alta cohesion y bajo acoplamiento mi sistema
 
-
+    private int id;
 	private String Nombre;
 	private String ApellidoPaterno;
 	private String ApellidoMaterno;
@@ -13,7 +13,7 @@ public class Empleado {
 	private String Cargo;
 
 	//		declaro el constructor de clase para inicializar los atributos
-	public Empleado(String nombre, String apellidoPaterno, String apellidoMaterno, String CURP,String direccion, String telefono) {
+	public Empleado(String nombre, String apellidoPaterno, String apellidoMaterno, String direccion, String telefono, String Cargo) {
 
 		this.Nombre = nombre;
 		this.ApellidoPaterno = apellidoPaterno;
@@ -25,6 +25,17 @@ public class Empleado {
 
 
 	//	genero los setters y getters de cada uno de los atributos para despues ser invocados
+	
+	public int getid() {
+		return id;
+
+	}
+
+	public void setid(int id) {
+		this.id = id;
+	}
+	
+	
 	public String getNombre() {
 		return Nombre;
 
