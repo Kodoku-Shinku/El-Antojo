@@ -51,6 +51,10 @@ public class DAOAdministracion {
 				// Envia instruccion SQL, nota el DEFAULT es para insertar el numero de empleado autoincremental
 				statement.execute("insert into EMPLEADO values(DEFAULT,'"+empleado.getNombre()+"','"+empleado.getApellidoPaterno()+"','"+empleado.getApellidoMaterno()+"','"+empleado.getDireccion()+"','"+empleado.getTelefono()+"','"+empleado.getCargo()+"')",Statement.RETURN_GENERATED_KEYS);
 				ResultSet rs = statement.getGeneratedKeys(); // Recupera el numero de empleado******/
+				if (rs != null && rs.next()){
+					empleado.setid(rs.getInt(1));
+				}
+				
 				//cacha la exepcion
 			}catch(SQLException excepcion){    
 				excepcion.printStackTrace();

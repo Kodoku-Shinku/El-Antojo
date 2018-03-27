@@ -1,11 +1,14 @@
 package MSystem.IS.Principal;
 
+import java.sql.SQLException;
+
 import MSystem.IS.Controles.ControlAdministracion;
 import MSystem.IS.Controles.ControlProductos;
 import MSystem.IS.Controles.ControlVentas;
 import MSystem.IS.Datos.DAOAdministracion;
 import MSystem.IS.Datos.DAOProductos;
 import MSystem.IS.Datos.DAOVentas;
+import MSystem.IS.Datos.DatabaseException;
 import MSystem.IS.Modelo.Empleado;
 import MSystem.IS.Modelo.Producto;
 import MSystem.IS.Servicios.ServicioAdministracion;
@@ -85,7 +88,7 @@ public class Principal {
 		// for(int i = 0; i < lista.length; i ++)
 		// System.out.print(lista[i] + " ");
 		//
-		System.out.println();
+		//System.out.println();
 		// controlVent.muestraGCuenta(18);
 		// Platillo aux = controlVent.buscarPlatillo(p);
 		//
@@ -100,7 +103,7 @@ public class Principal {
 		// Producto prod = new Producto("chiles secos", 19);
 		// controlProd.agregarProductoCocina(prod);
 		
-
+//controlAdmin.muestraVentanaAgregarEmpleado();
 		
 		// Producto p = new Producto("lo que sea", 12);
 		// try {
@@ -143,9 +146,14 @@ public class Principal {
 		// controlProd.iniciaActualizarProductos();
 		controlProd.VistaAdministrador1();
 		//controlAdmin.VistaEmpleado();
-		
-//		Empleado Empleado = new Empleado ("Marisol","Chavarria","Juarez", "escuadron 201", "5524988748","Admin");
-//		controlAdmin.agregarEmpleado(Empleado);
+//		
+//Empleado Empleado = new Empleado ("Marisol","Chavarria","Juarez", "escuadron 201", "5524988748","Admin");
+//try {
+//	System.out.println(controlAdmin.agregarEmpleado(Empleado));
+//} catch (DatabaseException | SQLException e) {
+//	// TODO Auto-generated catch block
+//	e.printStackTrace();
+//}	
 		
 		// controlVent.inicia();
 		// controlProd.muestraProdAdmin();
