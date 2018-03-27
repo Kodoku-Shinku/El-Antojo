@@ -153,6 +153,8 @@ public class Principal {
 		// for(int i = 2; i < ped.length; i ++)
 		// System.out.println(ped[i].getPlatillo().getNombrePlatillo() + " " +
 		// ped[i].getCantidadPlatillo() + " " + ped[i].getNoMesa());
+		
+		controlAdmin.iniciaActl();
 
 	}
 
