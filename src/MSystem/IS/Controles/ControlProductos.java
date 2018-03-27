@@ -94,7 +94,7 @@ public class ControlProductos {
 	
 	public void VistaAdministrador1(){
 		try {
-			VistaAdministrador frame = new VistaAdministrador(this);
+			VistaAdministrador frame = new VistaAdministrador();
 			frame.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();

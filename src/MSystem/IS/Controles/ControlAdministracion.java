@@ -7,17 +7,18 @@ import MSystem.IS.Datos.DatabaseException;
 import MSystem.IS.Modelo.Empleado;
 import MSystem.IS.Servicios.ServicioAdministracion;
 import MSystem.IS.Vistas.VistaActualizarEmpleado;
+import MSystem.IS.Vistas.VistaAdministrador;
 import MSystem.IS.Vistas.VistaAgregarEmpleado;
 import MSystem.IS.Vistas.VistaEmpleado;
 
 public class ControlAdministracion {
 	private ServicioAdministracion servAdmin;
-	
-	public ControlAdministracion(ServicioAdministracion servAdmin){
+
+	public ControlAdministracion(ServicioAdministracion servAdmin) {
 		this.servAdmin = servAdmin;
 	}
 
-	public void iniciaActl(){
+	public void iniciaActl() {
 		try {
 			VistaActualizarEmpleado frame = new VistaActualizarEmpleado(this);
 			frame.setVisible(true);
@@ -25,14 +26,13 @@ public class ControlAdministracion {
 			e.printStackTrace();
 		}
 	}
-	
-	public ArrayList<Empleado> cargarLista(){
+
+	public ArrayList<Empleado> cargarLista() {
 		return servAdmin.cargarLista();
 	}
 
-	
-	//se instancia una nueva ventana
-	public void muestraVentanaAgregarEmpleado(){
+	// se instancia una nueva ventana
+	public void muestraVentanaAgregarEmpleado() {
 
 		try {
 			VistaAgregarEmpleado frame = new VistaAgregarEmpleado(this);
@@ -40,10 +40,9 @@ public class ControlAdministracion {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	
 
 	}
-	
+
 	public void VistaEmpleado() {
 		try {
 			VistaEmpleado frame = new VistaEmpleado(this);
@@ -53,18 +52,22 @@ public class ControlAdministracion {
 		}
 	}
 
-// se crea una instancia del servicio y se agrega a un empleado (personal)
-	public boolean agregarEmpleado (Empleado Empleado){
-		System.out.println("control"+Empleado);
+	// se crea una instancia del servicio y se agrega a un empleado (personal)
+	public boolean agregarEmpleado(Empleado Empleado) {
+
 		boolean agregarEmpleado = false;
 		try {
 			agregarEmpleado = servAdmin.agregarEmpleado(Empleado);
-		} catch (DatabaseException |SQLException | NullPointerException e) {
+		} catch (DatabaseException | SQLException | NullPointerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		
+
 		}
 		return agregarEmpleado;
+	}
+
+	public void mustravistaProductos() {
+
 	}
 
 }
