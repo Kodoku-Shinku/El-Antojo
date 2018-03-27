@@ -1,19 +1,22 @@
 package MSystem.IS.Vistas;
 
-import java.awt.BorderLayout;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import MSystem.IS.Controles.ControlAdministracion;
+import MSystem.IS.Modelo.Empleado;
+
 import java.awt.Toolkit;
+import java.util.ArrayList;
+
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
 
 public class VistaActualizarEmpleado extends JFrame {
 
@@ -32,6 +35,8 @@ public class VistaActualizarEmpleado extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaActualizarEmpleado(ControlAdministracion controlAdmin) {
+		
+		ArrayList<Empleado> emp = controlAdmin.cargarLista();
 		setTitle("Actualizar Empleado");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -43,7 +48,23 @@ public class VistaActualizarEmpleado extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JComboBox comboBox = new JComboBox();
+		JComboBox<String> comboBox = new JComboBox<String>();
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {}
+		
+		){
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			public int getSize() {
+				// TODO Auto-generated method stub
+				return emp.size();
+			}
+		});
+		
+		comboBox.setEditable(true);
+		comboBox.addItem("1 - Rosa Guadalupe Toral Maldonado");
 		comboBox.setBounds(66, 60, 284, 20);
 		contentPane.add(comboBox);
 		
