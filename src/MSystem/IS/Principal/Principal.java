@@ -112,6 +112,7 @@ public class Principal {
 		// // TODO Auto-generated catch block
 		// e.printStackTrace();
 		// }
+		//controlAdmin.muestraVentanaAgregarEmpleado();
 
 		// controlDBProd.insertaProd("Coca-Cola", 1);
 		// controlDBProd.insertaProd("Maruchan", 11);
@@ -143,7 +144,7 @@ public class Principal {
 		// controlDBP
 
 		// controlVent.iniciaSeleccionarMesa();
-		// controlProd.iniciaActualizarProductos();
+		// controlProd.iniciaActualizarProductos()
 		controlProd.VistaAdministrador1();
 		//controlAdmin.VistaEmpleado();
 //		
@@ -153,7 +154,7 @@ public class Principal {
 //} catch (DatabaseException | SQLException e) {
 //	// TODO Auto-generated catch block
 //	e.printStackTrace();
-//}	
+//}
 		
 		// controlVent.inicia();
 		// controlProd.muestraProdAdmin();
@@ -162,7 +163,7 @@ public class Principal {
 		// System.out.println(ped[i].getPlatillo().getNombrePlatillo() + " " +
 		// ped[i].getCantidadPlatillo() + " " + ped[i].getNoMesa());
 		
-		controlAdmin.iniciaActl();
+		//controlAdmin.iniciaActl();
 
 	}
 
