@@ -8,12 +8,25 @@ import javax.swing.border.EmptyBorder;
 
 import MSystem.IS.Controles.ControlAdministracion;
 import MSystem.IS.Controles.ControlProductos;
+import MSystem.IS.Datos.DAOAdministracion;
+import MSystem.IS.Datos.DAOProductos;
+import MSystem.IS.Servicios.ServicioAdministracion;
+import MSystem.IS.Servicios.ServicioProductos;
+
 import javax.swing.JLayeredPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class VistaAdministrador extends JFrame {
+	
+	DAOAdministracion controlDBAdmin = new DAOAdministracion();
+	ServicioAdministracion servAdmin = new ServicioAdministracion(controlDBAdmin);
+	ControlAdministracion controlAdmin = new ControlAdministracion(servAdmin);
+	DAOProductos controlDBProd = new DAOProductos();
+	ServicioProductos servProd = new ServicioProductos(controlDBProd); 
+	ControlProductos controlProd = new ControlProductos(servProd);
+
 
 	private JPanel contentPane;
 	
@@ -39,7 +52,7 @@ public class VistaAdministrador extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VistaAdministrador(ControlProductos control) {
+	public VistaAdministrador() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 254, 181);
 		setLocationRelativeTo(null);
@@ -56,7 +69,7 @@ public class VistaAdministrador extends JFrame {
 		btnPersonal.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-			ControlAdministracion controlAdmin = new ControlAdministracion(null);
+			
 				VE = new VistaEmpleado(controlAdmin);
 				VE.setVisible(true);
 				
@@ -68,7 +81,7 @@ public class VistaAdministrador extends JFrame {
 		JButton btnProductos = new JButton("Productos");
 		btnProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VP = new VistaProductos(control);
+				VP = new VistaProductos(controlProd);
 				VP.setVisible(true);
 			}
 		});

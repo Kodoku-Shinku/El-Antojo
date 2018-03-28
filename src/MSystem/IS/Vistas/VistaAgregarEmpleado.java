@@ -21,6 +21,8 @@ import java.awt.event.ActionEvent;
 import java.awt.Button;
 
 public class VistaAgregarEmpleado extends JFrame {
+	
+	
 	ControlAdministracion controlAdmin;
 
 	private JPanel contentPane;
@@ -160,10 +162,8 @@ public class VistaAgregarEmpleado extends JFrame {
 
 					else {
 						emple = new Empleado(Nombre, ApellidoPaterno, ApellidoMaterno, Direccion, Telefono, Cargo);
-						System.out.println(emple);
-						System.out.println(Direccion);
-						System.out.println(Cargo);
-						//try {
+						
+						
 							System.out.println("vista catch"+controlAdmin.agregarEmpleado(emple));
 							if (controlAdmin.agregarEmpleado(emple)== true) {
 							
@@ -171,11 +171,7 @@ public class VistaAgregarEmpleado extends JFrame {
 								setVisible(false);
 							}
 
-						//} catch (DatabaseException | SQLException |NullPointerException e1) {
-							
-						//	e1.printStackTrace();
-						//}
-					}
+							}
 				}
 			}
 		});
