@@ -109,6 +109,7 @@ public class Principal {
 		// // TODO Auto-generated catch block
 		// e.printStackTrace();
 		// }
+		//controlAdmin.muestraVentanaAgregarEmpleado();
 
 		// controlDBProd.insertaProd("Coca-Cola", 1);
 		// controlDBProd.insertaProd("Maruchan", 11);
@@ -141,8 +142,8 @@ public class Principal {
 
 		// controlVent.iniciaSeleccionarMesa();
 		// controlProd.iniciaActualizarProductos();
-		controlProd.VistaAdministrador1();
-		//controlAdmin.VistaEmpleado();
+		// controlProd.VistaAdministrador1();
+		// controlAdmin.VistaEmpleado();
 		
 //		Empleado Empleado = new Empleado ("Marisol","Chavarria","Juarez", "escuadron 201", "5524988748","Admin");
 //		controlAdmin.agregarEmpleado(Empleado);
@@ -154,7 +155,7 @@ public class Principal {
 		// System.out.println(ped[i].getPlatillo().getNombrePlatillo() + " " +
 		// ped[i].getCantidadPlatillo() + " " + ped[i].getNoMesa());
 		
-		controlAdmin.iniciaActl();
+		//controlAdmin.iniciaActl();
 
 	}
 
