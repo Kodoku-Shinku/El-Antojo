@@ -30,6 +30,7 @@ public class ControlAdministracion {
 	public ArrayList<Empleado> cargarLista() {
 		return servAdmin.cargarLista();
 	}
+	
 
 	// se instancia una nueva ventana
 	public void muestraVentanaAgregarEmpleado() {
@@ -68,6 +69,10 @@ public class ControlAdministracion {
 
 	public void mustravistaProductos() {
 
+	}
+
+	public boolean actualiza(Empleado empl, String campo, String nValor) {
+		return servAdmin.actualizaEmp(empl, campo, nValor);
 	}
 
 }

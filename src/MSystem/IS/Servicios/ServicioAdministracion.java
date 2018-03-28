@@ -32,4 +32,8 @@ public class ServicioAdministracion {
 		return añadirPersonal;
 
 	}
+
+	public boolean actualizaEmp(Empleado empl, String campo, String nValor) {
+		return daoAdmin.actualizaEmpleado(campo, nValor, empl);
+	}
 }
