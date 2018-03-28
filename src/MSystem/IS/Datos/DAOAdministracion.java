@@ -16,7 +16,7 @@ public class DAOAdministracion {
 		Statement statement = ManejadorBD.dameConnection().createStatement();
 
 		// Recibe los resutados
-		ResultSet rs = statement.executeQuery("SELECT * FROM Empleados");
+		ResultSet rs = statement.executeQuery("SELECT * FROM EMPLEADO");
 
 		while (rs.next()) {
 			// Crea una nueva instancia del objeto
@@ -31,14 +31,23 @@ public class DAOAdministracion {
 		Statement state;
 		try {
 			state = ManejadorBD.dameConnection().createStatement();
-			state.execute("update Empleados set " + campo + " = '" + nuevoValor + "' where idEmpleado = " + empleado.getid()); // Mas el nombre
+			state.execute("update EMPLEADO set " + campo + " = '" + nuevoValor + "' where noempleado = " + empleado.getid()); // Mas el nombre
+			if(campo.equals("nombre"))
+				empleado.setNombre(nuevoValor);
+			// nombre apat amat direccion tel cargo
+			if(campo.equals("apat"))
+				empleado.setApellidoPaterno(nuevoValor);
+			if(campo.equals("amat"))
+				empleado.setApellidoMaterno(nuevoValor);
+			if(campo.equals("direccion"))
+				empleado.setDireccion(nuevoValor);
+			if(campo.equals("tel"))
+				empleado.setTelefono(nuevoValor);
+			return true;
 			
 		} catch (DatabaseException | SQLException e) {
 			return false;
 		}
-		
-		
-		return false;
 	}
 
 	
