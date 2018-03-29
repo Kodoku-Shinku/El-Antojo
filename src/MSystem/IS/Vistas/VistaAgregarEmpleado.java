@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.Button;
+import java.awt.Toolkit;
 
 public class VistaAgregarEmpleado extends JFrame {
 	
@@ -53,6 +54,7 @@ public class VistaAgregarEmpleado extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaAgregarEmpleado(ControlAdministracion controlAdmin) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaAgregarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
 		setTitle("Agregar Personal");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -163,8 +165,6 @@ public class VistaAgregarEmpleado extends JFrame {
 					else {
 						emple = new Empleado(Nombre, ApellidoPaterno, ApellidoMaterno, Direccion, Telefono, Cargo);
 						
-						
-							System.out.println("vista catch"+controlAdmin.agregarEmpleado(emple));
 							if (controlAdmin.agregarEmpleado(emple)== true) {
 							
 								JOptionPane.showMessageDialog(null, "Empleado Agregado Exitosamente");
