@@ -26,7 +26,6 @@ public class ServicioAdministracion {
 		// agrega las personas a la base de datos
 	public boolean agregarEmpleado (Empleado empleado) throws DatabaseException, SQLException{
 		// se crean instancias de tipo personal y se agrega a la base de datos
-		System.out.println("servicio");
 		boolean añadirPersonal = daoAdmin.createEmpleado(empleado);
 		
 		return añadirPersonal;

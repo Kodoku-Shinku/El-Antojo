@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLayeredPane;
+import java.awt.Toolkit;
 
 public class VistaEmpleado extends JFrame {
 
@@ -39,6 +40,7 @@ public class VistaEmpleado extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaEmpleado(ControlAdministracion controlAdmin) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
 		setTitle("Empleado");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

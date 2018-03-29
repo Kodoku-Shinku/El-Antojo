@@ -17,6 +17,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class VistaAdministrador extends JFrame {
 	
@@ -53,10 +54,12 @@ public class VistaAdministrador extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaAdministrador() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaAdministrador.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
+		setResizable(false);
+		setTitle("Administrador");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 254, 181);
 		setLocationRelativeTo(null);
-		setResizable(false);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
