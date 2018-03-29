@@ -66,6 +66,11 @@ public class VistaEmpleado extends JFrame {
 		layeredPane.add(btnAgregarEmpleado);
 		
 		JButton btnActualizarEmpleado = new JButton("Actualizar Empleado");
+		btnActualizarEmpleado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlAdmin.iniciaActl();
+			}
+		});
 		btnActualizarEmpleado.setBounds(133, 103, 170, 23);
 		layeredPane.add(btnActualizarEmpleado);
 		

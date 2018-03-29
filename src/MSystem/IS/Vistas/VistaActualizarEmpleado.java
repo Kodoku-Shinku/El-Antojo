@@ -3,6 +3,8 @@ package MSystem.IS.Vistas;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ListDataEvent;
+import javax.swing.event.ListDataListener;
 
 import MSystem.IS.Controles.ControlAdministracion;
 import MSystem.IS.Modelo.Empleado;
@@ -12,6 +14,7 @@ import java.util.ArrayList;
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
@@ -39,20 +42,24 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 	private JCheckBox chxDomicilio;
 	private JCheckBox chxTelefono;
 	private JTextArea textArea;
+	private JLabel enEmp;
 	private JComboBox<String> comboBox;
 	private Empleado empl;
+	private String campo = "";
+	private String name = "";
+	private String nValor = "";
 
 	/**
 	 * Create the frame.
 	 */
 	public VistaActualizarEmpleado(ControlAdministracion controlAdmin) {
 		
-		ArrayList<Empleado> emp = controlAdmin.cargarLista();
 		empl = new Empleado("","","","","","");
+		ArrayList<Empleado> emp = controlAdmin.cargarLista();
 		setTitle("Actualizar Empleado");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 505, 505);
+		setBounds(100, 100, 505, 523);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -60,52 +67,75 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		telefono = new JTextField();
-		telefono.setName("tel");
-		telefono.setEditable(false);
-		telefono.setBounds(249, 352, 195, 20);
-		contentPane.add(telefono);
-		telefono.setColumns(10);
+		nombre = new JTextField();
+		nombre.setName("nombre");
+		nombre.setEditable(false);
+		nombre.setBounds(249, 169, 195, 20);
+		contentPane.add(nombre);
+		nombre.setColumns(10);
 		
 		apPat = new JTextField();
 		apPat.setName("apat");
 		apPat.setEditable(false);
-		apPat.setBounds(249, 179, 195, 20);
+		apPat.setBounds(249, 212, 195, 20);
 		contentPane.add(apPat);
 		apPat.setColumns(10);
 		
 		apMat = new JTextField();
 		apMat.setName("amat");
 		apMat.setEditable(false);
-		apMat.setBounds(249, 222, 195, 20);
+		apMat.setBounds(249, 256, 195, 20);
 		contentPane.add(apMat);
 		apMat.setColumns(10);
 		
-		nombre = new JTextField();
-		nombre.setName("nombre");
-		nombre.setEditable(false);
-		nombre.setBounds(249, 137, 195, 20);
-		contentPane.add(nombre);
-		nombre.setColumns(10);
+		telefono = new JTextField();
+		telefono.setName("tel");
+		telefono.setEditable(false);
+		telefono.setBounds(249, 387, 195, 20);
+		contentPane.add(telefono);
+		telefono.setColumns(10);
 		
 		textArea = new JTextArea();
 		textArea.setName("domicilio");
 		textArea.setEditable(false);
-		textArea.setBounds(249, 262, 195, 65);
+		textArea.setBounds(249, 298, 195, 65);
 		contentPane.add(textArea);
 		
+		JLabel lblNumeroDeEmpleado = new JLabel("Numero de Empleado");
+		lblNumeroDeEmpleado.setBounds(66, 138, 134, 14);
+		contentPane.add(lblNumeroDeEmpleado);
+		
+		enEmp = new JLabel("");
+		enEmp.setBounds(249, 138, 46, 14);
+		contentPane.add(enEmp);
+		
 		comboBox = new JComboBox<String>();
-		comboBox.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(e.getSource() == comboBox){
-					int index = comboBox.getSelectedIndex();
-					empl = emp.get(index);
-					nombre.setText(empl.getNombre());
-					apMat.setText(empl.getApellidoMaterno());
-					
-				}
+		comboBox.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent arg0) {
+				int index = comboBox.getSelectedIndex();
+				empl = emp.get(index);
+				nombre.setText(empl.getNombre());
+				apPat.setText(empl.getApellidoPaterno());
+				apMat.setText(empl.getApellidoMaterno());
+				telefono.setText(empl.getTelefono());
+				textArea.setText(empl.getDireccion());
+				enEmp.setText(empl.getid()+"");
 			}
 		});
+//		comboBox.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent e) {
+//				if(e.getSource() == comboBox){
+//					int index = comboBox.getSelectedIndex();
+//					empl = emp.get(index);
+//					nombre.setText(empl.getNombre());
+//					apPat.setText(empl.getApellidoPaterno());
+//					apMat.setText(empl.getApellidoMaterno());
+//					telefono.setText(empl.getTelefono());
+//					textArea.setText(empl.getDireccion());
+//					enEmp.setText(empl.getid()+"");
+//				}
+//			}
+//		});
 		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {}
 		
 		){
@@ -119,9 +149,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 				return emp.size();
 			}
 		});
-		
-		comboBox.setEditable(true);
-		comboBox.addItem("");
+		//comboBox.addItem("");
 		for(int i = 0; i < emp.size(); i++){
 			comboBox.addItem(emp.get(i).getid() + " - " + emp.get(i).getNombre() + " " + emp.get(i).getApellidoPaterno() + " " + emp.get(i).getApellidoMaterno());
 		}
@@ -129,7 +157,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		contentPane.add(comboBox);
 		
 		JLabel lblEmpleado = new JLabel("Empleado");
-		lblEmpleado.setBounds(32, 22, 46, 14);
+		lblEmpleado.setBounds(32, 22, 78, 14);
 		contentPane.add(lblEmpleado);
 		
 		JLabel lblNewLabel = new JLabel("Datos");
@@ -137,76 +165,130 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		contentPane.add(lblNewLabel);
 		
 		chxDomicilio = new JCheckBox("Domicilio");
-		chxDomicilio.setBounds(66, 263, 97, 23);
+		chxDomicilio.setBounds(66, 299, 97, 23);
 		chxDomicilio.addItemListener(this);
 		contentPane.add(chxDomicilio);
 		
 		chxTelefono = new JCheckBox("Telefono");
-		chxTelefono.setBounds(66, 351, 97, 23);
+		chxTelefono.setBounds(66, 386, 97, 23);
 		chxTelefono.addItemListener(this);
 		contentPane.add(chxTelefono);
 		
 		chxNombre = new JCheckBox("Nombre");
-		chxNombre.setBounds(66, 136, 97, 23);
+		chxNombre.setBounds(66, 168, 97, 23);
 		chxNombre.addItemListener(this);
 		contentPane.add(chxNombre);
 		
 		chxApellidoMaterno = new JCheckBox("Apellido Materno");
-		chxApellidoMaterno.setBounds(66, 221, 134, 23);
+		chxApellidoMaterno.setBounds(66, 255, 134, 23);
 		chxApellidoMaterno.addItemListener(this);
 		contentPane.add(chxApellidoMaterno);
 		
 		chxApellidoPaterno = new JCheckBox("Apellido Paterno");
-		chxApellidoPaterno.setBounds(66, 178, 134, 23);
+		chxApellidoPaterno.setBounds(66, 211, 134, 23);
 		chxApellidoPaterno.addItemListener(this);
 		contentPane.add(chxApellidoPaterno);
 		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(228, 417, 89, 23);
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		btnCancelar.setBounds(228, 448, 89, 23);
 		contentPane.add(btnCancelar);
 		
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-//				Empleado empl = null;
-//				String campo = null;
-//				String nValor = null;
-//				boolean cierto = controlAdmin.actualiza(emp, campo, nValor);
-				System.out.println("nombre: " + nombre.getName());
-				System.out.println("Hola");
+//				
+				if(chxNombre.isSelected() == true)
+					nValor = nombre.getText();
+				if(chxApellidoMaterno.isSelected() == true)
+					nValor = apMat.getText();
+				if(chxApellidoPaterno.isSelected() == true)
+					nValor = apPat.getText();
+				if(chxDomicilio.isSelected() == true)
+					nValor = textArea.getText();
+				if(chxTelefono.isSelected() == true)
+					nValor = telefono.getText();
+				//if(campo.equals("") || name.equals("") || nValor.equals(""))
+					//JOptionPane.showMessageDialog(null, "No ha seleccionado un campo");
+				//else{
+					if(controlAdmin.actualiza(empl, campo, nValor)){
+						JOptionPane.showMessageDialog(null, "Dato " + name + " catualizado correctamente");
+						repaint();
+					}
+					else{
+						String error = "Campo "+ name +" excedido o no ha ingresado valores";
+						if(campo.equals("tel"))
+							error = "Numero de telefono invalido o muy largo";
+						JOptionPane.showMessageDialog(null, "Error al actualizar el campo:\n " + error);
+					}
+				//}
 			}
 		});
-		btnAceptar.setBounds(355, 417, 89, 23);
+		btnAceptar.setBounds(355, 448, 89, 23);
 		contentPane.add(btnAceptar);
 	}
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		// TODO Auto-generated method stub
-		if(chxNombre.isSelected() == true)
+		if(chxNombre.isSelected() == true){
 			nombre.setEditable(true);
-		else
+			campo = nombre.getName();
+			name = "Nombre";
+		}
+		else{
 			nombre.setEditable(false);
+			//campo = "";
+			//nombre.setText("");
+		}
 		
-		if(chxApellidoMaterno.isSelected() == true)
+		if(chxApellidoMaterno.isSelected() == true){
 			apMat.setEditable(true);
-		else
+			campo = apMat.getName();
+			name = "Apellido Materno";
+		}
+		else{
 			apMat.setEditable(false);
+			//campo = "";
+			//apMat.setText("");
+		}
 		
-		if(chxApellidoPaterno.isSelected() == true)
+		if(chxApellidoPaterno.isSelected() == true){
 			apPat.setEditable(true);
-		else
+			campo = apPat.getName();
+			name = "Apellido Paterno";
+		}
+		else{
 			apPat.setEditable(false);
+			//campo = "";
+			//apPat.setText("");
+		}
 		
-		if(chxDomicilio.isSelected() == true)
+		if(chxDomicilio.isSelected() == true){
 			textArea.setEditable(true);
-		else
+			campo = textArea.getName();
+			name = "Domicilio";
+		}
+		else{
 			textArea.setEditable(false);
+			//campo = "";
+			//textArea.setText("");
+		}
 		
-		if(chxTelefono.isSelected() == true)
+		if(chxTelefono.isSelected() == true){
 			telefono.setEditable(true);
-		else
+			campo = telefono.getName();
+			name = "Telefono";
+		}
+		else{
 			telefono.setEditable(false);
+			//campo = "";
+		//	telefono.setText("");
+		}
 		
 	}
 }
