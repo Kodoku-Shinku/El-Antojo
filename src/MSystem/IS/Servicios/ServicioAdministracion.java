@@ -34,6 +34,18 @@ public class ServicioAdministracion {
 	}
 
 	public boolean actualizaEmp(Empleado empl, String campo, String nValor) {
+		if(campo.equals("tel")){
+			int i = 0;
+			for(i = 0; i < nValor.length(); i ++)
+				if(!Character.isDigit(nValor.charAt(i)))
+					break;
+			if(i == nValor.length())
+				return daoAdmin.actualizaEmpleado(campo, nValor, empl);
+			else
+				return false;
+			
+		}
 		return daoAdmin.actualizaEmpleado(campo, nValor, empl);
+		
 	}
 }
