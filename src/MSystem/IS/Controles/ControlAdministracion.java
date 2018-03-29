@@ -72,7 +72,7 @@ public class ControlAdministracion {
 	}
 
 	public boolean actualiza(Empleado empl, String campo, String nValor) {
-		return servAdmin.actualizaEmp(empl, campo, nValor);
+		return servAdmin.actualizaEmp(empl, campo, nValor) == true;
 	}
 
 }
