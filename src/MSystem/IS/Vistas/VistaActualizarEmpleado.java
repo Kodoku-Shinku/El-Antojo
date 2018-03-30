@@ -3,13 +3,10 @@ package MSystem.IS.Vistas;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import MSystem.IS.Controles.ControlAdministracion;
 import MSystem.IS.Modelo.Empleado;
-
 import java.awt.Toolkit;
 import java.util.ArrayList;
-
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -30,6 +27,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 	 */
 	private static final long serialVersionUID = 4L;
 	private JPanel contentPane;
+	private JTextField Contraseña;
 	private JTextField telefono;
 	private JTextField apPat;
 	private JTextField apMat;
@@ -39,7 +37,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 	private JCheckBox chxApellidoPaterno;
 	private JCheckBox chxDomicilio;
 	private JCheckBox chxTelefono;
-	private JCheckBox chxContrasea;
+	private JCheckBox chxContraseña;
 	private JTextArea textArea;
 	private JLabel enEmp;
 	private JComboBox<String> comboBox;
@@ -48,21 +46,19 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 	private String campo = "";
 	private String name = "";
 	private String nValor = "";
-	private JTextField contrasena;
 
 	/**
 	 * Create the frame.
 	 */
 	public VistaActualizarEmpleado(ControlAdministracion controlAdmin) {
+
 		empl = new Empleado("", "", "", "", "", "", "");
-		empl.setid(0);
 		emp = controlAdmin.cargarLista();
-		emp.add(0, empl);
 		setTitle("Actualizar Empleado");
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 505, 570);
+		setBounds(100, 100, 505, 523);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -97,19 +93,14 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		telefono.setBounds(249, 387, 195, 20);
 		contentPane.add(telefono);
 		telefono.setColumns(10);
-		
-		contrasena = new JTextField();
-		contrasena.setName("contraseña");
-		contrasena.setEditable(false);
-		contrasena.setBounds(249, 430, 195, 20);
-		contentPane.add(contrasena);
-		contrasena.setColumns(10);
-		
-		chxContrasea = new JCheckBox("Contrase\u00F1a");
-		chxContrasea.addItemListener(this);
-		chxContrasea.setBounds(66, 429, 97, 23);
-		contentPane.add(chxContrasea);
-		
+
+		Contraseña = new JTextField();
+		Contraseña.setName("Contraseña");
+		Contraseña.setEditable(false);
+		Contraseña.setBounds(249, 418, 195, 20);
+		contentPane.add(Contraseña);
+		Contraseña.setColumns(10);
+
 		textArea = new JTextArea();
 		textArea.setName("domicilio");
 		textArea.setEditable(false);
@@ -139,7 +130,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 				return emp.size();
 			}
 		});
-		//comboBox.addItem();
+		// comboBox.addItem("");
 		for (int i = 0; i < emp.size(); i++) {
 			comboBox.addItem(emp.get(i).getid() + " - " + emp.get(i).getNombre() + " " + emp.get(i).getApellidoPaterno()
 					+ " " + emp.get(i).getApellidoMaterno());
@@ -180,17 +171,19 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		chxApellidoPaterno.addItemListener(this);
 		contentPane.add(chxApellidoPaterno);
 
+		chxContraseña = new JCheckBox("Contrase\u00F1a");
+		chxContraseña.setBounds(66, 412, 97, 23);
+		chxContraseña.addItemListener(this);
+		contentPane.add(chxContraseña);
+
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int option = JOptionPane.showConfirmDialog(null, "Seguro que deseas Cancelar");
-
-				if(JOptionPane.OK_OPTION == option)
-					dispose();	
-				
+				dispose();
 			}
 		});
-		btnCancelar.setBounds(228, 485, 89, 23);
+
+		btnCancelar.setBounds(228, 448, 89, 23);
 		contentPane.add(btnCancelar);
 
 		JButton btnAceptar = new JButton("Aceptar");
@@ -206,6 +199,8 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 					nValor = textArea.getText();
 				if (chxTelefono.isSelected() == true)
 					nValor = telefono.getText();
+				if (chxContraseña.isSelected() == true)
+					nValor = Contraseña.getText();
 				if (campo.equals("") || name.equals("") || nValor.equals("")) {
 					int option = JOptionPane.showConfirmDialog(null,
 							"No ha seleccionado campos\n " + "¿Desea continar?");
@@ -214,9 +209,9 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 					}
 				} else {
 					if (controlAdmin.actualiza(empl, campo, nValor)) {
-						JOptionPane.showMessageDialog(null, "Dato " + name + " acatualizado correctamente");
+						JOptionPane.showMessageDialog(null, "Dato " + name + " atualizado correctamente");
 					} else {
-						String error = "Campo " + name + " excedido.";
+						String error = "Campo " + name + " excedido o no ha ingresado valores";
 						if (campo.equals("tel"))
 							error = "Numero de telefono invalido o muy largo";
 						JOptionPane.showMessageDialog(null, "Error al actualizar el campo:\n " + error);
@@ -224,7 +219,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 				}
 			}
 		});
-		btnAceptar.setBounds(345, 485, 89, 23);
+		btnAceptar.setBounds(355, 448, 89, 23);
 		contentPane.add(btnAceptar);
 	}
 
@@ -238,10 +233,9 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 			apPat.setText(empl.getApellidoPaterno());
 			apMat.setText(empl.getApellidoMaterno());
 			telefono.setText(empl.getTelefono());
+			Contraseña.setText(empl.getContraseña());
 			textArea.setText(empl.getDireccion());
 			enEmp.setText(empl.getid() + "");
-			//System.out.println("contraseña " + empl.getContraseña());
-			contrasena.setText(empl.getContraseña());
 		} else {
 			if (chxNombre.isSelected() == true) {
 				nombre.setEditable(true);
@@ -292,14 +286,16 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 				// campo = "";
 				// telefono.setText("");
 			}
-			
-			if(chxContrasea.isSelected() == true){
-				contrasena.setEditable(true);
-				campo = contrasena.getName();
+
+			if (chxContraseña.isSelected() == true) {
+				Contraseña.setEditable(true);
+				campo = Contraseña.getName();
 				name = "Contraseña";
+			} else {
+				Contraseña.setEditable(false);
+				// campo = "";
+				// Contraseña.setText("");
 			}
-			else
-				contrasena.setEditable(false);
 		}
 
 	}
