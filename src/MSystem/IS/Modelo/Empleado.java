@@ -1,19 +1,22 @@
 package MSystem.IS.Modelo;
 
 public class Empleado {
-	
-//	Se declaran los atributos privados para que tenga alta cohesion y bajo acoplamiento mi sistema
 
-    private int id;
+	// Se declaran los atributos privados para que tenga alta cohesion y bajo
+	// acoplamiento mi sistema
+
+	private int id;
 	private String Nombre;
 	private String ApellidoPaterno;
 	private String ApellidoMaterno;
 	private String Direccion;
 	private String Telefono;
 	private String Cargo;
+	private String Contraseña;
 
-	//		declaro el constructor de clase para inicializar los atributos
-	public Empleado(String nombre, String apellidoPaterno, String apellidoMaterno, String direccion, String telefono, String Cargo) {
+	// declaro el constructor de clase para inicializar los atributos
+	public Empleado(String nombre, String apellidoPaterno, String apellidoMaterno, String direccion, String telefono,
+			String Cargo, String Contraseña) {
 
 		this.Nombre = nombre;
 		this.ApellidoPaterno = apellidoPaterno;
@@ -21,11 +24,12 @@ public class Empleado {
 		this.Direccion = direccion;
 		this.Telefono = telefono;
 		this.Cargo = Cargo;
+		this.Contraseña = Contraseña;
 	}
 
+	// genero los setters y getters de cada uno de los atributos para despues
+	// ser invocados
 
-	//	genero los setters y getters de cada uno de los atributos para despues ser invocados
-	
 	public int getid() {
 		return id;
 
@@ -34,8 +38,7 @@ public class Empleado {
 	public void setid(int id) {
 		this.id = id;
 	}
-	
-	
+
 	public String getNombre() {
 		return Nombre;
 
@@ -76,7 +79,7 @@ public class Empleado {
 	public void setTelefono(String telefono) {
 		this.Telefono = telefono;
 	}
-	
+
 	public String getCargo() {
 		return Cargo;
 	}
@@ -85,12 +88,21 @@ public class Empleado {
 		this.Cargo = cargo;
 	}
 
-	//Permite mostrar la información completa de un objeto Personal(de un empleado)
+	public String getContraseña() {
+		return Contraseña;
+	}
+
+	public void setContraseña(String contraseña) {
+		this.Contraseña = contraseña;
+	}
+
+	// Permite mostrar la información completa de un objeto Personal(de un
+	// empleado)
 	@Override
 	public String toString() {
-		return "Personal [Nombre=" + Nombre + ", ApellidoPaterno=" + ApellidoPaterno
-				+ ", ApellidoMaterno=" + ApellidoMaterno + ", Direccion=" + Direccion + ", Telefono="
-				+ Telefono + ", Cargo=" + Cargo + "]";
+		return "Personal [Nombre=" + Nombre + ", ApellidoPaterno=" + ApellidoPaterno + ", ApellidoMaterno="
+				+ ApellidoMaterno + ", Direccion=" + Direccion + ", Telefono=" + Telefono + ", Cargo=" + Cargo
+				+ ", Contraseña=" + Contraseña + "]";
 	}
 
 }
