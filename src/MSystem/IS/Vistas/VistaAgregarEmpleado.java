@@ -20,10 +20,24 @@ import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.Button;
 import java.awt.Toolkit;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JPasswordField;
+import javax.swing.JScrollBar;
+import javax.swing.JTree;
+//import com.jgoodies.forms.factories.DefaultComponentFactory;
+import javax.swing.JToggleButton;
+import javax.swing.JComboBox;
+import java.awt.Component;
+import javax.swing.Box;
+import java.awt.Dimension;
+import javax.swing.JTextArea;
+import javax.swing.JSpinner;
+import javax.swing.JFormattedTextField;
+import javax.swing.JTextPane;
 
 public class VistaAgregarEmpleado extends JFrame {
-	
-	
+
 	ControlAdministracion controlAdmin;
 
 	private JPanel contentPane;
@@ -33,6 +47,7 @@ public class VistaAgregarEmpleado extends JFrame {
 	private JTextField direc;
 	private JTextField tel;
 	private JTextField cargo;
+	private JTextField contraseña;
 
 	/**
 	 * Launch the application.
@@ -54,12 +69,13 @@ public class VistaAgregarEmpleado extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaAgregarEmpleado(ControlAdministracion controlAdmin) {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VistaAgregarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(VistaAgregarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
 		setTitle("Agregar Personal");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 387, 335);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -68,12 +84,18 @@ public class VistaAgregarEmpleado extends JFrame {
 		JLayeredPane layeredPane = new JLayeredPane();
 		contentPane.add(layeredPane, BorderLayout.CENTER);
 
+		JLabel lblPersonal = new JLabel("DATOS PERSONAL");
+		lblPersonal.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPersonal.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblPersonal.setBounds(76, 11, 209, 20);
+		layeredPane.add(lblPersonal);
+
 		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(10, 43, 125, 14);
+		lblNombre.setBounds(10, 45, 125, 14);
 		layeredPane.add(lblNombre);
 
 		JLabel lblApellidoPaterno = new JLabel("Apellido Paterno");
-		lblApellidoPaterno.setBounds(10, 68, 125, 14);
+		lblApellidoPaterno.setBounds(10, 70, 125, 14);
 		layeredPane.add(lblApellidoPaterno);
 
 		JLabel lblApellidoMaterno = new JLabel("Apellido Materno");
@@ -81,19 +103,23 @@ public class VistaAgregarEmpleado extends JFrame {
 		layeredPane.add(lblApellidoMaterno);
 
 		JLabel lblDireccion = new JLabel("Direccion");
-		lblDireccion.setBounds(10, 124, 125, 14);
+		lblDireccion.setBounds(10, 120, 125, 14);
 		layeredPane.add(lblDireccion);
 
 		JLabel lblTelefono = new JLabel("Telefono");
-		lblTelefono.setBounds(10, 149, 125, 14);
+		lblTelefono.setBounds(10, 145, 125, 14);
 		layeredPane.add(lblTelefono);
 
 		JLabel lblCargo = new JLabel("Cargo");
-		lblCargo.setBounds(10, 177, 125, 14);
+		lblCargo.setBounds(10, 166, 125, 20);
 		layeredPane.add(lblCargo);
 
+		JLabel lblContraseña = new JLabel("Contrase\u00F1a");
+		lblContraseña.setBounds(10, 197, 125, 14);
+		layeredPane.add(lblContraseña);
+
 		nombre = new JTextField();
-		nombre.setBounds(188, 40, 125, 20);
+		nombre.setBounds(188, 42, 125, 20);
 		layeredPane.add(nombre);
 		nombre.setColumns(10);
 
@@ -103,25 +129,25 @@ public class VistaAgregarEmpleado extends JFrame {
 		amat.setColumns(10);
 
 		apat = new JTextField();
-		apat.setBounds(188, 65, 125, 20);
+		apat.setBounds(188, 67, 125, 20);
 		layeredPane.add(apat);
 		apat.setColumns(10);
 
 		direc = new JTextField();
-		direc.setBounds(188, 121, 125, 20);
+		direc.setBounds(188, 117, 125, 20);
 		layeredPane.add(direc);
 		direc.setColumns(10);
 
 		tel = new JTextField();
-		tel.setBounds(188, 146, 125, 20);
+		tel.setBounds(188, 142, 125, 20);
 		layeredPane.add(tel);
 		tel.setColumns(10);
 
 		cargo = new JTextField();
-		cargo.setBounds(188, 174, 125, 20);
+		cargo.setBounds(188, 166, 125, 20);
 		layeredPane.add(cargo);
 		cargo.setColumns(10);
-		
+
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -133,6 +159,7 @@ public class VistaAgregarEmpleado extends JFrame {
 				String Direccion = "";
 				String Telefono = "";
 				String Cargo = "";
+				String Contraseña = "";
 
 				Empleado emple;
 
@@ -144,40 +171,48 @@ public class VistaAgregarEmpleado extends JFrame {
 					Direccion = direc.getText();
 					Telefono = tel.getText();
 					Cargo = cargo.getText();
+					Contraseña = contraseña.getText();
 
 					// validacion de que los campos se encuentren totalmente
 					// llenos RNF
 					if (Nombre.equals("") || ApellidoPaterno.equals("") || ApellidoMaterno.equals("")
-							|| Direccion.equals("") || Telefono.equals("") || Cargo.equals("")) {
-						int option = JOptionPane.showConfirmDialog(null,"Algunos Campos Se Encuentran Vacios\n "
-																			+ "¿Deseas Continuar Con El Llenado?");
+							|| Direccion.equals("") || Telefono.equals("") || Cargo.equals("")
+							|| Contraseña.equals("")) {
+						int option = JOptionPane.showConfirmDialog(null,
+								"Algunos Campos Se Encuentran Vacios\n " + "¿Deseas Continuar Con El Llenado?");
 
 						if (JOptionPane.CLOSED_OPTION == option) {
-							dispose();					
+							dispose();
 						}
-						
+
 						if (JOptionPane.NO_OPTION == option) {
 							dispose();
-							
+
 						}
 					}
 
 					else {
-						emple = new Empleado(Nombre, ApellidoPaterno, ApellidoMaterno, Direccion, Telefono, Cargo);
-						
-							if (controlAdmin.agregarEmpleado(emple)== true) {
-							
-								JOptionPane.showMessageDialog(null, "Empleado Agregado Exitosamente");
-								setVisible(false);
-							}
+						emple = new Empleado(Nombre, ApellidoPaterno, ApellidoMaterno, Direccion, Telefono, Cargo,
+								Contraseña);
 
-							}
+						if (controlAdmin.agregarEmpleado(emple) == true) {
+
+							JOptionPane.showMessageDialog(null, "Empleado Agregado Exitosamente");
+							setVisible(false);
+						}
+
+					}
 				}
 			}
 		});
-		btnAceptar.setBounds(242, 218, 89, 23);
+
+		contraseña = new JTextField();
+		contraseña.setBounds(188, 192, 125, 20);
+		layeredPane.add(contraseña);
+		contraseña.setColumns(10);
+		btnAceptar.setBounds(224, 237, 89, 23);
 		layeredPane.add(btnAceptar);
-		
+
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -190,13 +225,8 @@ public class VistaAgregarEmpleado extends JFrame {
 				}
 			}
 		});
-		btnCancelar.setBounds(68, 218, 89, 23);
+		btnCancelar.setBounds(60, 237, 89, 23);
 		layeredPane.add(btnCancelar);
-		
 
 	}
 }
-
-
-	
-	
