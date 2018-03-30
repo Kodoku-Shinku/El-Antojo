@@ -1,14 +1,10 @@
 package MSystem.IS.Vistas;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import MSystem.IS.Controles.ControlAdministracion;
-import MSystem.IS.Datos.DatabaseException;
 import MSystem.IS.Modelo.Empleado;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
@@ -16,25 +12,12 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
 import java.awt.event.ActionEvent;
-import java.awt.Button;
 import java.awt.Toolkit;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import javax.swing.JPasswordField;
-import javax.swing.JScrollBar;
-import javax.swing.JTree;
-//import com.jgoodies.forms.factories.DefaultComponentFactory;
-import javax.swing.JToggleButton;
-import javax.swing.JComboBox;
-import java.awt.Component;
-import javax.swing.Box;
-import java.awt.Dimension;
-import javax.swing.JTextArea;
-import javax.swing.JSpinner;
-import javax.swing.JFormattedTextField;
-import javax.swing.JTextPane;
+
+
 
 public class VistaAgregarEmpleado extends JFrame {
 
@@ -192,8 +175,7 @@ public class VistaAgregarEmpleado extends JFrame {
 					}
 
 					else {
-						emple = new Empleado(Nombre, ApellidoPaterno, ApellidoMaterno, Direccion, Telefono, Cargo,
-								Contraseña);
+						emple = new Empleado(Nombre, ApellidoPaterno, ApellidoMaterno, Direccion, Telefono, Cargo, Contraseña);
 
 						if (controlAdmin.agregarEmpleado(emple) == true) {
 
