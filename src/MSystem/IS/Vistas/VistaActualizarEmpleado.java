@@ -3,8 +3,6 @@ package MSystem.IS.Vistas;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.ListDataEvent;
-import javax.swing.event.ListDataListener;
 
 import MSystem.IS.Controles.ControlAdministracion;
 import MSystem.IS.Modelo.Empleado;
@@ -55,13 +53,15 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 	 */
 	public VistaActualizarEmpleado(ControlAdministracion controlAdmin) {
 
-		empl = new Empleado("", "", "", "", "", "");
 		emp = controlAdmin.cargarLista();
+		empl = new Empleado("", "", "", "", "", "");
+		empl.setid(0);
+		emp.add(0, empl);
 		setTitle("Actualizar Empleado");
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 505, 523);
+		setBounds(100, 100, 505, 561);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -126,7 +126,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 				return emp.size();
 			}
 		});
-		// comboBox.addItem("");
+		//comboBox.addItem();
 		for (int i = 0; i < emp.size(); i++) {
 			comboBox.addItem(emp.get(i).getid() + " - " + emp.get(i).getNombre() + " " + emp.get(i).getApellidoPaterno()
 					+ " " + emp.get(i).getApellidoMaterno());
@@ -199,7 +199,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 					if (controlAdmin.actualiza(empl, campo, nValor)) {
 						JOptionPane.showMessageDialog(null, "Dato " + name + " catualizado correctamente");
 					} else {
-						String error = "Campo " + name + " excedido o no ha ingresado valores";
+						String error = "Campo " + name + " excedido.";
 						if (campo.equals("tel"))
 							error = "Numero de telefono invalido o muy largo";
 						JOptionPane.showMessageDialog(null, "Error al actualizar el campo:\n " + error);
@@ -207,8 +207,6 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 				}
 			}
 		});
-		btnAceptar.setBounds(355, 448, 89, 23);
-		contentPane.add(btnAceptar);
 	}
 
 	@Override
