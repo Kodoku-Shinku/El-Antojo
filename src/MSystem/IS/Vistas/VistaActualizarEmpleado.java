@@ -41,7 +41,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 	private JTextArea textArea;
 	private JLabel enEmp;
 	private JComboBox<String> comboBox;
-	private ArrayList<Empleado> emp;
+	private ArrayList<Empleado> listaEmp;
 	private Empleado empl;
 	private String campo = "";
 	private String name = "";
@@ -54,8 +54,8 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 
 		empl = new Empleado("", "", "", "", "", "", "");
 		empl.setid(0);
-		emp = controlAdmin.cargarLista();
-		emp.add(0, empl);
+		listaEmp = controlAdmin.cargarLista();
+		listaEmp.add(0, empl);
 		setTitle("Actualizar Empleado");
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
@@ -129,13 +129,12 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 
 			public int getSize() {
 				// TODO Auto-generated method stub
-				return emp.size();
+				return listaEmp.size();
 			}
 		});
-		// comboBox.addItem("");
-		for (int i = 0; i < emp.size(); i++) {
-			comboBox.addItem(emp.get(i).getid() + " - " + emp.get(i).getNombre() + " " + emp.get(i).getApellidoPaterno()
-					+ " " + emp.get(i).getApellidoMaterno());
+		for (int i = 0; i < listaEmp.size(); i++) {
+			comboBox.addItem(listaEmp.get(i).getid() + " - " + listaEmp.get(i).getNombre() + " " + listaEmp.get(i).getApellidoPaterno()
+					+ " " + listaEmp.get(i).getApellidoMaterno());
 		}
 		comboBox.setBounds(66, 60, 284, 20);
 		contentPane.add(comboBox);
@@ -230,7 +229,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		// TODO Auto-generated method stub
 		if (e.getSource() == comboBox) {
 			int index = comboBox.getSelectedIndex();
-			empl = emp.get(index);
+			empl = listaEmp.get(index);
 			nombre.setText(empl.getNombre());
 			apPat.setText(empl.getApellidoPaterno());
 			apMat.setText(empl.getApellidoMaterno());
@@ -246,7 +245,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 			} else {
 				nombre.setEditable(false);
 				campo = "";
-				// nombre.setText("");
+				
 				if (chxApellidoMaterno.isSelected() == true) {
 					apMat.setEditable(true);
 					campo = apMat.getName();
@@ -254,7 +253,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 				} else {
 					apMat.setEditable(false);
 					campo = "";
-					// apMat.setText("");
+					
 					if (chxApellidoPaterno.isSelected() == true) {
 						apPat.setEditable(true);
 						campo = apPat.getName();
