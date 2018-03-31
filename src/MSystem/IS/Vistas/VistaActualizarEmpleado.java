@@ -97,14 +97,14 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		telefono.setColumns(10);
 
 		Contrasena = new JTextField();
-		Contrasena.setName("Contraseña");
+		Contrasena.setName("contrasena");
 		Contrasena.setEditable(false);
 		Contrasena.setBounds(249, 418, 195, 20);
 		contentPane.add(Contrasena);
 		Contrasena.setColumns(10);
 
 		textArea = new JTextArea();
-		textArea.setName("domicilio");
+		textArea.setName("direccion");
 		textArea.setEditable(false);
 		textArea.setBounds(249, 298, 195, 65);
 		contentPane.add(textArea);
@@ -148,7 +148,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		lblNewLabel.setBounds(32, 115, 46, 14);
 		contentPane.add(lblNewLabel);
 
-		chxDomicilio = new JCheckBox("Domicilio");
+		chxDomicilio = new JCheckBox("Direccion");
 		chxDomicilio.setBounds(66, 299, 97, 23);
 		chxDomicilio.addItemListener(this);
 		contentPane.add(chxDomicilio);
@@ -266,7 +266,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 						if (chxDomicilio.isSelected() == true) {
 							textArea.setEditable(true);
 							campo = textArea.getName();
-							name = "Domicilio";
+							name = "Direccion";
 						} else {
 							textArea.setEditable(false);
 							campo = "";
