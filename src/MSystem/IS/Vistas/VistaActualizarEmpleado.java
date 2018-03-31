@@ -53,7 +53,9 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 	public VistaActualizarEmpleado(ControlAdministracion controlAdmin) {
 
 		empl = new Empleado("", "", "", "", "", "", "");
+		empl.setid(0);
 		emp = controlAdmin.cargarLista();
+		emp.add(0, empl);
 		setTitle("Actualizar Empleado");
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
@@ -243,60 +245,54 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 				name = "Nombre";
 			} else {
 				nombre.setEditable(false);
-				// campo = "";
+				campo = "";
 				// nombre.setText("");
-			}
-
-			if (chxApellidoMaterno.isSelected() == true) {
-				apMat.setEditable(true);
-				campo = apMat.getName();
-				name = "Apellido Materno";
-			} else {
-				apMat.setEditable(false);
-				// campo = "";
-				// apMat.setText("");
-			}
-
-			if (chxApellidoPaterno.isSelected() == true) {
-				apPat.setEditable(true);
-				campo = apPat.getName();
-				name = "Apellido Paterno";
-			} else {
-				apPat.setEditable(false);
-				// campo = "";
-				// apPat.setText("");
-			}
-
-			if (chxDomicilio.isSelected() == true) {
-				textArea.setEditable(true);
-				campo = textArea.getName();
-				name = "Domicilio";
-			} else {
-				textArea.setEditable(false);
-				// campo = "";
-				// textArea.setText("");
-			}
-
-			if (chxTelefono.isSelected() == true) {
-				telefono.setEditable(true);
-				campo = telefono.getName();
-				name = "Telefono";
-			} else {
-				telefono.setEditable(false);
-				// campo = "";
-				// telefono.setText("");
-			}
-
-			if (chxContraseña.isSelected() == true) {
-				Contraseña.setEditable(true);
-				campo = Contraseña.getName();
-				name = "Contraseña";
-			} else {
-				Contraseña.setEditable(false);
-				// campo = "";
-				// Contraseña.setText("");
+				if (chxApellidoMaterno.isSelected() == true) {
+					apMat.setEditable(true);
+					campo = apMat.getName();
+					name = "Apellido Materno";
+				} else {
+					apMat.setEditable(false);
+					campo = "";
+					// apMat.setText("");
+					if (chxApellidoPaterno.isSelected() == true) {
+						apPat.setEditable(true);
+						campo = apPat.getName();
+						name = "Apellido Paterno";
+					} else {
+						apPat.setEditable(false);
+						campo = "";
+						// apPat.setText("");
+						if (chxDomicilio.isSelected() == true) {
+							textArea.setEditable(true);
+							campo = textArea.getName();
+							name = "Domicilio";
+						} else {
+							textArea.setEditable(false);
+							campo = "";
+							// textArea.setText("");
+							if (chxTelefono.isSelected() == true) {
+								telefono.setEditable(true);
+								campo = telefono.getName();
+								name = "Telefono";
+							} else {
+								telefono.setEditable(false);
+								campo = "";
+								// telefono.setText("");
+								if (chxContraseña.isSelected() == true) {
+									Contraseña.setEditable(true);
+									campo = Contraseña.getName();
+									name = "contraseña";
+								} else {
+									Contraseña.setEditable(false);
+									campo = "";
+									// Contraseña.setText("");
+								}
+							}
+						}
+					}
+				}
 			}
 		}
-
 	}
 }
