@@ -213,7 +213,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 					if (controlAdmin.actualiza(empl, campo, nValor)) {
 						JOptionPane.showMessageDialog(null, "Dato " + name + " atualizado correctamente");
 					} else {
-						String error = "Campo " + name + " excedido o no ha ingresado valores";
+						String error = "Campo " + name + " excedido";
 						if (campo.equals("tel"))
 							error = "Numero de telefono invalido o muy largo";
 						JOptionPane.showMessageDialog(null, "Error al actualizar el campo:\n " + error);
