@@ -49,7 +49,7 @@ public class DAOAdministracion {
 				empleado.setContraseña(nuevoValor);
 			return true;
 
-		} catch (DatabaseException | SQLException e) {
+		} catch (DatabaseException | SQLException | NullPointerException e) {
 			return false;
 		}
 	}
