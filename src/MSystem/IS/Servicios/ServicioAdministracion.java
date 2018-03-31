@@ -51,4 +51,14 @@ public class ServicioAdministracion {
 	public ServicioAdministracion(){
 		
 	}
+
+	public Empleado recuperaEmpleado(String noEmpleado) {
+		return daoAdmin.recuperaEmpleado(noEmpleado);
+	}
+
+	public boolean eliminarEmpleado(int empleado) {
+		boolean estado = daoAdmin.eliminaEmpleado(empleado);
+		
+		return estado;
+	}
 }

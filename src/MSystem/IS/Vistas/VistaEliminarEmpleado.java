@@ -1,6 +1,8 @@
 package MSystem.IS.Vistas;
 
 import java.awt.EventQueue;
+import java.awt.ItemSelectable;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -8,45 +10,43 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-import MSystem.IS.Controles.ControlProductos;
-import MSystem.IS.Datos.DAOProductos;
-import MSystem.IS.Modelo.Producto;
-import MSystem.IS.Servicios.ServicioProductos;
+import MSystem.IS.Controles.ControlAdministracion;
+import MSystem.IS.Datos.DAOAdministracion;
+import MSystem.IS.Modelo.Empleado;
+import MSystem.IS.Servicios.ServicioAdministracion;
+import javafx.scene.control.ComboBox;
+
 import javax.swing.JComboBox;
 import javax.swing.JTextPane;
+import javax.swing.SwingUtilities;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.ActionEvent;
 
-public class VistaEliminarEmpleado extends JFrame {
+public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	TableModel Tmodel;
-	int row,col=0;
-	Producto productosf;
-	DAOProductos controlDBP = new DAOProductos();
-	ServicioProductos servProduct = new ServicioProductos(controlDBP); 
-	ControlProductos controlProduct = new ControlProductos(servProduct);
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	String noEmpleado;
+	Empleado empleado1;
+	private ArrayList<Empleado> emp;
+	DAOAdministracion controlDBA = new DAOAdministracion();
+	ServicioAdministracion servAdmin = new ServicioAdministracion(controlDBA); 
+	ControlAdministracion controlAdmin = new ControlAdministracion(servAdmin);
+	private JTextField txtNombre,txtAP,txtAM,txtCargo;
+	private JComboBox<String> combId;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VistaEliminarEmpleado frame = new VistaEliminarEmpleado();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 	
 	public VistaEliminarEmpleado() {
 		setTitle("Eliminar Empleado");
@@ -54,14 +54,64 @@ public class VistaEliminarEmpleado extends JFrame {
 		setBounds(100, 100, 360, 360);
 		setResizable(false);
 		setLocationRelativeTo(null);
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(138, 38, 160, 20);
-		contentPane.add(comboBox);
+	
+		emp = controlAdmin.cargarLista();
+		empleado1 = new Empleado("", "", "", "", "", "","");
+		
+		txtNombre = new JTextField();
+		txtNombre.setBounds(89, 88, 228, 20);
+		txtNombre.setName("txtNombre");
+		txtNombre.setEditable(false);
+		contentPane.add(txtNombre);
+		txtNombre.setColumns(10);
+		
+		txtAP = new JTextField();
+		txtAP.setBounds(89, 137, 109, 20);
+		txtAP.setName("txtAP");
+		txtAP.setEditable(false);
+		contentPane.add(txtAP);
+		txtAP.setColumns(10);
+		
+		txtAM = new JTextField();
+		txtAM.setName("txtAM");
+		txtAM.setEditable(false);
+		txtAM.setBounds(208, 137, 109, 20);
+		contentPane.add(txtAM);
+		txtAM.setColumns(10);
+		
+		txtCargo = new JTextField();
+		txtCargo.setBounds(91, 198, 226, 20);
+		txtCargo.setName("txtCargo");
+		txtCargo.setEditable(false);
+		contentPane.add(txtCargo);
+		txtCargo.setColumns(10);
+		
+		combId = new JComboBox<String>();
+		combId.addItemListener(this);
+		combId.setModel(new DefaultComboBoxModel<String>(new String[] {}
+
+		) {
+			
+
+			public int getSize() {
+				// TODO Auto-generated method stub
+				return emp.size();
+			}
+		});
+		// comboBox.addItem("");
+		for (int i = 0; i < emp.size(); i++) {
+			combId.addItem(emp.get(i).getid() + " - " + emp.get(i).getNombre() + " " + emp.get(i).getApellidoPaterno()
+					+ " " + emp.get(i).getApellidoMaterno());
+		}
+		combId.setBounds(66, 60, 284, 20);
+		contentPane.add(combId);
 		
 		JLabel lblNoDeEmpleado = new JLabel("No. de Empleado: ");
 		lblNoDeEmpleado.setBounds(26, 38, 102, 20);
@@ -71,43 +121,60 @@ public class VistaEliminarEmpleado extends JFrame {
 		lblNombre.setBounds(26, 88, 68, 20);
 		contentPane.add(lblNombre);
 		
-		textField = new JTextField();
-		textField.setBounds(89, 88, 228, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
 		JLabel lblApellidos = new JLabel("Apellidos:");
 		lblApellidos.setBounds(26, 137, 55, 20);
 		contentPane.add(lblApellidos);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(89, 137, 109, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(208, 137, 109, 20);
-		contentPane.add(textField_2);
-		
 		JLabel lblCargo = new JLabel("Cargo: ");
 		lblCargo.setBounds(26, 198, 55, 20);
 		contentPane.add(lblCargo);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(91, 198, 226, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(89, 254, 89, 23);
 		contentPane.add(btnCancelar);
 		
 		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int index = combId.getSelectedIndex();
+				if (index>=0){
+					empleado1 = emp.get(index);
+					int empleado = empleado1.getid();
+					
+					boolean estado = controlAdmin.eliminarEmpleado(empleado);
+					
+					if(estado == true){
+						JOptionPane.showMessageDialog(null, "¡Empleado eliminado!");
+						dispose();
+					}
+					
+				}else{
+					JOptionPane.showMessageDialog(null, "¡No hay empleados!");
+				}
+				
+			}
+		});
 		btnEliminar.setBounds(228, 254, 89, 23);
 		contentPane.add(btnEliminar);
 		
 		
 
 	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		// TODO Auto-generated method stub
+		if (e.getSource() == combId) {
+			int index=0;
+			index = combId.getSelectedIndex();
+			empleado1 = emp.get(index);
+			
+			txtNombre.setText(empleado1.getNombre());
+			txtAP.setText(empleado1.getApellidoPaterno());
+			txtAM.setText(empleado1.getApellidoMaterno());
+			txtCargo.setText(empleado1.getCargo());
+		}
+
+	}
+	
 }

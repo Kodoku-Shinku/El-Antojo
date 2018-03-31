@@ -53,6 +53,7 @@ public class CreadorBaseDeDatos {
 
 			statement.execute("CREATE TABLE EMPLEADO (noempleado INTEGER PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), nombre VARCHAR(50), apat VARCHAR(50),amat VARCHAR(50), direccion VARCHAR(100), tel VARCHAR(15), cargo VARCHAR(100),contrasena VARCHAR(10))");
 			//statement.execute("DROP TABLE EMPLEADO");
+			//statement.execute("DELETE FROM EMPLEADO");
 			System.out.println("Tabla de Agregar Empleado creada exitosamente");
 			ManejadorBD.termina();
 

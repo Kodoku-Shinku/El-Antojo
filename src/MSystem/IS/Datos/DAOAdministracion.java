@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import MSystem.IS.Modelo.Empleado;
 
 public class DAOAdministracion {
@@ -76,6 +78,41 @@ public class DAOAdministracion {
 			// cacha la exepcion
 		} catch (SQLException excepcion) {
 			excepcion.printStackTrace();
+		}
+		return true;
+	}
+	
+	public Empleado recuperaEmpleado(String noEmpleado) {
+		Empleado emp = null;
+
+		Statement statement;
+		try {
+			statement = ManejadorBD.dameConnection().createStatement();
+			ResultSet rs = statement.executeQuery("SELECT * FROM Empleado WHERE noempleado = " + noEmpleado + "");
+			if (rs.next()) {
+				emp = new Empleado(rs.getString("Nombre"), rs.getString("apellidoPaterno"), rs.getString("apellidoMaterno"), rs.getString("direccion"), rs.getString("telefono"), rs.getNString("Cargo"),rs.getString("Contrasena"));
+				emp.setid(rs.getInt("noempleado"));
+			}
+
+		} catch (NullPointerException | DatabaseException | SQLException e) {
+			// TODO Auto-generated catch block
+			JOptionPane.showMessageDialog(null, "Error al buscar el empleado especificado");
+		}
+
+		return emp;
+	}
+
+	public boolean eliminaEmpleado(int empleado) {
+		// TODO Auto-generated method stub
+		try{
+			
+			Statement statement = ManejadorBD.dameConnection().createStatement();
+			
+			boolean rs= statement.execute("DELETE FROM Empleado WHERE noempleado= " + empleado + "");
+			
+			//cacha la exepcion
+		}catch(SQLException excepcion){    
+			JOptionPane.showMessageDialog(null, "Error al buscar el empleado especificado");
 		}
 		return true;
 	}
