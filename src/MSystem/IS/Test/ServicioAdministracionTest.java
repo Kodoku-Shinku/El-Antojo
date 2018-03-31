@@ -13,7 +13,6 @@ import MSystem.IS.Datos.DatabaseException;
 import MSystem.IS.Modelo.Empleado;
 import MSystem.IS.Servicios.ServicioAdministracion;
 
-
 public class ServicioAdministracionTest {
 	
 	ServicioAdministracion SA = new ServicioAdministracion();
@@ -25,10 +24,7 @@ public class ServicioAdministracionTest {
 	
 	static ServicioAdministracion serv;
 	static Empleado empl;
-	
-	
-	
-	
+
 	@BeforeClass
 	public static void setUp() throws Exception {
 					
@@ -42,7 +38,6 @@ public class ServicioAdministracionTest {
 	public static void tearDown() throws Exception {
 	}
 
-	
 	@Test
 	/*Metodo para probar el agregar Empleado, Se ingresan todos los valores para saber si se esta
 	 * almacenando correctamente en la Base de datos*/
@@ -53,10 +48,10 @@ public class ServicioAdministracionTest {
 		assertTrue(SA1.agregarEmpleado(EM));
 	}
 	
-	
 	// Caso de Prueba para el metodo actualizaEmpleado: El usuario ingresa un empleado que no existe
 	@Test
 	public void testActualizaEmp() {
+
 		boolean valor = serv.actualizaEmp(empl, "tel", "55677354");
 		assertEquals("Se esperaba un false",valor, true);
 	}
