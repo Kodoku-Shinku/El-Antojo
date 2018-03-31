@@ -2,7 +2,6 @@ package MSystem.IS.Servicios;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import MSystem.IS.Datos.DAOAdministracion;
 import MSystem.IS.Datos.DatabaseException;
 import MSystem.IS.Modelo.Empleado;
@@ -45,6 +44,10 @@ public class ServicioAdministracion {
 			
 		}
 		return daoAdmin.actualizaEmpleado(campo, nValor, empl);
+		
+	}
+	
+	public ServicioAdministracion(){
 		
 	}
 }
