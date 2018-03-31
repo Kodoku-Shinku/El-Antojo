@@ -2,12 +2,10 @@ package MSystem.IS.Controles;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import MSystem.IS.Datos.DatabaseException;
 import MSystem.IS.Modelo.Empleado;
 import MSystem.IS.Servicios.ServicioAdministracion;
 import MSystem.IS.Vistas.VistaActualizarEmpleado;
-import MSystem.IS.Vistas.VistaAdministrador;
 import MSystem.IS.Vistas.VistaAgregarEmpleado;
 import MSystem.IS.Vistas.VistaEmpleado;
 

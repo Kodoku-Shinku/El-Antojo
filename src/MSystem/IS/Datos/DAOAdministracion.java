@@ -20,7 +20,7 @@ public class DAOAdministracion {
 		while (rs.next()) {
 			// Crea una nueva instancia del objeto
 			Empleado empleado = new Empleado(rs.getString("nombre"), rs.getString("apat"), rs.getString("amat"),
-					rs.getString("direccion"), rs.getString("tel"), rs.getString("cargo"), rs.getString("contraseña"));// Van
+					rs.getString("direccion"), rs.getString("tel"), rs.getString("cargo"), rs.getString("contrasena"));// Van
 			// los
 			// campos
 			empleado.setid(rs.getInt(1));
@@ -45,8 +45,8 @@ public class DAOAdministracion {
 				empleado.setDireccion(nuevoValor);
 			if (campo.equals("tel"))
 				empleado.setTelefono(nuevoValor);
-			if (campo.equals("contraseña"))
-				empleado.setContraseña(nuevoValor);
+			if (campo.equals("contrasena"))
+				empleado.setContrasena(nuevoValor);
 			return true;
 
 		} catch (DatabaseException | SQLException | NullPointerException e) {
@@ -66,7 +66,7 @@ public class DAOAdministracion {
 			statement.execute("insert into EMPLEADO values(DEFAULT,'" + empleado.getNombre() + "','"
 					+ empleado.getApellidoPaterno() + "','" + empleado.getApellidoMaterno() + "','"
 					+ empleado.getDireccion() + "','" + empleado.getTelefono() + "','" + empleado.getCargo() + "','"
-					+ empleado.getContraseña() + "')", Statement.RETURN_GENERATED_KEYS);
+					+ empleado.getContrasena() + "')", Statement.RETURN_GENERATED_KEYS);
 			ResultSet rs = statement.getGeneratedKeys(); // Recupera el numero
 															// de
 															// empleado******/

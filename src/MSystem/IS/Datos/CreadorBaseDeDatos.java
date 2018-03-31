@@ -51,8 +51,8 @@ public class CreadorBaseDeDatos {
 			// System.out.println("Tabla de ProductosAdmin creada
 			// exitosamente");
 
-			statement.execute("CREATE TABLE EMPLEADO (noempleado INTEGER PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), nombre VARCHAR(50), apat VARCHAR(50),amat VARCHAR(50), direccion VARCHAR(100), tel VARCHAR(15), cargo VARCHAR(100),contraseña VARCHAR(10))");
-			// statement.execute("DROP TABLE EMPLEADO");
+			statement.execute("CREATE TABLE EMPLEADO (noempleado INTEGER PRIMARY KEY NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), nombre VARCHAR(50), apat VARCHAR(50),amat VARCHAR(50), direccion VARCHAR(100), tel VARCHAR(15), cargo VARCHAR(100),contrasena VARCHAR(10))");
+			//statement.execute("DROP TABLE EMPLEADO");
 			System.out.println("Tabla de Agregar Empleado creada exitosamente");
 			ManejadorBD.termina();
 

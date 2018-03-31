@@ -12,11 +12,11 @@ public class Empleado {
 	private String Direccion;
 	private String Telefono;
 	private String Cargo;
-	private String Contraseña;
+	private String Contrasena;
 
 	// declaro el constructor de clase para inicializar los atributos
 	public Empleado(String nombre, String apellidoPaterno, String apellidoMaterno, String direccion, String telefono,
-			String Cargo, String Contraseña) {
+			String Cargo, String Contrasena) {
 
 		this.Nombre = nombre;
 		this.ApellidoPaterno = apellidoPaterno;
@@ -24,7 +24,7 @@ public class Empleado {
 		this.Direccion = direccion;
 		this.Telefono = telefono;
 		this.Cargo = Cargo;
-		this.Contraseña = Contraseña;
+		this.Contrasena = Contrasena;
 	}
 
 	// genero los setters y getters de cada uno de los atributos para despues
@@ -88,12 +88,12 @@ public class Empleado {
 		this.Cargo = cargo;
 	}
 
-	public String getContraseña() {
-		return Contraseña;
+	public String getContrasena() {
+		return Contrasena;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.Contraseña = contraseña;
+	public void setContrasena(String contrasena) {
+		this.Contrasena = contrasena;
 	}
 
 	// Permite mostrar la información completa de un objeto Personal(de un
@@ -102,7 +102,7 @@ public class Empleado {
 	public String toString() {
 		return "Personal [Nombre=" + Nombre + ", ApellidoPaterno=" + ApellidoPaterno + ", ApellidoMaterno="
 				+ ApellidoMaterno + ", Direccion=" + Direccion + ", Telefono=" + Telefono + ", Cargo=" + Cargo
-				+ ", Contraseña=" + Contraseña + "]";
+				+ ", Contrasena=" + Contrasena + "]";
 	}
 
 }
