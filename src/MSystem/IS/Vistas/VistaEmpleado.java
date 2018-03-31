@@ -77,6 +77,11 @@ public class VistaEmpleado extends JFrame {
 		layeredPane.add(btnActualizarEmpleado);
 		
 		JButton btnEliminarEmpleado = new JButton("Eliminar Empleado");
+		btnEliminarEmpleado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controlAdmin.inicia();
+			}
+		});
 		btnEliminarEmpleado.setBounds(133, 158, 170, 23);
 		layeredPane.add(btnEliminarEmpleado);
 	}

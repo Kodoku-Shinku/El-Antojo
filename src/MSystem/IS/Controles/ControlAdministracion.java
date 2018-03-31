@@ -7,6 +7,7 @@ import MSystem.IS.Modelo.Empleado;
 import MSystem.IS.Servicios.ServicioAdministracion;
 import MSystem.IS.Vistas.VistaActualizarEmpleado;
 import MSystem.IS.Vistas.VistaAgregarEmpleado;
+import MSystem.IS.Vistas.VistaEliminarEmpleado;
 import MSystem.IS.Vistas.VistaEmpleado;
 
 public class ControlAdministracion {
@@ -71,6 +72,25 @@ public class ControlAdministracion {
 
 	public boolean actualiza(Empleado empl, String campo, String nValor) {
 		return servAdmin.actualizaEmp(empl, campo, nValor) == true;
+	}
+
+	public Empleado recuperaEmpleado(String noEmpleado) {
+		return servAdmin.recuperaEmpleado(noEmpleado);
+		
+	}
+
+	public boolean eliminarEmpleado(int empleado) {
+		return servAdmin.eliminarEmpleado(empleado);
+		
+	}
+	
+	public void inicia() {
+		try {
+			VistaEliminarEmpleado frame = new VistaEliminarEmpleado();
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
