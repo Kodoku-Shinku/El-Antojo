@@ -97,9 +97,9 @@ public class VistaAgregarEmpleado extends JFrame {
 		lblCargo.setBounds(10, 166, 125, 20);
 		layeredPane.add(lblCargo);
 
-		JLabel lblContraseña = new JLabel("Contrase\u00F1a");
-		lblContraseña.setBounds(10, 197, 125, 14);
-		layeredPane.add(lblContraseña);
+		JLabel lblContrasena = new JLabel("Contrase\u00F1a");
+		lblContrasena.setBounds(10, 197, 125, 14);
+		layeredPane.add(lblContrasena);
 
 		nombre = new JTextField();
 		nombre.setBounds(188, 42, 125, 20);
@@ -142,7 +142,7 @@ public class VistaAgregarEmpleado extends JFrame {
 				String Direccion = "";
 				String Telefono = "";
 				String Cargo = "";
-				String Contraseña = "";
+				String Contrasena = "";
 
 				Empleado emple;
 
@@ -154,13 +154,13 @@ public class VistaAgregarEmpleado extends JFrame {
 					Direccion = direc.getText();
 					Telefono = tel.getText();
 					Cargo = cargo.getText();
-					Contraseña = contrasena.getText();
+					Contrasena = contrasena.getText();
 
 					// validacion de que los campos se encuentren totalmente
 					// llenos RNF
 					if (Nombre.equals("") || ApellidoPaterno.equals("") || ApellidoMaterno.equals("")
 							|| Direccion.equals("") || Telefono.equals("") || Cargo.equals("")
-							|| Contraseña.equals("")) {
+							|| Contrasena.equals("")) {
 						int option = JOptionPane.showConfirmDialog(null,
 								"Algunos Campos Se Encuentran Vacios\n " + "¿Deseas Continuar Con El Llenado?");
 
@@ -175,7 +175,7 @@ public class VistaAgregarEmpleado extends JFrame {
 					}
 
 					else {
-						emple = new Empleado(Nombre, ApellidoPaterno, ApellidoMaterno, Direccion, Telefono, Cargo, Contraseña);
+						emple = new Empleado(Nombre, ApellidoPaterno, ApellidoMaterno, Direccion, Telefono, Cargo, Contrasena);
 
 						if (controlAdmin.agregarEmpleado(emple) == true) {
 
