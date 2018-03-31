@@ -130,6 +130,13 @@ public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 		contentPane.add(lblCargo);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				dispose();
+				
+			}
+		});
 		btnCancelar.setBounds(89, 254, 89, 23);
 		contentPane.add(btnCancelar);
 		
