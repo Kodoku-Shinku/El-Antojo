@@ -27,7 +27,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 	 */
 	private static final long serialVersionUID = 4L;
 	private JPanel contentPane;
-	private JTextField Contraseña;
+	private JTextField Contrasena;
 	private JTextField telefono;
 	private JTextField apPat;
 	private JTextField apMat;
@@ -37,7 +37,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 	private JCheckBox chxApellidoPaterno;
 	private JCheckBox chxDomicilio;
 	private JCheckBox chxTelefono;
-	private JCheckBox chxContraseña;
+	private JCheckBox chxContrasena;
 	private JTextArea textArea;
 	private JLabel enEmp;
 	private JComboBox<String> comboBox;
@@ -96,12 +96,12 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		contentPane.add(telefono);
 		telefono.setColumns(10);
 
-		Contraseña = new JTextField();
-		Contraseña.setName("Contraseña");
-		Contraseña.setEditable(false);
-		Contraseña.setBounds(249, 418, 195, 20);
-		contentPane.add(Contraseña);
-		Contraseña.setColumns(10);
+		Contrasena = new JTextField();
+		Contrasena.setName("Contraseña");
+		Contrasena.setEditable(false);
+		Contrasena.setBounds(249, 418, 195, 20);
+		contentPane.add(Contrasena);
+		Contrasena.setColumns(10);
 
 		textArea = new JTextArea();
 		textArea.setName("domicilio");
@@ -173,10 +173,10 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		chxApellidoPaterno.addItemListener(this);
 		contentPane.add(chxApellidoPaterno);
 
-		chxContraseña = new JCheckBox("Contrase\u00F1a");
-		chxContraseña.setBounds(66, 412, 97, 23);
-		chxContraseña.addItemListener(this);
-		contentPane.add(chxContraseña);
+		chxContrasena = new JCheckBox("Contrase\u00F1a");
+		chxContrasena.setBounds(66, 412, 97, 23);
+		chxContrasena.addItemListener(this);
+		contentPane.add(chxContrasena);
 
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
@@ -201,8 +201,8 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 					nValor = textArea.getText();
 				if (chxTelefono.isSelected() == true)
 					nValor = telefono.getText();
-				if (chxContraseña.isSelected() == true)
-					nValor = Contraseña.getText();
+				if (chxContrasena.isSelected() == true)
+					nValor = Contrasena.getText();
 				if (campo.equals("") || name.equals("") || nValor.equals("")) {
 					int option = JOptionPane.showConfirmDialog(null,
 							"No ha seleccionado campos\n " + "¿Desea continar?");
@@ -235,7 +235,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 			apPat.setText(empl.getApellidoPaterno());
 			apMat.setText(empl.getApellidoMaterno());
 			telefono.setText(empl.getTelefono());
-			Contraseña.setText(empl.getContraseña());
+			Contrasena.setText(empl.getContrasena());
 			textArea.setText(empl.getDireccion());
 			enEmp.setText(empl.getid() + "");
 		} else {
@@ -279,12 +279,12 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 								telefono.setEditable(false);
 								campo = "";
 								// telefono.setText("");
-								if (chxContraseña.isSelected() == true) {
-									Contraseña.setEditable(true);
-									campo = Contraseña.getName();
-									name = "contraseña";
+								if (chxContrasena.isSelected() == true) {
+									Contrasena.setEditable(true);
+									campo = Contrasena.getName();
+									name = "contrasena";
 								} else {
-									Contraseña.setEditable(false);
+									Contrasena.setEditable(false);
 									campo = "";
 									// Contraseña.setText("");
 								}

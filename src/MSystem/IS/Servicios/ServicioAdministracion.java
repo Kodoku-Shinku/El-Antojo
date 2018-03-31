@@ -47,6 +47,7 @@ public class ServicioAdministracion {
 		
 	}
 	
+	//Construccor vacio que se utiliza en la prueba JUnit
 	public ServicioAdministracion(){
 		
 	}

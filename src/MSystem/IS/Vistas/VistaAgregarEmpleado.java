@@ -30,7 +30,7 @@ public class VistaAgregarEmpleado extends JFrame {
 	private JTextField direc;
 	private JTextField tel;
 	private JTextField cargo;
-	private JTextField contraseña;
+	private JTextField contrasena;
 
 	/**
 	 * Launch the application.
@@ -154,7 +154,7 @@ public class VistaAgregarEmpleado extends JFrame {
 					Direccion = direc.getText();
 					Telefono = tel.getText();
 					Cargo = cargo.getText();
-					Contraseña = contraseña.getText();
+					Contraseña = contrasena.getText();
 
 					// validacion de que los campos se encuentren totalmente
 					// llenos RNF
@@ -188,10 +188,10 @@ public class VistaAgregarEmpleado extends JFrame {
 			}
 		});
 
-		contraseña = new JTextField();
-		contraseña.setBounds(188, 192, 125, 20);
-		layeredPane.add(contraseña);
-		contraseña.setColumns(10);
+		contrasena = new JTextField();
+		contrasena.setBounds(188, 192, 125, 20);
+		layeredPane.add(contrasena);
+		contrasena.setColumns(10);
 		btnAceptar.setBounds(224, 237, 89, 23);
 		layeredPane.add(btnAceptar);
 
