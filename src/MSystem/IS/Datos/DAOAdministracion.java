@@ -81,13 +81,15 @@ public class DAOAdministracion {
 		}
 		return true;
 	}
-	
+	//recupera la informacion de un empleado por id
 	public Empleado recuperaEmpleado(String noEmpleado) {
 		Empleado emp = null;
 
 		Statement statement;
 		try {
+			//se pide la conexion de la base de datos
 			statement = ManejadorBD.dameConnection().createStatement();
+			//instruccion para seleccionar por id
 			ResultSet rs = statement.executeQuery("SELECT * FROM Empleado WHERE noempleado = " + noEmpleado + "");
 			if (rs.next()) {
 				emp = new Empleado(rs.getString("Nombre"), rs.getString("apellidoPaterno"), rs.getString("apellidoMaterno"), rs.getString("direccion"), rs.getString("telefono"), rs.getNString("Cargo"),rs.getString("Contrasena"));
@@ -101,13 +103,13 @@ public class DAOAdministracion {
 
 		return emp;
 	}
-
+	//elimina un empleado por id
 	public boolean eliminaEmpleado(int empleado) {
 		// TODO Auto-generated method stub
 		try{
-			
+			//pide la conexion para la base de datos
 			Statement statement = ManejadorBD.dameConnection().createStatement();
-			
+			//instruccion para eliminar empleado por id
 			boolean rs= statement.execute("DELETE FROM Empleado WHERE noempleado= " + empleado + "");
 			
 			//cacha la exepcion
