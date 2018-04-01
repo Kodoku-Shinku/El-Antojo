@@ -3,6 +3,7 @@ package MSystem.IS.Vistas;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -76,6 +77,8 @@ public class VistaFinalizarOrden extends JFrame implements ActionListener{
 		setBounds(100, 100, 800, 500);
 		setResizable(false);
 		setLocationRelativeTo(null);
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

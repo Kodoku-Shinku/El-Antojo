@@ -1,6 +1,7 @@
 package MSystem.IS.Vistas;
 
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -52,6 +53,8 @@ public class VistaConsultarFaltantes extends JFrame implements ActionListener{
 		setBounds(100, 100, 400, 450);
 		setResizable(false);
 		setLocationRelativeTo(null);
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

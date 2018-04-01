@@ -11,12 +11,14 @@ import junit.framework.TestSuite;
 @SuiteClasses({ ServicioAdministracionTest.class })
 public class AllTests {
 	public static Test suite(){
-		TestSuite suite = new TestSuite("test para probar MSystem.IS.Servicios");
+		
+		TestSuite suite = new TestSuite("test de prueba para MSystem.");
 		
 		suite.addTestSuite(ServicioAdministracionTest.class);
-		
 		return suite;
-		
 	}
-
+	
+	
+	
+	
 }
