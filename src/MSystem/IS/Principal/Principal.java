@@ -17,15 +17,15 @@ import MSystem.IS.Servicios.ServicioVentas;
 
 public class Principal {
 
-	DAOVentas controlDBV = new DAOVentas();
-	ServicioVentas servVent = new ServicioVentas(controlDBV);
-	ControlVentas controlVent = new ControlVentas(servVent);
-	DAOProductos controlDBProd = new DAOProductos();
-	ServicioProductos servProd = new ServicioProductos(controlDBProd);
-	ControlProductos controlProd = new ControlProductos(servProd);
-	DAOAdministracion controlDBAdmin = new DAOAdministracion();
-	ServicioAdministracion servAdmin = new ServicioAdministracion(controlDBAdmin);
-	ControlAdministracion controlAdmin = new ControlAdministracion(servAdmin);
+	private DAOVentas controlDBV = new DAOVentas();
+	private ServicioVentas servVent = new ServicioVentas(controlDBV);
+	private ControlVentas controlVent = new ControlVentas(servVent);
+	private DAOProductos controlDBProd = new DAOProductos();
+	private ServicioProductos servProd = new ServicioProductos(controlDBProd);
+	private ControlProductos controlProd = new ControlProductos(servProd);
+	private DAOAdministracion controlDBAdmin = new DAOAdministracion();
+	private ServicioAdministracion servAdmin = new ServicioAdministracion(controlDBAdmin);
+	private ControlAdministracion controlAdmin = new ControlAdministracion(servAdmin);
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -88,7 +88,7 @@ public class Principal {
 		// for(int i = 0; i < lista.length; i ++)
 		// System.out.print(lista[i] + " ");
 		//
-		//System.out.println();
+		// System.out.println();
 		// controlVent.muestraGCuenta(18);
 		// Platillo aux = controlVent.buscarPlatillo(p);
 		//
@@ -102,9 +102,7 @@ public class Principal {
 
 		// Producto prod = new Producto("chiles secos", 19);
 		// controlProd.agregarProductoCocina(prod);
-		
-//controlAdmin.muestraVentanaAgregarEmpleado();
-		
+
 		// Producto p = new Producto("lo que sea", 12);
 		// try {
 		// System.out.println(controlDBProd.guardaFaltantes(p));
@@ -112,7 +110,6 @@ public class Principal {
 		// // TODO Auto-generated catch block
 		// e.printStackTrace();
 		// }
-		//controlAdmin.muestraVentanaAgregarEmpleado();
 
 		// controlDBProd.insertaProd("Coca-Cola", 1);
 		// controlDBProd.insertaProd("Maruchan", 11);
@@ -141,29 +138,23 @@ public class Principal {
 		// controlProd.agregarProductoCocina(p);
 		// p = new Producto("Pimiento morron", 12);
 		// controlProd.agregarProductoCocina(p);
-		// controlDBP
 
 		// controlVent.iniciaSeleccionarMesa();
-		// controlProd.iniciaActualizarProductos()
-		controlProd.VistaAdministrador1();
-		//controlAdmin.VistaEmpleado();
-//		
-//Empleado Empleado = new Empleado ("Marisol","Chavarria","Juarez", "escuadron 201", "5524988748","Admin");
-//try {
-//	System.out.println(controlAdmin.agregarEmpleado(Empleado));
-//} catch (DatabaseException | SQLException e) {
-//	// TODO Auto-generated catch block
-//	e.printStackTrace();
-//}
-		
 		// controlVent.inicia();
-		// controlProd.muestraProdAdmin();
+		// controlProd.VistaAdministrador1();
+		//
+		// Empleado Empleado = new Empleado ("Marisol","Chavarria","Juarez",
+		// "escuadron 201", "5524988748","Admin");
+		// try {
+		// System.out.println(controlAdmin.agregarEmpleado(Empleado));
+		// } catch (DatabaseException | SQLException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
 		// Pedido[] ped = controlDBV.mostrarPedidosF();
 		// for(int i = 2; i < ped.length; i ++)
 		// System.out.println(ped[i].getPlatillo().getNombrePlatillo() + " " +
 		// ped[i].getCantidadPlatillo() + " " + ped[i].getNoMesa());
-		
-		//controlAdmin.iniciaActl();
 
 	}
 
@@ -179,9 +170,9 @@ public class Principal {
 		controlProd.actualizaProd(cantidad, a);
 	}
 
-//	public void AgregarEmpleado(int nombre, apellidoPaterno, apellidoMaterno, Direccion,){
-//		controlAdmin.agregarEmpleado(Empleado);
-//	}
-	
+	// public void AgregarEmpleado(int nombre, apellidoPaterno, apellidoMaterno,
+	// Direccion,){
+	// controlAdmin.agregarEmpleado(Empleado);
+	// }
 
 }
