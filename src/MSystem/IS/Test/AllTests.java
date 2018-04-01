@@ -14,7 +14,7 @@ public class AllTests {
 		
 		TestSuite suite = new TestSuite("test de prueba para MSystem.");
 		
-		suite.addTestSuite(ServicioAdministracionTest.class);
+		suite.addTest(new TestSuite(ServicioAdministracionTest.class));
 		return suite;
 	}
 	
