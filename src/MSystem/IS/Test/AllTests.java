@@ -8,13 +8,14 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 
 @RunWith(Suite.class)
-@SuiteClasses({ ServicioAdministracionTest.class })
+@SuiteClasses({ ServicioAdministracionTest.class, ServicioProductosTest.class })
 public class AllTests {
 	public static Test suite(){
 		
 		TestSuite suite = new TestSuite("test de prueba para MSystem.");
+		suite.addTest(new TestSuite(ServicioAdministracionTest.class));
+		suite.addTest(new TestSuite(ServicioProductosTest.class));
 		
-		suite.addTestSuite(ServicioAdministracionTest.class);
 		return suite;
 	}
 	
