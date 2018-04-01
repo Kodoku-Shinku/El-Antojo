@@ -73,17 +73,17 @@ public class ControlAdministracion {
 	public boolean actualiza(Empleado empl, String campo, String nValor) {
 		return servAdmin.actualizaEmp(empl, campo, nValor) == true;
 	}
-
+	//recupera el empleado para ser eliminado
 	public Empleado recuperaEmpleado(String noEmpleado) {
 		return servAdmin.recuperaEmpleado(noEmpleado);
 		
 	}
-
+	//verifica si se elimino el empleado
 	public boolean eliminarEmpleado(int empleado) {
 		return servAdmin.eliminarEmpleado(empleado);
 		
 	}
-	
+	//metodo para abrir la ventana Eliminar Empleado
 	public void inicia() {
 		try {
 			VistaEliminarEmpleado frame = new VistaEliminarEmpleado();
