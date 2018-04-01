@@ -106,11 +106,16 @@ public class ControlAdministracion {
 	
 	public void vistaLogin() {
 		try {
-			VistaLogin frame = new VistaLogin(this);
+			VistaLogin frame = new VistaLogin();
 			frame.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public Empleado ingresarAlSistema(String contrasena, int noEmpleado) {
+		// TODO Auto-generated method stub
+		return servAdmin.ingresarAlSistema(contrasena, noEmpleado);
 	}
 
 }
