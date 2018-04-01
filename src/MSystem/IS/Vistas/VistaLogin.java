@@ -22,9 +22,16 @@ import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 
 import MSystem.IS.Controles.ControlAdministracion;
+import MSystem.IS.Controles.ControlProductos;
 import MSystem.IS.Controles.ControlVentas;
+import MSystem.IS.Datos.DAOAdministracion;
+import MSystem.IS.Datos.DAOProductos;
+import MSystem.IS.Datos.DAOVentas;
 import MSystem.IS.Modelo.Empleado;
 import MSystem.IS.Modelo.Producto;
+import MSystem.IS.Servicios.ServicioAdministracion;
+import MSystem.IS.Servicios.ServicioProductos;
+import MSystem.IS.Servicios.ServicioVentas;
 
 public class VistaLogin extends JFrame{
 
@@ -36,11 +43,20 @@ public class VistaLogin extends JFrame{
 	private JTextField textNumEmpleado;
 	private JTextField textPassword;
 	private String noEmpleado = "";
-	private ControlVentas controlVent;
 	Choice choice = new Choice();
 	
-	public VistaLogin(ControlAdministracion controlAdmin) {
-		ArrayList<Empleado> listaEmpleados = controlAdmin.cargarLista();
+	private DAOVentas controlDBV = new DAOVentas();
+	private ServicioVentas servVent = new ServicioVentas(controlDBV);
+	private ControlVentas controlVent = new ControlVentas(servVent);
+	private DAOProductos controlDBProd = new DAOProductos();
+	private ServicioProductos servProd = new ServicioProductos(controlDBProd);
+	private ControlProductos controlProd = new ControlProductos(servProd);
+	private DAOAdministracion controlDBAdmin = new DAOAdministracion();
+	private ServicioAdministracion servAdmin = new ServicioAdministracion(controlDBAdmin);
+	private ControlAdministracion controlAdmin = new ControlAdministracion(servAdmin);
+	
+	public VistaLogin() {
+		//ArrayList<Empleado> listaEmpleados = controlAdmin.cargarLista();
 		setTitle("Ventana Principal");
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
@@ -105,22 +121,34 @@ public class VistaLogin extends JFrame{
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Tomamos parÃ¡metros para validar.y dependiendo de esto mostramos errores o la ventana siguiente.
-				if(choice.getSelectedItem().equals("Selecciona...")) {
-					JOptionPane.showMessageDialog(null, "Selecciona tipo de ingreso, por favor");	
-				}else if((choice.getSelectedItem().equals("Administrador")) && 
-						(listaEmpleados.get(0).getid() == Integer.parseInt((textNumEmpleado.getText())) && 
-						(listaEmpleados.get(0).getContrasena().equals(textPassword.getText())))){
-						JOptionPane.showMessageDialog(null, "Ingresaste como: Administrador, bienvenido");
-						controlAdmin.vistaAdministrador();
+				try{
+					String contrasena = textPassword.getText();
+					String auxno = textNumEmpleado.getText();
+					int noEmpleado = Integer.parseInt(auxno);
+					Empleado empleado = controlAdmin.ingresarAlSistema(contrasena, noEmpleado);
+					if(empleado == null){
+						JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+					} else{
+						if(choice.getSelectedItem().equals("Selecciona...")) {
+							JOptionPane.showMessageDialog(null, "Selecciona tipo de ingreso, por favor");	
+						}else if((choice.getSelectedItem().equals("Administrador")) && (empleado.getCargo().equals("Administrador"))){
+							
+								JOptionPane.showMessageDialog(null, "Ingresaste como: Administrador, bienvenido");
+								controlProd.VistaAdministrador1();
+							
+							}else if(choice.getSelectedItem().equals("Mesero") && (empleado.getCargo().equals("Mesero"))) {
+								JOptionPane.showMessageDialog(null, "Ingresaste como: Mesero, bienvenido");
+								controlVent.iniciaSeleccionarMesa();
+								}else if(choice.getSelectedItem().equals("Cocinero") && (empleado.getCargo().equals("Cocinero"))) {
+									JOptionPane.showMessageDialog(null, "Ingresaste como: Cocinero, bienvenido");
+									controlVent.inicia();
+									} else
+										JOptionPane.showMessageDialog(null, "El empleado no coincide con el cargo asignado");
+					}
 					
-					}else if(choice.getSelectedItem().equals("Mesero")) {
-						JOptionPane.showMessageDialog(null, "Ingresaste como: Mesero, bienvenido");
-						}else if(choice.getSelectedItem().equals("Cocinero")) {
-							JOptionPane.showMessageDialog(null, "Ingresaste como: Cocinero, bienvenido");
-							}
-				
-				
-				
+				} catch(NumberFormatException error2){
+					JOptionPane.showMessageDialog(null, "Formato de numero de empleado incorrecto");
+				}
 			}
 		});
 		btnIngresar.setBounds(326, 245, 117, 29);

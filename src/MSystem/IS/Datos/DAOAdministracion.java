@@ -92,8 +92,8 @@ public class DAOAdministracion {
 			//instruccion para seleccionar por id
 			ResultSet rs = statement.executeQuery("SELECT * FROM Empleado WHERE noempleado = " + noEmpleado + "");
 			if (rs.next()) {
-				emp = new Empleado(rs.getString("Nombre"), rs.getString("apellidoPaterno"), rs.getString("apellidoMaterno"), rs.getString("direccion"), rs.getString("telefono"), rs.getNString("Cargo"),rs.getString("Contrasena"));
-				emp.setid(rs.getInt("noempleado"));
+				emp = new Empleado(rs.getString("nombre"), rs.getString("apat"), rs.getString("amat"), rs.getString("direccion"), rs.getString("tel"), rs.getString("cargo"),rs.getString("contrasena"));
+				emp.setid(rs.getInt(1));
 			}
 
 		} catch (NullPointerException | DatabaseException | SQLException e) {
