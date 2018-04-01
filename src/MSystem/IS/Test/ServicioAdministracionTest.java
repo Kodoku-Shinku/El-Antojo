@@ -51,7 +51,7 @@ public class ServicioAdministracionTest {
 	public void testActualizaEmp() {
 
 		boolean valor = serv.actualizaEmp(empl, "tel", "55677354");
-		assertEquals("Se esperaba un false",valor, false);
+		assertEquals("Se esperaba un false",valor, true);
 	}
 	
 	@Test
