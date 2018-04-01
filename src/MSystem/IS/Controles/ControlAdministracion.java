@@ -6,9 +6,11 @@ import MSystem.IS.Datos.DatabaseException;
 import MSystem.IS.Modelo.Empleado;
 import MSystem.IS.Servicios.ServicioAdministracion;
 import MSystem.IS.Vistas.VistaActualizarEmpleado;
+import MSystem.IS.Vistas.VistaAdministrador;
 import MSystem.IS.Vistas.VistaAgregarEmpleado;
 import MSystem.IS.Vistas.VistaEliminarEmpleado;
 import MSystem.IS.Vistas.VistaEmpleado;
+import MSystem.IS.Vistas.VistaLogin;
 
 public class ControlAdministracion {
 	private ServicioAdministracion servAdmin;
@@ -87,6 +89,24 @@ public class ControlAdministracion {
 	public void inicia() {
 		try {
 			VistaEliminarEmpleado frame = new VistaEliminarEmpleado();
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void vistaAdministrador() {
+		try {
+			VistaAdministrador frame = new VistaAdministrador();
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void vistaLogin() {
+		try {
+			VistaLogin frame = new VistaLogin(this);
 			frame.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -143,8 +143,10 @@ public class Principal {
 		// controlVent.inicia();
 		// controlProd.VistaAdministrador1();
 		//
-		// Empleado Empleado = new Empleado ("Marisol","Chavarria","Juarez",
-		// "escuadron 201", "5524988748","Admin");
+//		 Empleado Empleado = new Empleado ("Marisol","Chavarria","Juarez", "escuadron 201", "5524988748","Administrador","soygenial");
+//		 Empleado Empleado2 = new Empleado ("David","Perez","Morales", "Vicente Guerrero", "5529085384","Mesero","soyunpato");
+//		 Empleado Empleado3 = new Empleado ("Rosa","Toral","Maldonado", "Estado de mexico", "5522386327","Cocinero","tambiensoygenial");
+		 
 		// try {
 		// System.out.println(controlAdmin.agregarEmpleado(Empleado));
 		// } catch (DatabaseException | SQLException e) {
@@ -155,6 +157,7 @@ public class Principal {
 		// for(int i = 2; i < ped.length; i ++)
 		// System.out.println(ped[i].getPlatillo().getNombrePlatillo() + " " +
 		// ped[i].getCantidadPlatillo() + " " + ped[i].getNoMesa());
+		controlAdmin.vistaLogin();
 
 	}
 
