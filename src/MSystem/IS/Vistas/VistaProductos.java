@@ -61,21 +61,23 @@ public class VistaProductos extends JFrame {
 		btnNotificarFaltantes.setBounds(72, 25, 166, 23);
 		layeredPane.add(btnNotificarFaltantes);
 		
-		JButton btnNewButton = new JButton("Generar Lista");
-		btnNewButton.setBounds(72, 59, 166, 23);
-		layeredPane.add(btnNewButton);
+		JButton btnGeneraLista = new JButton("Generar Lista");
+		btnGeneraLista.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == btnGeneraLista){
+					control.vistaProductoAgotado();
+				}
+			}
+		});
+		btnGeneraLista.setBounds(72, 59, 166, 23);
+		layeredPane.add(btnGeneraLista);
 		
 		JButton btnActualizarProductos = new JButton("Actualizar Productos");
 		btnActualizarProductos.addActionListener(new ActionListener() {
-			
-		
-			
-		public void actionPerformed(ActionEvent evento) {
-			if(evento.getSource() == btnActualizarProductos){
-				
-				control.iniciaActualizarProductos();
-
-			}	
+			public void actionPerformed(ActionEvent evento) {
+				if(evento.getSource() == btnActualizarProductos){		
+					control.iniciaActualizarProductos();
+				}	
 			}
 		});
 		btnActualizarProductos.setBounds(72, 96, 166, 23);
