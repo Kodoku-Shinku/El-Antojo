@@ -51,11 +51,11 @@ public class ServicioAdministracion {
 	public ServicioAdministracion(){
 		
 	}
-
+	//recupera la informacion del empleado por id
 	public Empleado recuperaEmpleado(String noEmpleado) {
 		return daoAdmin.recuperaEmpleado(noEmpleado);
 	}
-
+	// metodo para eliminar empleado
 	public boolean eliminarEmpleado(int empleado) {
 		boolean estado = daoAdmin.eliminaEmpleado(empleado);
 		

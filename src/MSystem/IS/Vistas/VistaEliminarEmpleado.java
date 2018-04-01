@@ -37,6 +37,7 @@ import java.awt.event.ActionEvent;
 
 public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 	private static final long serialVersionUID = 1L;
+	//inicialización
 	private JPanel contentPane;
 	String noEmpleado;
 	Empleado empleado1;
@@ -61,7 +62,7 @@ public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-	
+		//carga la informacion de la base de datos
 		emp = controlAdmin.cargarLista();
 		empleado1 = new Empleado("", "", "", "", "", "","");
 		
@@ -92,6 +93,7 @@ public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 		txtCargo.setEditable(false);
 		contentPane.add(txtCargo);
 		txtCargo.setColumns(10);
+		
 		
 		combId = new JComboBox<String>();
 		combId.addItemListener(this);
@@ -144,7 +146,9 @@ public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int index = combId.getSelectedIndex();
+				//evalua si hay algun elemento en el combobox para eliminar
 				if (index>=0){
+					//selecciona el empleado
 					empleado1 = emp.get(index);
 					int empleado = empleado1.getid();
 					
@@ -153,6 +157,7 @@ public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 					if(estado == true){
 						JOptionPane.showMessageDialog(null, "¡Empleado eliminado!");
 						dispose();
+							
 					}
 					
 				}else{
@@ -183,5 +188,6 @@ public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 		}
 
 	}
+	
 	
 }
