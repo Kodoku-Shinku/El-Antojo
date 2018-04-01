@@ -27,9 +27,9 @@ public class ServicioAdministracionTest {
 					
 		DAOAdministracion dao = new DAOAdministracion();
 		serv = new ServicioAdministracion(dao);
-		empl = new Empleado("", "", "", "", "", "", "");
-		empl.setid(23122278);
-		
+		empl = new Empleado("Rosa", "Toral", "Maldonado", "4 Vientos", "5540350404", "Mesero", "gatoAzul");
+
+		empl.setid(2);
 	}
 
 	@AfterClass
@@ -51,7 +51,7 @@ public class ServicioAdministracionTest {
 	public void testActualizaEmp() {
 
 		boolean valor = serv.actualizaEmp(empl, "tel", "55677354");
-		assertEquals("Se esperaba un false",valor, true);
+		assertEquals("Se esperaba un false",valor, false);
 	}
 	
 	@Test
