@@ -8,6 +8,7 @@ import MSystem.IS.Vistas.VistaActProd;
 import MSystem.IS.Vistas.VistaAdministrador;
 import MSystem.IS.Vistas.VistaConsultarFaltantes;
 import MSystem.IS.Vistas.VistaNotificarFaltantes;
+import MSystem.IS.Vistas.VistaProductoAgotado;
 
 public class ControlProductos {
 	
@@ -100,6 +101,24 @@ public class ControlProductos {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void vistaProductoAgotado() {
+		try {
+			VistaProductoAgotado frame = new VistaProductoAgotado(this);
+			frame.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	/**
+	 * Metodo que devuelve la lista de productos agotados
+	 * @param listaAgotados
+	 * @return listaAgotados
+	 */
+	public ArrayList<Producto> muestraListaAgotados(){
+		return servProd.getFaltantes();
 	}
 	
 }

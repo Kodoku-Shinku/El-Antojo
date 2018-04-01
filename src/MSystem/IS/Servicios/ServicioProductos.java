@@ -83,5 +83,24 @@ public class ServicioProductos {
 				return null;
 			}
 		}
-
+		/**
+		 * Metodo que devuelve productos los productos agotados
+		 * @param listaAgotados
+		 * @return listaAgotados
+		 */
+		public ArrayList<Producto> getFaltantes() {
+			ArrayList<Producto> listaAgotados = new ArrayList<>();
+			try {
+				for (int i = 0; i < daoProd.producto().size(); i++) {
+					if(daoProd.producto().get(i).getCantidadProducto() == 0){
+						listaAgotados.add(daoProd.producto().get(i));
+						
+					}
+				}
+				System.out.println("tamaño: "+listaAgotados.size());
+			} catch (DatabaseException e) {
+				return null;
+			}
+			return listaAgotados;		
+		}
 }
