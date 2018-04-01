@@ -55,7 +55,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		empl = new Empleado("", "", "", "", "", "", "");
 		empl.setid(0);
 		listaEmp = controlAdmin.cargarLista();
-		listaEmp.add(0, empl);
+		//listaEmp.add(0, empl);
 		setTitle("Actualizar Empleado");
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
@@ -157,7 +157,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		chxTelefono.addItemListener(this);
 		contentPane.add(chxTelefono);
 
-		chxNombre = new JCheckBox("Nombre");
+		chxNombre = new JCheckBox("Nombre(s)");
 		chxNombre.setBounds(66, 168, 97, 23);
 		chxNombre.addItemListener(this);
 		contentPane.add(chxNombre);
