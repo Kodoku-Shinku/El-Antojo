@@ -14,6 +14,7 @@ import MSystem.IS.Controles.ControlVentas;
 import MSystem.IS.Modelo.Producto;
 import MSystem.IS.Vistas.VistaActProd;
 import MSystem.IS.Principal.Principal;
+import java.awt.Color;
 
 public class VistaProductos extends JFrame {
 
@@ -53,6 +54,7 @@ public class VistaProductos extends JFrame {
 		contentPane.add(layeredPane, BorderLayout.CENTER);
 		
 		JButton btnNotificarFaltantes = new JButton("Consultar Faltantes");
+		btnNotificarFaltantes.setBackground(new Color(255, 165, 0));
 		btnNotificarFaltantes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				control.iniciaConcultFalt();
@@ -62,6 +64,7 @@ public class VistaProductos extends JFrame {
 		layeredPane.add(btnNotificarFaltantes);
 		
 		JButton btnGeneraLista = new JButton("Generar Lista");
+		btnGeneraLista.setBackground(new Color(255, 165, 0));
 		btnGeneraLista.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == btnGeneraLista){
@@ -73,6 +76,7 @@ public class VistaProductos extends JFrame {
 		layeredPane.add(btnGeneraLista);
 		
 		JButton btnActualizarProductos = new JButton("Actualizar Productos");
+		btnActualizarProductos.setBackground(new Color(255, 165, 0));
 		btnActualizarProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent evento) {
 				if(evento.getSource() == btnActualizarProductos){		

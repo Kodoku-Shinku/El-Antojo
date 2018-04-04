@@ -21,6 +21,7 @@ import MSystem.IS.Datos.DAOProductos;
 import MSystem.IS.Modelo.Pedido;
 import MSystem.IS.Modelo.Producto;
 import MSystem.IS.Servicios.ServicioProductos;
+import java.awt.Color;
 
 public class VistaConsultarFaltantes extends JFrame implements ActionListener{
 	
@@ -100,11 +101,20 @@ public class VistaConsultarFaltantes extends JFrame implements ActionListener{
 		ProductosFal.getColumnModel().getColumn(1).setPreferredWidth(107);
 		scrollPane.setViewportView(ProductosFal);
 		
+		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		btnAceptar.setBackground(new Color(255, 165, 0));
+		btnAceptar.setBounds(295, 366, 89, 23);
+		contentPane.add(btnAceptar);
+		
 	}
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		
 	}
-
 }

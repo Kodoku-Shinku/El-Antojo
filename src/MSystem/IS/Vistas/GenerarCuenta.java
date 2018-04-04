@@ -90,6 +90,7 @@ public class GenerarCuenta extends JFrame {
 
 		//Boton de cancelar cuenta
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBackground(new Color(255, 165, 0));
 		btnCancelar.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -107,6 +108,7 @@ public class GenerarCuenta extends JFrame {
 		PanelPlatillos.add(btnCancelar);
 
 		JButton btnTicket = new JButton("Ticket");
+		btnTicket.setBackground(new Color(255, 165, 0));
 		btnTicket.setBounds(262, 218, 89, 23);
 		btnTicket.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

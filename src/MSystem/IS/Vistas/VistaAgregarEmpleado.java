@@ -16,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import java.awt.Color;
 
 
 
@@ -132,6 +133,7 @@ public class VistaAgregarEmpleado extends JFrame {
 		cargo.setColumns(10);
 
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBackground(new Color(255, 165, 0));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// almacena los datos recibidos en la textbox de la ventana
@@ -196,6 +198,7 @@ public class VistaAgregarEmpleado extends JFrame {
 		layeredPane.add(btnAceptar);
 
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBackground(new Color(255, 165, 0));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == btnCancelar) {

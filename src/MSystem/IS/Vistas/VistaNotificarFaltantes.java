@@ -17,6 +17,7 @@ import MSystem.IS.Controles.ControlProductos;
 import MSystem.IS.Modelo.Producto;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 
@@ -115,6 +116,7 @@ public class VistaNotificarFaltantes extends JFrame {
 			scrollPane.setViewportView(table);
 
 			JButton btnCancelar = new JButton("Cancelar");
+			btnCancelar.setBackground(new Color(255, 165, 0));
 			btnCancelar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					int option = JOptionPane.showConfirmDialog(null, "Seguro que deseas Cancelar");
@@ -129,6 +131,7 @@ public class VistaNotificarFaltantes extends JFrame {
 			contentPane.add(btnCancelar);
 
 			JButton btnEnviar = new JButton("Aceptar");
+			btnEnviar.setBackground(new Color(255, 165, 0));
 			btnEnviar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 

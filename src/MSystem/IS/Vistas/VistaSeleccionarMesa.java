@@ -43,6 +43,7 @@ public class VistaSeleccionarMesa extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JButton btnMesa_1 = new JButton("Mesa 1");
+		btnMesa_1.setBackground(new Color(255, 165, 0));
 		btnMesa_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				noMesa = 1;
@@ -53,6 +54,7 @@ public class VistaSeleccionarMesa extends JFrame {
 		getContentPane().add(btnMesa_1);
 		
 		JButton btnMesa_2 = new JButton("Mesa 2");
+		btnMesa_2.setBackground(new Color(255, 165, 0));
 		btnMesa_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				noMesa = 2;
@@ -63,6 +65,7 @@ public class VistaSeleccionarMesa extends JFrame {
 		getContentPane().add(btnMesa_2);
 		
 		JButton btnMesa_3 = new JButton("Mesa 3");
+		btnMesa_3.setBackground(new Color(255, 165, 0));
 		btnMesa_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				noMesa = 3;
@@ -73,6 +76,7 @@ public class VistaSeleccionarMesa extends JFrame {
 		getContentPane().add(btnMesa_3);
 		
 		JButton btnMesa_4 = new JButton("Mesa 4");
+		btnMesa_4.setBackground(new Color(255, 165, 0));
 		btnMesa_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				noMesa = 4;
@@ -83,6 +87,7 @@ public class VistaSeleccionarMesa extends JFrame {
 		getContentPane().add(btnMesa_4);
 		
 		JButton btnMesa_5 = new JButton("Mesa 5");
+		btnMesa_5.setBackground(new Color(255, 165, 0));
 		btnMesa_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				noMesa = 5;
@@ -93,6 +98,7 @@ public class VistaSeleccionarMesa extends JFrame {
 		getContentPane().add(btnMesa_5);
 		
 		JButton btnMesa_6 = new JButton("Mesa 6");
+		btnMesa_6.setBackground(new Color(255, 165, 0));
 		btnMesa_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				noMesa = 6;
@@ -103,6 +109,7 @@ public class VistaSeleccionarMesa extends JFrame {
 		getContentPane().add(btnMesa_6);
 		
 		JButton btnMesa_7 = new JButton("Mesa 7");
+		btnMesa_7.setBackground(new Color(255, 165, 0));
 		btnMesa_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				noMesa = 7;
@@ -113,6 +120,7 @@ public class VistaSeleccionarMesa extends JFrame {
 		getContentPane().add(btnMesa_7);
 		
 		JButton btnMesa_8 = new JButton("Mesa 8");
+		btnMesa_8.setBackground(new Color(255, 165, 0));
 		btnMesa_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				noMesa = 8;
@@ -202,6 +210,7 @@ public class VistaSeleccionarMesa extends JFrame {
 		
 	
 		JButton btnGenerarCuenta = new JButton("Generar cuenta");
+		btnGenerarCuenta.setBackground(new Color(255, 165, 0));
 		btnGenerarCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlVent.muestraGCuenta(noMesa);
@@ -211,6 +220,7 @@ public class VistaSeleccionarMesa extends JFrame {
 		getContentPane().add(btnGenerarCuenta);
 		
 		JButton btnConsultarMenu = new JButton("Consultar Menu");
+		btnConsultarMenu.setBackground(new Color(255, 165, 0));
 		btnConsultarMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				controlVent.iniciaMostrarMenu(noMesa);
