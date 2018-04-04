@@ -20,6 +20,7 @@ import java.awt.event.ActionListener;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class VistaNotificarFaltantes extends JFrame {
 
@@ -40,6 +41,7 @@ public class VistaNotificarFaltantes extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaNotificarFaltantes(ControlProductos controlProd) {
+		setBackground(new Color(255, 222, 173));
 		setTitle("Notificar Faltantes");
 		setResizable(false);
 		setLocationRelativeTo(null);

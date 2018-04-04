@@ -73,7 +73,7 @@ public class VistaEmpleado extends JFrame {
 		btnActualizarEmpleado.setBackground(new Color(255, 165, 0));
 		btnActualizarEmpleado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlAdmin.iniciaActl();
+				controlAdmin.iniciaActualizarEmpleado();
 			}
 		});
 		btnActualizarEmpleado.setBounds(133, 103, 170, 23);

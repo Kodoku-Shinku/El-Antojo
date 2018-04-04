@@ -18,8 +18,10 @@ public class ControlAdministracion {
 	public ControlAdministracion(ServicioAdministracion servAdmin) {
 		this.servAdmin = servAdmin;
 	}
-
-	public void iniciaActl() {
+	
+	/** Metodo que muestra la vista para Actualizar
+	 */
+	public void iniciaActualizarEmpleado() {
 		try {
 			VistaActualizarEmpleado frame = new VistaActualizarEmpleado(this);
 			frame.setVisible(true);
@@ -28,6 +30,9 @@ public class ControlAdministracion {
 		}
 	}
 
+	/** Metodo que regresa una lista con el contenido de la tabla EMPLEADO
+	 * @return un arrayList con el contenido de la tabla
+	 */
 	public ArrayList<Empleado> cargarLista() {
 		return servAdmin.cargarLista();
 	}
@@ -72,6 +77,12 @@ public class ControlAdministracion {
 
 	}
 
+	/** Metodo que permite actualizar los datos de un empleado
+	 * @param empl
+	 * @param campo
+	 * @param nValor
+	 * @return true si se pudo actualizar correctamente, false si no
+	 */
 	public boolean actualiza(Empleado empl, String campo, String nValor) {
 		return servAdmin.actualizaEmp(empl, campo, nValor) == true;
 	}
@@ -104,6 +115,8 @@ public class ControlAdministracion {
 		}
 	}
 	
+	/** Metodo que muestra la vista del Logim
+	 */
 	public void vistaLogin() {
 		try {
 			VistaLogin frame = new VistaLogin();
@@ -113,6 +126,11 @@ public class ControlAdministracion {
 		}
 	}
 
+	/** Metodo que permite ingresar al sistema
+	 * @param contrasena
+	 * @param noEmpleado
+	 * @return algun empleado que exista en la base de datos
+	 */
 	public Empleado ingresarAlSistema(String contrasena, int noEmpleado) {
 		// TODO Auto-generated method stub
 		return servAdmin.ingresarAlSistema(contrasena, noEmpleado);

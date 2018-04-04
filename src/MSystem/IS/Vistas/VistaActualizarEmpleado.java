@@ -56,7 +56,6 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		empl = new Empleado("", "", "", "", "", "", "");
 		empl.setid(0);
 		listaEmp = controlAdmin.cargarLista();
-		//listaEmp.add(0, empl);
 		setTitle("Actualizar Empleado");
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
@@ -196,6 +195,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		btnAceptar.setBackground(new Color(255, 165, 0));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				// Guarda el contenido de la caja de texto seleccionada
 				if (chxNombre.isSelected() == true)
 					nValor = nombre.getText();
 				if (chxApellidoMaterno.isSelected() == true)
@@ -208,6 +208,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 					nValor = telefono.getText();
 				if (chxContrasena.isSelected() == true)
 					nValor = Contrasena.getText();
+				// Verifica, si no hay nada en las cajas regresa un mensaje de que hay campos vacíos
 				if (campo.equals("") || name.equals("") || nValor.equals("")) {
 					int option = JOptionPane.showConfirmDialog(null,
 							"No ha seleccionado campos\n " + "¿Desea continar?");
@@ -215,6 +216,7 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 						dispose();
 					}
 				} else {
+					// Verifica, si el empleado seleccionado se actualizo correctamente, manda un mensaje de confirmacion
 					if (controlAdmin.actualiza(empl, campo, nValor)) {
 						JOptionPane.showMessageDialog(null, "Dato " + name + " atualizado correctamente");
 					} else {
