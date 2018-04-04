@@ -21,6 +21,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class VistaProductoAgotado extends JFrame {
 	/**
@@ -106,6 +107,7 @@ public class VistaProductoAgotado extends JFrame {
 		scrollPaneProductoAgotado.setViewportView(tableProductoAgotado);
 		
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBackground(new Color(255, 165, 0));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int option = JOptionPane.showConfirmDialog(null, "Seguro que deseas Cancelar");

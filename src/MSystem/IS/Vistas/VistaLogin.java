@@ -117,6 +117,7 @@ public class VistaLogin extends JFrame {
 		contentPane.add(lblPassword);
 
 		JButton btnIngresar = new JButton("Ingresar");
+		btnIngresar.setBackground(new Color(255, 165, 0));
 		btnIngresar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// Tomamos parámetros para validar.y dependiendo de esto

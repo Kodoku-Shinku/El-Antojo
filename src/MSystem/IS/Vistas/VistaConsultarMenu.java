@@ -23,6 +23,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.JTextField;
+import java.awt.Color;
 
 public class VistaConsultarMenu extends JFrame {
 
@@ -121,6 +122,7 @@ public class VistaConsultarMenu extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBackground(new Color(255, 165, 0));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -144,6 +146,7 @@ public class VistaConsultarMenu extends JFrame {
 		contentPane.add(btnAceptar);
 
 		btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBackground(new Color(255, 165, 0));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int option = JOptionPane.showConfirmDialog(null, "Seguro que deseas Cancelar");

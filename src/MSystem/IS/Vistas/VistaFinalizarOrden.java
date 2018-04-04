@@ -27,6 +27,7 @@ import MSystem.IS.Datos.DAOVentas;
 import MSystem.IS.Modelo.Pedido;
 import MSystem.IS.Servicios.ServicioProductos;
 import MSystem.IS.Servicios.ServicioVentas;
+import java.awt.Color;
 
 
 
@@ -93,10 +94,12 @@ public class VistaFinalizarOrden extends JFrame implements ActionListener{
 		contentPane.add(scrollPane_1);
 		
 		btnBloquearPlatillo = new JButton("Bloquear Platillo");
+		btnBloquearPlatillo.setBackground(new Color(255, 165, 0));
 		btnBloquearPlatillo.setBounds(61, 376, 142, 23);
 		contentPane.add(btnBloquearPlatillo);
 		
 		btnNotificarFaltantes = new JButton("NotificarFaltantes");
+		btnNotificarFaltantes.setBackground(new Color(255, 165, 0));
 		btnNotificarFaltantes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controlProd.iniciaMuestraNotiFalt();
@@ -196,6 +199,7 @@ public class VistaFinalizarOrden extends JFrame implements ActionListener{
 		
 		
 		btnFinalizarOrden = new JButton("Finalizar Orden");
+		btnFinalizarOrden.setBackground(new Color(255, 165, 0));
 		btnFinalizarOrden.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Pregunta si el platillo seleccionado es el que se realizo

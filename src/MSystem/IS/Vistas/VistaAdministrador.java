@@ -18,6 +18,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import java.awt.Color;
 
 public class VistaAdministrador extends JFrame {
 	
@@ -69,6 +70,7 @@ public class VistaAdministrador extends JFrame {
 		contentPane.add(layeredPane, BorderLayout.CENTER);
 		
 		JButton btnPersonal = new JButton("Personal");
+		btnPersonal.setBackground(new Color(255, 165, 0));
 		btnPersonal.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -82,6 +84,7 @@ public class VistaAdministrador extends JFrame {
 		layeredPane.add(btnPersonal);
 		
 		JButton btnProductos = new JButton("Productos");
+		btnProductos.setBackground(new Color(255, 165, 0));
 		btnProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VP = new VistaProductos(controlProd);

@@ -136,6 +136,7 @@ public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 		
 		//ejecucion del boton cancelar
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBackground(new Color(255, 165, 0));
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -148,6 +149,7 @@ public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 		
 		//ejecución del boton eliminar
 		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.setBackground(new Color(255, 165, 0));
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int index = combId.getSelectedIndex();
