@@ -34,6 +34,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 	private static final long serialVersionUID = 1L;
@@ -58,6 +59,7 @@ public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
 		contentPane = new JPanel();
+		
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -108,6 +110,7 @@ public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 			}
 		});
 		// comboBox.addItem("");
+		//agragacion de datos en el combobox
 		for (int i = 0; i < emp.size(); i++) {
 			combId.addItem(emp.get(i).getid() + " - " + emp.get(i).getNombre() + " " + emp.get(i).getApellidoPaterno()
 					+ " " + emp.get(i).getApellidoMaterno());
@@ -131,6 +134,7 @@ public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 		lblCargo.setBounds(26, 198, 55, 20);
 		contentPane.add(lblCargo);
 		
+		//ejecucion del boton cancelar
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -142,6 +146,7 @@ public class VistaEliminarEmpleado extends JFrame implements ItemListener {
 		btnCancelar.setBounds(89, 254, 89, 23);
 		contentPane.add(btnCancelar);
 		
+		//ejecución del boton eliminar
 		JButton btnEliminar = new JButton("Eliminar");
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
