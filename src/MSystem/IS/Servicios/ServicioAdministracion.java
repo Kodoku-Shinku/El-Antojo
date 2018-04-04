@@ -61,4 +61,11 @@ public class ServicioAdministracion {
 		
 		return estado;
 	}
+
+	public Empleado ingresarAlSistema(String contrasena, int noEmpleado) {
+		Empleado empl = daoAdmin.recuperaEmpleado(noEmpleado+"");
+		if(contrasena.equals(empl.getContrasena()))
+			return empl;
+		return null;
+	}
 }

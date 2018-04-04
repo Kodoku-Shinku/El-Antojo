@@ -180,7 +180,10 @@ public class VistaActualizarEmpleado extends JFrame implements ItemListener {
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				dispose();
+				int option = JOptionPane.showConfirmDialog(null, "Seguro que deseas Cancelar");
+
+				if(JOptionPane.OK_OPTION == option)
+					dispose();	
 			}
 		});
 
