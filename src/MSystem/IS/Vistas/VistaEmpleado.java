@@ -70,7 +70,7 @@ public class VistaEmpleado extends JFrame {
 		JButton btnActualizarEmpleado = new JButton("Actualizar Empleado");
 		btnActualizarEmpleado.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controlAdmin.iniciaActl();
+				controlAdmin.iniciaActualizarEmpleado();
 			}
 		});
 		btnActualizarEmpleado.setBounds(133, 103, 170, 23);
