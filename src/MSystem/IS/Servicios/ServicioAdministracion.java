@@ -14,6 +14,9 @@ public class ServicioAdministracion {
 		this.daoAdmin = daoAdmin;
 	}
 	
+	/** Metodo que regresa una lista con el contenido de la base de datos
+	 * @return un arrayList con el contenido de la base de datos
+	 */
 	public ArrayList<Empleado> cargarLista(){
 		try {
 			return daoAdmin.cargarLista();
@@ -31,12 +34,21 @@ public class ServicioAdministracion {
 
 	}
 
+	/** Metodo que permite actualizar los datos de un empleado
+	 * @param empl
+	 * @param campo
+	 * @param nValor
+	 * @return true si se actualizaron correctamente, false si no
+	 */
 	public boolean actualizaEmp(Empleado empl, String campo, String nValor) {
+		// Verifica, si el campo es "tel", entonces debe verificar que el string este compuesto unicamente de digitos
 		if(campo.equals("tel")){
 			int i = 0;
+			// Recorre la cadena
 			for(i = 0; i < nValor.length(); i ++)
 				if(!Character.isDigit(nValor.charAt(i)))
 					break;
+			// Si el indice es igual al tamaño, el valor nuevo esta bien escrito
 			if(i == nValor.length())
 				return daoAdmin.actualizaEmpleado(campo, nValor, empl);
 			else
@@ -62,6 +74,11 @@ public class ServicioAdministracion {
 		return estado;
 	}
 
+	/** Metodo que permite ingresar al sistema
+	 * @param contrasena
+	 * @param noEmpleado
+	 * @return un empleado que exista en la base de datos
+	 */
 	public Empleado ingresarAlSistema(String contrasena, int noEmpleado) {
 		Empleado empl = daoAdmin.recuperaEmpleado(noEmpleado+"");
 		if(contrasena.equals(empl.getContrasena()))
