@@ -47,6 +47,7 @@ public class VistaProductos extends JFrame {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 355, 220);
 		setLocationRelativeTo(null);
+		setTitle("Productos");
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));

@@ -53,13 +53,16 @@ public class VistaAgregarEmpleado extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaAgregarEmpleado(ControlAdministracion controlAdmin) {
-		setIconImage(Toolkit.getDefaultToolkit()
-				.getImage(VistaAgregarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
+		
 		setTitle("Agregar Personal");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setLocationRelativeTo(null);
-		setResizable(false);
 		setBounds(100, 100, 387, 335);
+		setResizable(false);
+		setLocationRelativeTo(null);
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(VistaAgregarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
+		
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));

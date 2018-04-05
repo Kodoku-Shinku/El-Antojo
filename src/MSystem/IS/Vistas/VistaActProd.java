@@ -48,11 +48,12 @@ public class VistaActProd extends JFrame {
 	public VistaActProd(ControlProductos muestraProdAdmin) {
 		setTitle("Actualizar Productos");
 		ArrayList<Producto> devuelveProd = muestraProdAdmin.muestraProdAdmin();
-		
+		setTitle("Actualizar Productos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 455, 329);
-		setLocationRelativeTo(null);
 		setResizable(false);
+		setLocationRelativeTo(null);
+		
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
 		

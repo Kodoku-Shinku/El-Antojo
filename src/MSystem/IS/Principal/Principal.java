@@ -124,6 +124,7 @@ public class Principal {
 //		 controlDBProd.insertaProd("Ajos", 3);
 //		 controlDBProd.insertaProd("Pimiento morron", 12);
 		//
+
 //		 Producto p = new Producto("Jitomate", 12);
 //		 controlProd.agregarProductoCocina(p);
 //		 p = new Producto("Cebolla", 11);
@@ -147,6 +148,7 @@ public class Principal {
 //		 p = new Producto("Pimiento morron", 12);
 //		 controlProd.agregarProductoCocina(p);		 
 		
+
 		controlAdmin.vistaLogin();
 
 	}
