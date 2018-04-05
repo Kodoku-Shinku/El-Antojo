@@ -46,7 +46,7 @@ public class VistaActProd extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaActProd(ControlProductos muestraProdAdmin) {
-		
+		setTitle("Actualizar Productos");
 		ArrayList<Producto> devuelveProd = muestraProdAdmin.muestraProdAdmin();
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
