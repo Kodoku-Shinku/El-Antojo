@@ -60,7 +60,7 @@ public class VistaLogin extends JFrame {
 		setTitle("Ventana Principal");
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 472, 346);
 		setResizable(false);
 		setLocationRelativeTo(null);
@@ -112,8 +112,8 @@ public class VistaLogin extends JFrame {
 		lblNumEmpleado.setBounds(28, 152, 103, 16);
 		contentPane.add(lblNumEmpleado);
 
-		JLabel lblPassword = new JLabel("Contraseña");
-		lblPassword.setBounds(28, 202, 71, 16);
+		JLabel lblPassword = new JLabel("Contrase\u00F1a");
+		lblPassword.setBounds(28, 202, 90, 16);
 		contentPane.add(lblPassword);
 
 		JButton btnIngresar = new JButton("Ingresar");
