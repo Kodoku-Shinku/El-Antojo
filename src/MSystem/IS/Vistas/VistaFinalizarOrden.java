@@ -198,9 +198,9 @@ public class VistaFinalizarOrden extends JFrame implements ActionListener{
 							//for (int i = 0; i < pedidos.length; i++) {
 								//elimina de la lista el pedido
 								TmodelF.setValueAt(false, row, 0);
-								TmodelF.setValueAt("", row, 1);
-								TmodelF.setValueAt(0, row, 2);
-								TmodelF.setValueAt(0, row,3);
+								TmodelF.setValueAt(null, row, 1);
+								TmodelF.setValueAt(null, row, 2);
+								TmodelF.setValueAt(null, row,3);
 
 						
 								System.out.println(row);

@@ -148,7 +148,6 @@ public class Principal {
 //		 p = new Producto("Pimiento morron", 12);
 //		 controlProd.agregarProductoCocina(p);		 
 		
-
 		controlAdmin.vistaLogin();
 
 	}
