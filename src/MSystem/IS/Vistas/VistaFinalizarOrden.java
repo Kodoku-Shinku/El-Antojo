@@ -53,6 +53,7 @@ public class VistaFinalizarOrden extends JFrame implements ActionListener{
 	DAOProductos controlDBProd = new DAOProductos();
 	ServicioProductos servProd = new ServicioProductos(controlDBProd); 
 	ControlProductos controlProd = new ControlProductos(servProd);
+	private JButton btnSalir;
 	
 		
 //	public static void main(String[] args) {
@@ -246,6 +247,19 @@ public class VistaFinalizarOrden extends JFrame implements ActionListener{
 		});
 		btnFinalizarOrden.setBounds(594, 376, 123, 23);
 		contentPane.add(btnFinalizarOrden);
+		
+		btnSalir = new JButton("Cerrar sesión");
+		btnSalir.setBackground(new Color(255, 165, 0));
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int option = JOptionPane.showConfirmDialog(null, "Seguro que deseas Salir");
+
+				if(JOptionPane.OK_OPTION == option)
+					dispose();	
+			}
+		});
+		btnSalir.setBounds(679, 437, 105, 23);
+		contentPane.add(btnSalir);
 		
 		
 		
