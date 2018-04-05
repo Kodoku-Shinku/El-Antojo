@@ -41,8 +41,9 @@ public class VistaNotificarFaltantes extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaNotificarFaltantes(ControlProductos controlProd) {
-		setBackground(new Color(255, 222, 173));
 		setTitle("Notificar Faltantes");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		// Se crea un arreglo con el contenido de la tabla ProductosCocina
@@ -52,9 +53,7 @@ public class VistaNotificarFaltantes extends JFrame {
 		if (lista == null)
 			JOptionPane.showMessageDialog(null, "No se puede cargar la base de datos");
 		else {
-			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-			setBounds(100, 100, 450, 300);
-			
+						
 			contentPane = new JPanel();
 			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 			setContentPane(contentPane);
