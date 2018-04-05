@@ -43,6 +43,7 @@ public class VistaProductos extends JFrame {
 	 * Create the frame.
 	 */
 	public VistaProductos(ControlProductos control) {
+		setTitle("Productos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 355, 220);
 		setLocationRelativeTo(null);

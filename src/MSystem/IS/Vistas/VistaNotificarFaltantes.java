@@ -124,7 +124,7 @@ public class VistaNotificarFaltantes extends JFrame {
 
 					if (option == JOptionPane.OK_OPTION) {
 						listaProdFalt.removeAll(listaProdFalt);
-						//dispose();
+						dispose();
 					}
 				}
 			});
@@ -142,7 +142,7 @@ public class VistaNotificarFaltantes extends JFrame {
 						if (controlProd.guardaFaltantes(listaProdFalt)) {
 							JOptionPane.showMessageDialog(null,
 									"Se han enviado " + listaProdFalt.size() + " productos al administrador");
-							System.exit(DISPOSE_ON_CLOSE);
+							
 						} else
 							JOptionPane.showMessageDialog(null, "No se pueden cargar los productos");
 					}

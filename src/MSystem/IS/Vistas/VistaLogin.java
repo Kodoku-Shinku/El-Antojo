@@ -132,7 +132,7 @@ public class VistaLogin extends JFrame {
 						int noEmpleado = Integer.parseInt(auxno);
 						Empleado empleado = controlAdmin.ingresarAlSistema(contrasena, noEmpleado);
 						if (empleado == null) {
-							JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+							JOptionPane.showMessageDialog(null, "Usuario o contrasena incorrectos");
 						} else {
 							if ((choice.getSelectedItem().equals("Administrador"))
 									&& (empleado.getCargo().equals("Administrador"))) {
@@ -163,7 +163,7 @@ public class VistaLogin extends JFrame {
 		contentPane.add(btnIngresar);
 
 		choice.setForeground(Color.BLACK);
-		choice.setBounds(200, 74, 130, 20);
+		choice.setBounds(200, 74, 140, 20);
 		contentPane.add(choice);
 		choice.addItem("Selecciona...");
 		choice.addItem("Administrador");

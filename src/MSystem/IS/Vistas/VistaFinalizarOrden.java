@@ -55,19 +55,6 @@ public class VistaFinalizarOrden extends JFrame implements ActionListener{
 	ControlProductos controlProd = new ControlProductos(servProd);
 	private JButton btnSalir;
 	
-		
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					VistaFinalizarOrden frame = new VistaFinalizarOrden();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
 
 	/**
 	 * Create the frame.
@@ -214,18 +201,10 @@ public class VistaFinalizarOrden extends JFrame implements ActionListener{
 								TmodelF.setValueAt("", row, 1);
 								TmodelF.setValueAt(0, row, 2);
 								TmodelF.setValueAt(0, row,3);
-						//}
-						//JOptionPane.showMessageDialog(null, "Finalizado");
-						//System.exit(DISPOSE_ON_CLOSE);
-						//System.out.println("hola");
+
 						
 								System.out.println(row);
-						
-//						for (int i = 0; i < pedidosF.length; i++) {
-//							Finalizados.setValueAt(pedidosF[i].getPlatillo().getNombrePlatillo(), i, 1);
-//							Finalizados.setValueAt(pedidosF[i].getCantidadPlatillo(), i, 2);
-//							Finalizados.setValueAt(pedidosF[i].getNoMesa(), i, 3);
-//						}
+
 						
 						}
 
@@ -248,7 +227,7 @@ public class VistaFinalizarOrden extends JFrame implements ActionListener{
 		btnFinalizarOrden.setBounds(594, 376, 123, 23);
 		contentPane.add(btnFinalizarOrden);
 		
-		btnSalir = new JButton("Cerrar sesión");
+		btnSalir = new JButton("Cerrar sesion");
 		btnSalir.setBackground(new Color(255, 165, 0));
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
