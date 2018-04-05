@@ -16,6 +16,7 @@ import MSystem.IS.Modelo.Pedido;
 import MSystem.IS.Modelo.Platillo;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
 public class VistaSeleccionarMesa extends JFrame {
@@ -38,7 +39,7 @@ public class VistaSeleccionarMesa extends JFrame {
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		setBounds(100, 100, 528, 465);
+		setBounds(100, 100, 528, 488);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setIconImage(Toolkit.getDefaultToolkit()
@@ -233,6 +234,19 @@ public class VistaSeleccionarMesa extends JFrame {
 		});
 		btnConsultarMenu.setBounds(187, 356, 130, 30);
 		getContentPane().add(btnConsultarMenu);		
+		
+		JButton btnSalir = new JButton("Cerrar sesión");
+		btnSalir.setBackground(new Color(255, 165, 0));
+		btnSalir.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int option = JOptionPane.showConfirmDialog(null, "Seguro que deseas Salir");
+
+				if(JOptionPane.OK_OPTION == option)
+					dispose();	
+			}
+		});
+		btnSalir.setBounds(409, 425, 103, 23);
+		getContentPane().add(btnSalir);
 	}
 	/**
 	 * Metodo que nos permite seleccionar una mesa y mostrar los pedidos de dicha mesa
