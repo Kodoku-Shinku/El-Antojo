@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Toolkit;
+
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -39,6 +41,9 @@ public class VistaSeleccionarMesa extends JFrame {
 		setBounds(100, 100, 528, 465);
 		setLocationRelativeTo(null);
 		setResizable(false);
+		setIconImage(Toolkit.getDefaultToolkit()
+				.getImage(VistaActualizarEmpleado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
+		
 
 		getContentPane().setLayout(null);
 		
