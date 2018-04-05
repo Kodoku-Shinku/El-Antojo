@@ -141,7 +141,7 @@ public class Principal {
 
 		// controlVent.iniciaSeleccionarMesa();
 		// controlVent.inicia();
-		 controlProd.VistaAdministrador1();
+		// controlProd.VistaAdministrador1();
 		//
 //		 Empleado Empleado = new Empleado ("Marisol","Chavarria","Juarez", "escuadron 201", "5524988748","Administrador","soygenial");
 //		 Empleado Empleado2 = new Empleado ("David","Perez","Morales", "Vicente Guerrero", "5529085384","Mesero","soyunpato");

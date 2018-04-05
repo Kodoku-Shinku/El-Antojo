@@ -55,17 +55,22 @@ public class DAOProductos {
 	public ArrayList<Producto> muestraProdFalt() throws DatabaseException, SQLException {
 		ArrayList<Producto> productFaltTemp = new ArrayList<Producto>();
 		// Crea el statement
-		Statement statement = ManejadorBD.dameConnection().createStatement();
+		try{
+			Statement statement = ManejadorBD.dameConnection().createStatement();
 
-		// Recibe los resutados
-		ResultSet rs = statement.executeQuery("SELECT * FROM ProductosF");
+			// Recibe los resutados
+			ResultSet rs = statement.executeQuery("SELECT * FROM ProductosF");
 
-		while (rs.next()) {
+			while (rs.next()) {
 			// Crea una nueva instancia del objeto
-			Producto producto = new Producto(rs.getString("Nombre"), rs.getDouble("Cantidad"));
-			productFaltTemp.add(producto);
+				Producto producto = new Producto(rs.getString("Nombre"), rs.getDouble("Cantidad"));
+				productFaltTemp.add(producto);
+			}
+			return productFaltTemp;
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "No se puede recuperar el contenido de la base de datos de productos");
+			return null;
 		}
-		return productFaltTemp;
 	}
   
 	// Metodo que utiliza el Administrados para Mostrar los Productos existentes

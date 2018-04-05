@@ -37,12 +37,13 @@ public class VistaProductoAgotado extends JFrame {
 		ArrayList<Producto> listaExistencias = controlProd.muestraListaAgotados();
 		
 		setTitle("Producto Agotado");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 400, 338);
+		setResizable(false);
+		setLocationRelativeTo(null);
+				
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VistaProductoAgotado.class.getResource("/MSystem/IS/Vistas/el_antojo.png")));
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setLocationRelativeTo(null);
-		setResizable(false);
-		setBounds(100, 100, 400, 338);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));

@@ -156,6 +156,7 @@ public class VistaLogin extends JFrame {
 					}
 
 				}
+				dispose();
 			}
 		});
 		btnIngresar.setBounds(326, 245, 117, 29);
