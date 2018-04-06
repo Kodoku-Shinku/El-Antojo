@@ -30,7 +30,7 @@ public class VistaSeleccionarMesa extends JFrame {
 	ControlVentas controlVent;
 	ArrayList<Pedido> pedido = new ArrayList<Pedido>();
 
-	int tam = 0;
+	Pedido[] pedidosTerminados;
 	int noMesa = 0;
 	
 	public VistaSeleccionarMesa(ControlVentas controlVent) {
@@ -213,8 +213,6 @@ public class VistaSeleccionarMesa extends JFrame {
 		
 		scrollPaneTerminados.setViewportView(tablePedidosTerminados);
 		
-		
-	
 		JButton btnGenerarCuenta = new JButton("Generar cuenta");
 		btnGenerarCuenta.setBackground(new Color(255, 165, 0));
 		btnGenerarCuenta.addActionListener(new ActionListener() {
@@ -235,7 +233,7 @@ public class VistaSeleccionarMesa extends JFrame {
 		btnConsultarMenu.setBounds(187, 356, 130, 30);
 		getContentPane().add(btnConsultarMenu);		
 		
-		JButton btnSalir = new JButton("Cerrar sesión");
+		JButton btnSalir = new JButton("Cerrar sesion");
 		btnSalir.setBackground(new Color(255, 165, 0));
 		btnSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -256,40 +254,38 @@ public class VistaSeleccionarMesa extends JFrame {
 	private void seleccionaMesa(int noMesa){
 		System.out.println(noMesa);
 		pedido = controlVent.ped(noMesa); 
-		
+		pedidosTerminados = controlVent.PedidosFinalizados();
 		try{
+
+			for (int i = 0; i < tablePedidosPorMesa.getRowCount(); i++) {
+				tablePedidosPorMesa.setValueAt("", i, 0);
+				tablePedidosPorMesa.setValueAt("", i, 1);
+				tablePedidosPorMesa.setValueAt(null, i, 2);
+						
+			}
 			for (int i = 0; i < pedido.size(); i++) {
-				System.out.println("TAMAÃ‘O PEDIDO: "+controlVent.traepedido().size());
 				tablePedidosPorMesa.setValueAt(pedido.get(i).getPlatillo().getNombrePlatillo(), i, 0);
 				tablePedidosPorMesa.setValueAt(pedido.get(i).getCantidadPlatillo(), i, 1);
 				tablePedidosPorMesa.setValueAt(pedido.get(i).getPlatillo().getPrecio(), i, 2);
 				
 			}
 		}catch (Exception e){
-			System.out.println("entra al catch");
-			int tam = controlVent.traepedido().size();
-			System.out.println("tabla "+tablePedidosPorMesa.getRowCount());
-			for (int i = 0; i < tam; i++) {
-				tablePedidosPorMesa.setValueAt("", i, 0);
-				tablePedidosPorMesa.setValueAt(0, i, 1);
-				tablePedidosPorMesa.setValueAt(0.0, i, 2);
-				
+			if(pedido.isEmpty()){
+				tablePedidosPorMesa.setValueAt("Aun no hay pedidos en esta mesa", 0, 0);
 			}
+
 			
 		}
-//		try{
-//			tam = controlVent.PedidosFinalizados().length;
-//			// Se agregan los elementos a la tabla
-//			for (int i = 0; i < tam; i++) {
-//
-//				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getNoMesa(), i , 0);
-//				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getPlatillo().getNombrePlatillo(), i, 1);
-//				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getCantidadPlatillo(), i, 2);
-//				tablePedidosTerminados.setValueAt(controlVent.PedidosFinalizados()[i].getPlatillo().getPrecio(), i, 3);
-//			}
-//			}catch (Exception e){
-//
-//				tam = 0;
-//		}
+		try{	
+			for (int i = 0; i < pedidosTerminados.length; i++) {
+				tablePedidosTerminados.setValueAt(pedidosTerminados[i].getNoMesa(), i , 0);
+				tablePedidosTerminados.setValueAt(pedidosTerminados[i].getPlatillo().getNombrePlatillo(), i, 1);
+				tablePedidosTerminados.setValueAt(pedidosTerminados[i].getCantidadPlatillo(), i, 2);
+				tablePedidosTerminados.setValueAt(pedidosTerminados[i].getPlatillo().getPrecio(), i, 3);
+			}
+			}catch (Exception e){
+
+
+		}
 	}
 }

@@ -154,9 +154,7 @@ public class VistaLogin extends JFrame {
 					} catch (NumberFormatException error2) {
 						JOptionPane.showMessageDialog(null, "Formato de numero de empleado incorrecto");
 					}
-
 				}
-				dispose();
 			}
 		});
 		btnIngresar.setBounds(326, 245, 117, 29);
